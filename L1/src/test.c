@@ -33,8 +33,8 @@ int main(int argc, char * argv[]){
         printf("Enter a denominator:\n");
         scanf("%d", &d);
         
-        fract = createFraction(c, d);
-        if (fract != NULL) /*Check if the denominator is 0, if it is the user is prompted to enter a new number*/
+        fract2 = createFraction(c, d);
+        if (fract2 != NULL) /*Check if the denominator is 0, if it is the user is prompted to enter a new number*/
             check = 1;
         else 
             printf("You cannot divide by 0!\n");

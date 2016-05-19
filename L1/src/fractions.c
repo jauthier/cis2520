@@ -31,7 +31,6 @@ Fraction *createFraction( int numer, int denom) {
         return frac;
     }
     else {
-        //printf("You cannot divide by 0!\nYour fraction was not created\n");
         return NULL;
     }
 }
