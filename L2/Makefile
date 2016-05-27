@@ -1,2 +1,2 @@
 all:
-	gcc testFile.c linkedList.c -Wall -pedantic -std=c99 -o run
+	gcc src/testFile.c src/linkedlist.c -Wall -pedantic -std=c99 -Iinclude -o bin/run
