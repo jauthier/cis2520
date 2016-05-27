@@ -1,0 +1,15 @@
+
+CIS 2520 - Lab 1
+~~~~~~~~~~~~~~~~~
+
+Jessica Authier, 0849720
+
+If the definition of a fraction were to be changed to:
+"A fraction is a number a/b where a,b are integers, b is non-zero and the greatest common denominator of (a, b) is 1."
+
+Then I would create a new function called getGCD and it would determine the greatest common denominator of the 
+numerator and denominator of each fraction. Every time a new fraction is created getGCD would be called 
+(in createFraction, in add and in multiply). I would also create another function called simplifyFraction which would 
+be called when a fractions GCD is not 1. simplifyFraction would take in a fraction, use its GCD it simplify it 
+(divide both the numberator and denominator by the GCD), and return the new simplified fraction. simplifyFraction would
+be called by createFraction, add and multiply after it has called getGCD and the GCD is not 1.

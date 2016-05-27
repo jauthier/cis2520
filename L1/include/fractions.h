@@ -1,3 +1,6 @@
+/*
+    Author: Jessica Authier, 0849720
+*/
 #include <stdio.h>
 #include <stdlib.h>
 

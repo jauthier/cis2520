@@ -4,9 +4,13 @@ int main(int argc, char *argv[]){
     
     List * testList;
     testList = createList(); //test createList
+    if (testList == NULL)
+        printf("the list was not created!\n\n")
+    
     
     int first, second, third, len;
-    Element *e1, *e2, *e3;
+    Element *e1, *e2, *e3, *e4;
+    char c = '!';
     
     first = 1;
     second = 2;
@@ -15,9 +19,10 @@ int main(int argc, char *argv[]){
     e1 = createElement(&first);
     e2 = createElement(&second);
     e3 = createElement(&third);
+    e4 = createElement(&c);
     
     
-    /*  testing addFront, getLength and getFront:
+    /*  testing addFront, addBack, getLength and getFront:
     should print out:
     the list has 1 element(s)
     The first element: 1
@@ -82,8 +87,8 @@ int main(int argc, char *argv[]){
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
     if (temp == NULL) 
-        printf("The list is empty!\n");
-    
+        printf("The list is empty!\n\n");
+    temp = removeBack(testList);
     
     testList = addBack(e1, testList);
     testList = addBack(e2, testList);
@@ -112,8 +117,13 @@ int main(int argc, char *argv[]){
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
     if (temp == NULL) 
-        printf("The list is empty!\n");    
+        printf("The list is empty!\n");   
+    temp = removeFront(testList);
     
+    destroyElement(e1);
+    destroyElement(e2);
+    destroyElement(e3);
+    destroyList(testList);
     
     return 0;
 }

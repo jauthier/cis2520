@@ -1,3 +1,10 @@
+/*
+    Fraction ADT test file
+    Author: Jessica Authier, 0849720
+    
+    This file tests all the functions of the fraction ADT.
+*/
+
 #include <stdio.h>
 #include "fractions.h"
 
