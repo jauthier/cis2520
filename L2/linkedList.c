@@ -77,7 +77,6 @@ Element * removeBack(List * list){
     if (temp == NULL){ /* if the list is empty */
         printf("There are no elements to remove.\n");
     } else if (temp->next == NULL) { /* there is only one Element in the list */
-        printf("here\n");
         list->head = NULL; /* remove the one Element */
     } else {
         while(temp->next->next != NULL){ /* while temp is not the second last Element of the list */

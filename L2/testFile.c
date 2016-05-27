@@ -44,7 +44,10 @@ int main(int argc, char *argv[]){
     temp = getFront(testList);
     printf("The first element: %d\n\n", *(int *)temp->elementPtr);
     
-    /*  testing removeBack and removeFront:
+    // check the last element is 3
+    printf ("The last element: %d\n\n", *(int*)testList->head->next->next->elementPtr );
+    
+    /*  testing removeBack:
     should print out:
     The element removed: 3
     the list has 2 element(s)
@@ -54,13 +57,10 @@ int main(int argc, char *argv[]){
     the list has 1 element(s)
     The first element: 2
     
-    
     The element removed: 2
     the list has 0 element(s)
     The list is empty!
     */
-    printf ("The last element: %d\n", *(int*)testList->head->next->next->elementPtr );
-    
     
     temp = removeBack(testList);
     printf("The element removed: %d\n", *(int *)temp->elementPtr);
@@ -83,6 +83,36 @@ int main(int argc, char *argv[]){
     temp = getFront(testList);
     if (temp == NULL) 
         printf("The list is empty!\n");
+    
+    
+    testList = addBack(e1, testList);
+    testList = addBack(e2, testList);
+    
+    /*  testing removeFront:
+    should print out:
+    The element removed: 1
+    the list has 1 element(s)
+    The first element: 2
+    
+    The element removed: 2
+    the list has 0 element(s)
+    The list is empty!
+    */
+    
+    temp = removeFront(testList);
+    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    printf("The first element: %d\n", *(int *)temp->elementPtr);
+    
+    temp = removeFront(testList);
+    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    if (temp == NULL) 
+        printf("The list is empty!\n");    
     
     
     return 0;
