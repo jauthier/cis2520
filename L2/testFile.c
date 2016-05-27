@@ -1,8 +1,8 @@
-#include "linkedlink.h"
+#include "linkedlist.h"
 
 int main(int argc, char *argv[]){
     
-    List testList;
+    List * testList;
     testList = createList();
     
     int first;

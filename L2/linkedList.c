@@ -16,7 +16,7 @@ void destroyList(List * toDestroy) {
         head = head->next; /* set the next Element to be the first */
         free(temp); /* remove the previous first Element */
     }
-    free(todestroy);
+    free(toDestroy);
 }
 
 Element * createElement(void * contents){
@@ -45,7 +45,7 @@ List * addFront(Element * toAdd, List * list){
     return list;
 }
 
-List * addBack(Element * toAdd, List list){
+List * addBack(Element * toAdd, List * list){
     
     if (list->head == NULL){ /* if the list is empty */
         list->head = toAdd;
@@ -59,7 +59,7 @@ List * addBack(Element * toAdd, List list){
     return list;
 }
 
-Element * removeFront(List list){
+Element * removeFront(List * list){
     
     if (list->head == NULL){ /* if the list is empty then there is not Elements to remove */
         printf("There are no elements to remove.\n");
@@ -71,7 +71,7 @@ Element * removeFront(List list){
     }
 }
 
-Element * removeBack(List list){
+Element * removeBack(List * list){
     
     Element * temp = list->head;
     if (temp == NULL){ /* if the list is empty */
@@ -89,12 +89,12 @@ Element * removeBack(List list){
     return temp;
 }
 
-Element * getFront(List list){
+Element * getFront(List * list){
     
     return list->head;
 }
 
-int getLength(List list){
+int getLength(List * list){
     
     int count = 0;
     Element * temp = list->head;
