@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     testList = addFront(e1, testList);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
-    Element * temp = getFront();
+    Element * temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
     
     
