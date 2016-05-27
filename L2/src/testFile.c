@@ -88,7 +88,7 @@ int main(int argc, char *argv[]){
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
     if (temp == NULL) 
-        printf("The list is empty!\n\n");
+        printf("The list is empty!\n");
     temp = removeBack(testList);
     
     testList = addBack(e1, testList);
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]){
     */
     
     temp = removeFront(testList);
-    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    printf("\nThe element removed: %d\n", *(int *)temp->elementPtr);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);

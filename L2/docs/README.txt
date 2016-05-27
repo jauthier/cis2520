@@ -59,4 +59,13 @@ beginnig.
 
 ~~~~~~~~~~~~~~~
 
+Compiling and Running:
+
+To compile type 'make'
+
+To run type './bin/run'
+
+~~~~~~~~~~~~~~~
+
+
 
