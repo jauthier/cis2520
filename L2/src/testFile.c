@@ -21,6 +21,7 @@ int main(int argc, char *argv[]){
     e3 = createElement(&third);
     e4 = createElement(&c);
     
+    printf("the value: %c\n\n", *(char*)e4->elementPtr);
     
     /*  testing addFront, addBack, getLength and getFront:
     should print out:
