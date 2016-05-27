@@ -5,7 +5,7 @@ int main(int argc, char *argv[]){
     List * testList;
     testList = createList(); //test createList
     if (testList == NULL)
-        printf("the list was not created!\n\n")
+        printf("the list was not created!\n\n");
     
     
     int first, second, third, len;
