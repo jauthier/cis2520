@@ -59,7 +59,7 @@ int main(int argc, char *argv[]){
     the list has 0 element(s)
     The list is empty!
     */
-    printf ("%d\n", *(int*)list->head->next->next->elementPtr );
+    printf ("%d\n", *(int*)testList->head->next->next->elementPtr );
     
     
     temp = removeBack(testList);
