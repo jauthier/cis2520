@@ -16,6 +16,16 @@ int main(int argc, char *argv[]){
     e2 = createElement(&second);
     e3 = createElement(&third);
     
+    
+    /*  testing addFront, getLength and getFront:
+    should print out:
+    the list has 1 element(s)
+    The first element: 1
+    the list has 2 element(s)
+    The first element: 2
+    the list has 3 element(s)
+    The first element: 2
+    */
     testList = addFront(e1, testList);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
@@ -33,6 +43,45 @@ int main(int argc, char *argv[]){
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
+    
+    /*  testing removeBack and removeFront:
+    should print out:
+    The element removed: 3
+    the list has 2 element(s)
+    The first element: 2
+    
+    The element removed: 1
+    the list has 1 element(s)
+    The first element: 2
+    
+    
+    The element removed: 2
+    the list has 0 element(s)
+    The list is empty!
+    */
+    
+    temp = removeBack(testList);
+    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    printf("The first element: %d\n", *(int *)temp->elementPtr);
+    
+    temp = removeBack(testList);
+    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    printf("The first element: %d\n", *(int *)temp->elementPtr);
+    
+    temp = removeFront(testList);
+    printf("The element removed: %d\n", *(int *)temp->elementPtr);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    if (temp == NULL) 
+        printf("The list is empty!\n");
+    
     
     return 0;
 }
