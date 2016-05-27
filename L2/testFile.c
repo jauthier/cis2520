@@ -22,7 +22,17 @@ int main(int argc, char *argv[]){
     Element * temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
     
+    testList = addFront(e2, testList);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    printf("The first element: %d\n", *(int *)temp->elementPtr);
     
+    testList = addBack(e3, testList);
+    len = getLength(testList);
+    printf("the list has %d element(s)\n", len);
+    temp = getFront(testList);
+    printf("The first element: %d\n", *(int *)temp->elementPtr);
     
     return 0;
 }
