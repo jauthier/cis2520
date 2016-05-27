@@ -76,7 +76,7 @@ int main(int argc, char *argv[]){
     temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
     
-    temp = removeFront(testList);
+    temp = removeBack(testList);
     printf("The element removed: %d\n", *(int *)temp->elementPtr);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
