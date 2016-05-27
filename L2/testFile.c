@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
-    printf("The first element: %d\n", *(int *)temp->elementPtr);
+    printf("The first element: %d\n\n", *(int *)temp->elementPtr);
     
     /*  testing removeBack and removeFront:
     should print out:
@@ -59,6 +59,8 @@ int main(int argc, char *argv[]){
     the list has 0 element(s)
     The list is empty!
     */
+    printf ("%d\n", *(int*)list->head->next->next->elementPtr );
+    
     
     temp = removeBack(testList);
     printf("The element removed: %d\n", *(int *)temp->elementPtr);
