@@ -16,14 +16,10 @@ int main(){
     a = 1;
     b = 2;
     c = 3;
-    d = 4;
-    e = 5;
     
     e1 = createElement(&a);
     e2 = createElement(&b);
     e3 = createElement(&c);
-    e4 = createElement(&d);
-    e5 = createElement(&e);
     
     int empty = isEmpty(stack1);
     if (empty == 0)
@@ -59,6 +55,7 @@ int main(){
     test = peek(stack1);
     printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
+    destroyStack(stack1);
     
     return 0;
 }
