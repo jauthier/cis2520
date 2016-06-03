@@ -49,6 +49,15 @@ int main(){
     test = peek(stack1);
     printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
+    /* remove the top element and test with peek() */
+    test = pop(stack1);
+    test = peek(stack1);
+    printf("The top element is: %d\n", *(int *)(test->elementPtr));
+    
+    /* Add another and check with peek() */
+    push(stack1, e3);
+    test = peek(stack1);
+    printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
     
     return 0;
