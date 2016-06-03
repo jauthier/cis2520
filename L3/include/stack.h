@@ -10,7 +10,7 @@
 #include "linkedlist.h"
 
 typedef struct Stack {
-    List top;
+    List * top;
     
 } Stack;
 

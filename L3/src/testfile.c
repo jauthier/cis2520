@@ -9,7 +9,7 @@ int main(){
     Stack * stack1;
     stack1 = createStack();
     
-    Element e1, e2, e3, e4, e5;
+    Element *e1, *e2, *e3, *e4, *e5;
     int a, b, c, d, e;
     
     
