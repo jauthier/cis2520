@@ -34,10 +34,12 @@ int main(){
     /* Add a Element to the stack and check if the stack is empty*/
     push(stack1, e1);
     
+    empty = isEmpty(stack1);
+    
     if (empty == 0)
-        printf("Why is the stack empty!\n");
+        printf("Why is the stack empty?\n");
     else 
-        printf("The stack is not empty?\n");
+        printf("The stack is not empty!\n");
     
     /* Add another Element to the stack and check it is at the top 
     by calling peek() */
