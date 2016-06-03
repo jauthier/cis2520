@@ -18,6 +18,7 @@ Stack * createStack(){
 int isEmpty(Stack * stack){
     
     int len = getLength(stack->top);
+    printf("%d\n",len);
     if (len == 0)
         return 0;
     else 
