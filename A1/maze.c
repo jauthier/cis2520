@@ -7,7 +7,8 @@ Square * current;
 Square * start;
 Square * finish;
 
-
+void parseFile(char * fileName);
+Square * createSquare(char v, int x, int y);
 
 int main(int argc, char * argv[]){
     
