@@ -43,7 +43,7 @@ void parseFile(char * fileName){
     
     while (temp != EOF){ // while we are not at the end of the file
         xCount = 0;
-        while(temp != "\n"){ //while we are not at the end of the line
+        while(temp != '\n'){ //while we are not at the end of the line
             
             hold = createSquare(temp, xCount, yCount);
             grid[xCount][yCount] = hold;
