@@ -21,7 +21,8 @@ int main(int argc, char * argv[]){
     
     parseFile(fileName);
     
-    
+    printf("Finished parsing\n");
+    printMaze();
     return 0;
 }
 
@@ -34,13 +35,16 @@ void parseFile(char * fileName){
     Square * hold;
     
     fp = fopen(fileName, "r");
+    if (fp == NULL)
+        printf("no such file\n");
     yCount = 0;
     temp = fgetc(fp);
     
     while (temp != EOF){ // while we are not at the end of the file
+
         xCount = 0;
         while(temp != '\n'){ //while we are not at the end of the line
-            
+            //printf("%d ,%d\n",xCount, yCount);
             hold = createSquare(temp, xCount, yCount);
             maze[xCount][yCount] = hold;
             
@@ -53,11 +57,12 @@ void parseFile(char * fileName){
             temp = fgetc(fp);
             xCount++; // increment in the x direction
         }
+	temp = fgetc(fp);
         yCount++;
     }
     
-    sizeX = xCount + 1;
-    sizeY = yCount + 1;
+    sizeX = xCount;
+    sizeY = yCount;
 }
 
 Square * createSquare(char v, int x, int y){
@@ -86,13 +91,18 @@ Square * createSquare(char v, int x, int y){
 void printMaze(){
     
     int i,j;
-    
+    printf("%d, %d\n",sizeX, sizeY);
     for (i=0;i<sizeY;i++){
         j=0;
         for(j=0;j<sizeX;j++){
+//    printf("%d, %d", j, i);
+
             printf("%c",maze[j][i]->val);
-            
+            fflush(stdout);
         }
+
+//    printf("here\n");
+
         printf("\n");
     }
     
