@@ -1,14 +1,12 @@
 
 #include "maze.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 Square * current;
 Square * start;
 Square * finish;
-
-void parseFile(char * fileName);
-Square * createSquare(char v, int x, int y);
+Square * maze[100][100];
+int sizeX;
+int sizeY;
 
 int main(int argc, char * argv[]){
     
@@ -27,7 +25,6 @@ int main(int argc, char * argv[]){
     return 0;
 }
 
-
 void parseFile(char * fileName){
     
     FILE * fp;
@@ -35,7 +32,6 @@ void parseFile(char * fileName){
     int xCount;
     int yCount;
     Square * hold;
-    Square * grid[100][100];
     
     fp = fopen(fileName, "r");
     yCount = 0;
@@ -46,7 +42,7 @@ void parseFile(char * fileName){
         while(temp != '\n'){ //while we are not at the end of the line
             
             hold = createSquare(temp, xCount, yCount);
-            grid[xCount][yCount] = hold;
+            maze[xCount][yCount] = hold;
             
             if (temp == 'S'){
                 start = hold;
@@ -60,8 +56,9 @@ void parseFile(char * fileName){
         yCount++;
     }
     
+    sizeX = xCount + 1;
+    sizeY = yCount + 1;
 }
-
 
 Square * createSquare(char v, int x, int y){
     
@@ -86,3 +83,17 @@ Square * createSquare(char v, int x, int y){
     return newSquare;
 }
 
+void printMaze(){
+    
+    int i,j;
+    
+    for (i=0;i<sizeY;i++){
+        j=0;
+        for(j=0;j<sizeX;j++){
+            printf("%c",maze[j][i]->val);
+            
+        }
+        printf("\n");
+    }
+    
+}

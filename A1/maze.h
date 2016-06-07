@@ -1,7 +1,6 @@
 
-
-
-//need a matrix of size n x m
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Square{
     
@@ -13,6 +12,10 @@ typedef struct Square{
     
 } Square;
 
+
+void parseFile(char * fileName);
+Square * createSquare(char v, int x, int y);
+void printMaze();
 
 /*
     either use left had or right hand rule
