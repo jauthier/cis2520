@@ -1,5 +1,7 @@
 
 #include "maze.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 Square * current;
 Square * start;
