@@ -7,6 +7,7 @@ Square * finish;
 Square * maze[100][100];
 int sizeX;
 int sizeY;
+char dir;
 
 int main(int argc, char * argv[]){
     
@@ -35,13 +36,15 @@ void parseFile(char * fileName){
     Square * hold;
     
     fp = fopen(fileName, "r");
-    if (fp == NULL)
+    if (fp == NULL){ // check to make sure file opened
         printf("no such file\n");
+        exit(0);
+    }
+    
     yCount = 0;
     temp = fgetc(fp);
     
     while (temp != EOF){ // while we are not at the end of the file
-
         xCount = 0;
         while(temp != '\n'){ //while we are not at the end of the line
             //printf("%d ,%d\n",xCount, yCount);
@@ -89,21 +92,133 @@ Square * createSquare(char v, int x, int y){
 }
 
 void printMaze(){
-    
     int i,j;
-    printf("%d, %d\n",sizeX, sizeY);
+    
     for (i=0;i<sizeY;i++){
         j=0;
         for(j=0;j<sizeX;j++){
-//    printf("%d, %d", j, i);
-
             printf("%c",maze[j][i]->val);
             fflush(stdout);
         }
-
-//    printf("here\n");
-
         printf("\n");
     }
+}
+
+void initDir(){
+    //get start position
+    //start position will be on the wall so the satrting direction will be opposite to the wall
+    
+    if (start->x == 0) // start is on the left wall
+        dir = 'e';
+    else if (start->x == sizeX - 1) // start is on the right wall
+        dir = 'w';
+    else if (start->y == 0) // on the upper wall 
+        dir = 's';
+    else if (start->y == sizeY - 1)
+        dir = 'n';
     
 }
+
+int checkUp(){
+   
+    int x, y;
+    x = current->x;
+    y = current->y;
+    
+    if (maze[x][y-1]->wall == 1){
+        return 1;
+    }
+    return 0;
+}
+
+int checkDown(){
+   
+    int x, y;
+    x = current->x;
+    y = current->y;
+    
+    if (maze[x][y+1]->wall == 1){
+        return 1;
+    }
+    return 0;
+}
+
+int checkRight(){
+   
+    int x, y;
+    x = current->x;
+    y = current->y;
+    
+    if (maze[x+1][y]->wall == 1){
+        return 1;
+    }
+    return 0;
+}
+
+int checkLeft(){
+   
+    int x, y;
+    x = current->x;
+    y = current->y;
+    
+    if (maze[x-1][y]->wall == 1){
+        return 1;
+    }
+    return 0;
+}
+
+void changeDir(){
+    
+    switch (dir){
+        case 'n':
+           dir = 'e'; 
+        case 's':
+            dir  = 'w';
+        case 'e':
+            dir = 's';
+        case 'w':
+            dir = 'n';
+    }
+}
+
+void navigate(){
+    
+    // this is where the maze will be solved
+    //start by getting the initial direction
+    int check, nextX, nextY;
+    initDir();
+    
+    while (current->val != 'F'){
+        
+        switch(dir){
+            case 'n':
+                check = checkUp();
+                nextX = current->x - 1;
+                nextY = current->y;
+            case 's':
+                check = checkDown();
+                nextX = current->x + 1;
+                nextY = current->y;
+            case 'e':
+                check = checkRight();
+                nextX = current->x;
+                nextY = current->y + 1;
+            case 'w':
+                check = checkLeft(); 
+                nextX = current->x;
+                nextY = current->y - 1;
+        }
+        
+        if (check == 1){ // if you can move, the next space is not a wall 
+            
+        } else {
+            changeDir();
+        }
+    }
+    
+    
+    
+    
+    
+}
+
