@@ -279,7 +279,7 @@ void navigate(){
     }
 }
 
-int otherOptions(){
+int otherOptions(int nextX, int nextY){
     //check if there are other open squares next to the current
     int x, y, up, down, left, right;
     x = current->x;
@@ -288,24 +288,32 @@ int otherOptions(){
     up = maze[x][y-1]->wasHere;
     if (maze[x][y-1]->deadEnd == 0)
         up = 0;
+    if (x == nextX && y-1 == nextY)
+        up = 1;
     if (maze[x][y-1]->wall == 1)
         up = 1;
     
     down = maze[x][y+1]->wasHere;
     if (maze[x][y+1]->deadEnd == 0)
         down = 0;
+    if (x == nextX && y+1 == nextY)
+        down = 1;
     if (maze[x][y+1]->wall == 1)
         down = 1;
     
     right = maze[x+1][y]->wasHere;
     if (maze[x+1][y]->deadEnd == 0)
         right = 0;
+    if (x+1 == nextX && y == nextY)
+        right = 1;
     if (maze[x+1][y]->wall == 1)
         right = 1;
     
     left = maze[x-1][y]->wasHere;
     if (maze[x-1][y]->deadEnd == 0)
         left = 0;
+    if (x-1 == nextX && y == nextY)
+        left = 1;
     if (maze[x-1][y]->wall == 1)
         left = 1;
 
