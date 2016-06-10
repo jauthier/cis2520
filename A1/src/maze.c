@@ -5,6 +5,7 @@ Square * current;
 Square * start;
 Square * finish;
 Square * maze[100][100];
+Stack * solution;
 int sizeX;
 int sizeY;
 char dir;
@@ -24,6 +25,9 @@ int main(int argc, char * argv[]){
     
     printf("Finished parsing\n");
     printMaze();
+    
+    solution = createStack();
+    
     return 0;
 }
 
@@ -106,15 +110,16 @@ void printMaze(){
 
 void initDir(){
     //get start position
-    //start position will be on the wall so the satrting direction will be opposite to the wall
+    //start position will be on the outer wall so the starting direction will 
+    //be pointing into the maze from that wall
     
     if (start->x == 0) // start is on the left wall
         dir = 'e';
     else if (start->x == sizeX - 1) // start is on the right wall
         dir = 'w';
-    else if (start->y == 0) // on the upper wall 
+    else if (start->y == 0) // start is on the upper wall 
         dir = 's';
-    else if (start->y == sizeY - 1)
+    else if (start->y == sizeY - 1) // start is on the lower wall
         dir = 'n';
     
 }
@@ -125,7 +130,7 @@ int checkUp(){
     x = current->x;
     y = current->y;
     
-    if (maze[x][y-1]->wall == 1){
+    if (maze[x][y-1]->wall == 0){
         return 1;
     }
     return 0;
@@ -137,7 +142,7 @@ int checkDown(){
     x = current->x;
     y = current->y;
     
-    if (maze[x][y+1]->wall == 1){
+    if (maze[x][y+1]->wall == 0){
         return 1;
     }
     return 0;
@@ -149,7 +154,7 @@ int checkRight(){
     x = current->x;
     y = current->y;
     
-    if (maze[x+1][y]->wall == 1){
+    if (maze[x+1][y]->wall == 0){
         return 1;
     }
     return 0;
@@ -161,7 +166,7 @@ int checkLeft(){
     x = current->x;
     y = current->y;
     
-    if (maze[x-1][y]->wall == 1){
+    if (maze[x-1][y]->wall == 0){
         return 1;
     }
     return 0;
@@ -179,7 +184,7 @@ void changeDir(){
         case 'w':
             dir = 'n';
     }
-}
+ }
 
 void navigate(){
     
@@ -188,8 +193,12 @@ void navigate(){
     int check, nextX, nextY;
     initDir();
     
+    //add the staeting square to the spot
+    push(solution, current);
+    
     while (current->val != 'F'){
         
+        //can i go forward?
         switch(dir){
             case 'n':
                 check = checkUp();
@@ -210,14 +219,22 @@ void navigate(){
         }
         
         if (check == 1){ // if you can move, the next space is not a wall 
-            
+            if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
+                if (){ // there are other options
+                    changeDir();
+                } else { // no other options will need to go back to where we have been
+                     pop(solution); // pop from stack
+                    current = maze[nextX][nextY]; // move
+                }
+            } else {
+                current = maze[nextX][nextY]; // move
+                current-> wasHere = 1;
+                push(solution, current); // add to stack                
+            }
         } else {
             changeDir();
         }
     }
-    
-    
-    
     
     
 }

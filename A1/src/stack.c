@@ -25,21 +25,30 @@ int isEmpty(Stack * stack){
         return 0;
 }
 
-void push(Stack * stack, Element * element){
+void push(Stack * stack, void * data){
     
+    Element * element;
+    element = createElement(data);
     addFront(stack->top, element);
 }
-Element * pop(Stack * stack){
+
+void * pop(Stack * stack){
     
+    void * data;
     Element * topElement;
     topElement = removeFront(stack->top);
-    return topElement;
+    data = topElement->elementPtr;
+    
+    return data;
 }
 
-Element * peek(Stack * stack){
+void * peek(Stack * stack){
     
+    void * data;
     Element * topElement;
     topElement = getFront(stack->top);
+    data = topElement->elementPtr;
+    
     return topElement;
 }
 

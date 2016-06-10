@@ -36,7 +36,7 @@ int isEmpty(Stack * stack);
     postconditions: new element become the top of the stack
 
 */
-void push(Stack * stack, Element * element);
+void push(Stack * stack, void * data);
 
 /*
     Purpose: remove the top element from the stack and return it to the calling function
@@ -44,7 +44,7 @@ void push(Stack * stack, Element * element);
     postconditions: top element returned and removed from the stack
 
 */
-Element * pop(Stack * stack);
+void * pop(Stack * stack);
 
 /*
     Purpose: return the top element
@@ -52,7 +52,7 @@ Element * pop(Stack * stack);
     postconditions: top element returned but not removed
 
 */
-Element * peek(Stack * stack);
+void * peek(Stack * stack);
 
 /*
     Purpose: destroys the stack and everything in it, freeing the memory
