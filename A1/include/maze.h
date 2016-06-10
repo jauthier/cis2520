@@ -114,6 +114,6 @@ int otherOptions(int nextX, int nextY);
     Preconditions: initialized maze and a current direction
     Postconditions: none
 */
-int navigate();
+void navigate();
 
 #endif
