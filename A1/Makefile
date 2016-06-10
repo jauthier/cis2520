@@ -3,7 +3,7 @@ CFLAGS = -Wall -pedantic -std=c99
 INCLUDES = -Iinclude
 BINDIR = bin/
 SRCDIR = src/
-SOURCE = $(SRCDIR)linkedlist.c $(SRCDIR)stack.c $(SRCDIR)maze.c $(SRCDIR)
+SOURCE = $(SRCDIR)linkedlist.c $(SRCDIR)stack.c $(SRCDIR)maze.c
 PROGNAME = $(BINDIR)runSolver
 
 all:
