@@ -274,7 +274,7 @@ void testNavigate(){
     push(solution, current); // add the starting square to the stack
     
     while (current->val != 'F'){  // the maze sloving loop
-        printf("in loop: (%d, %d)\n",current->x, current->y);
+        printf("current position: (%d, %d)\ncurrent direction: %c\n",current->x, current->y,dir);
         switch(dir){
             case 'n':
                 check = checkUp();
@@ -296,32 +296,31 @@ void testNavigate(){
                 nextX = current->x - 1;
                 nextY = current->y;
                 break;
-        }
-        
-        printf("switch return: %d\n",check);
-        
-        
+        } 
         if (check == 1){ // if you can move, the next space is not a wall
-            printf("wasHere: %d\n",maze[nextX][nextY]->wasHere);
+            printf("the square ahead is not a wall!\n");
             if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
-                
+                printf("we have been here before!\n");
                 if (otherOptions(nextX, nextY) == 1){ // there are other options
+                    printf("we have other options, lets turn\n");
                     changeDir();
+                    printf("new direction: %c\n",dir);
                 } else { // no other options will need to go back to where we have been
+                    printf("we have no other options we must go this way\n");
                     pop(solution); // pop from stack
                     current->deadEnd = 1;
                     current = maze[nextX][nextY]; // move
                 }
             } else {
-       
+                printf("we have not been here before, lets go!\n");
                 current = maze[nextX][nextY]; // move
                 current-> wasHere = 1;
                 push(solution, current); // add to stack
             }
         } else {
-            printf("changing dir. before: %c\n",dir);
+            printf("the square ahead is a wall, we must change directions\n");
             changeDir();
-            printf("after: %c\n",dir);
+            printf("new direction: %c\n",dir);
         }
         char c = getchar();
     }

@@ -7,7 +7,6 @@
 #include "stack.h"
 #include "maze.h"
 
-
 int main(int argc, char * argv[]){
     
     char * fileName;
@@ -21,7 +20,6 @@ int main(int argc, char * argv[]){
     
     parseFile(fileName);
     
-    printf("Finished parsing\n");
     printMaze();
     
     testNavigate();

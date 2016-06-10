@@ -102,20 +102,25 @@ void changeDir();
 void setPath();
 
 /*
-    Purpose:
-    Preconditions:
-    Postconditions:
+    Purpose: checks if there are other neighbouring squares that can be moved to. this function is called when 
+    we have already been to the next square(wasHere = 1)
+    Preconditions: initialized maze, a next square and its coordinates
+    Postconditions: none
 */
 int otherOptions(int nextX, int nextY);
 
 /*
-    Purpose: check to see if the next square is a wall or not, calls one of: checkUp, checkDown, 
-    checkRight or checkLeft, depending on the current direction
-    Preconditions: initialized maze and a current direction
+    Purpose: to navigate through the maze, handles changing directions, moving squares and dead ends
+    Preconditions: initialized maze
     Postconditions: none
 */
 void navigate();
 
+/*
+    Purpose: same as navigate just with the testing print statements
+    Preconditions:
+    Postconditions:
+*/
 void testNavigate();
 
 #endif
