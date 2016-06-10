@@ -1,41 +1,16 @@
+/*
+    Author: Jessica Authier
+    2016/06/10
+*/
 
 #include "maze.h"
 
 Square * current;
-Square * start;
-Square * finish;
 Square * maze[100][100];
 Stack * solution;
 int sizeX;
 int sizeY;
 char dir;
-
-void stackThing();
-
-int main(int argc, char * argv[]){
-    
-    char * fileName;
-    
-    if (argc != 2){
-        printf("Incorrect input\n");
-        exit(0);
-    }
-    
-    fileName = argv[1];
-    
-    parseFile(fileName);
-    
-    printf("Finished parsing\n");
-    printMaze();
-    
-    solution = createStack();
-    printf("Stack created\n");
-    navigate();
-    stackThing();
-    printMaze();
-
-    return 0;
-}
 
 void parseFile(char * fileName){
     
@@ -57,23 +32,16 @@ void parseFile(char * fileName){
     while (temp != EOF){ // while we are not at the end of the file
         xCount = 0;
         while(temp != '\n'){ //while we are not at the end of the line
-            //printf("%d ,%d\n",xCount, yCount);
             hold = createSquare(temp, xCount, yCount);
-            maze[xCount][yCount] = hold;
-            
+            maze[xCount][yCount] = hold;   
             if (temp == 'S'){
-                start = hold;
                 current = hold;
-            } else if (temp == 'F')
-                finish = hold;
-            
             temp = fgetc(fp);
             xCount++; // increment in the x direction
         }
 	temp = fgetc(fp);
         yCount++;
     }
-    
     sizeX = xCount;
     sizeY = yCount;
 }
@@ -116,9 +84,6 @@ void printMaze(){
 }
 
 void initDir(){
-    //get start position
-    //start position will be on the outer wall so the starting direction will 
-    //be pointing into the maze from that wall
     
     if (start->x == 0) // start is on the left wall
         dir = 'e';
@@ -128,7 +93,6 @@ void initDir(){
         dir = 's';
     else if (start->y == sizeY - 1) // start is on the lower wall
         dir = 'n';
-    
 }
 
 int checkUp(){
@@ -136,11 +100,9 @@ int checkUp(){
     int x, y;
     x = current->x;
     y = current->y;
-    printf("in checkUp\n");
     
-    if (maze[x][y-1]->wall == 0){
+    if (maze[x][y-1]->wall == 0)
         return 1;
-    }
     return 0;
 }
 
@@ -149,11 +111,9 @@ int checkDown(){
     int x, y;
     x = current->x;
     y = current->y;
-    printf("in checkDown\n");
     
-    if (maze[x][y+1]->wall == 0){
+    if (maze[x][y+1]->wall == 0)
         return 1;
-    }
     return 0;
 }
 
@@ -162,11 +122,9 @@ int checkRight(){
     int x, y;
     x = current->x;
     y = current->y;
-    printf("in checkRight\n");
 
-    if (maze[x+1][y]->wall == 0){
+    if (maze[x+1][y]->wall == 0)
         return 1;
-    }
     return 0;
 }
 
@@ -175,12 +133,9 @@ int checkLeft(){
     int x, y;
     x = current->x;
     y = current->y;
-    printf("in checkLeft\n");
     
-    if (maze[x-1][y]->wall == 0){
-        printf("no wall\n");
+    if (maze[x-1][y]->wall == 0)
         return 1;
-    }
     return 0;
 }
 
@@ -202,7 +157,34 @@ void changeDir(){
     }
 }
 
-void stackThing(){
+int checkNext(){
+    int check;
+    switch(dir){
+        case 'n':
+            check = checkUp();
+            nextX = current->x;
+            nextY = current->y - 1;
+            break;
+        case 's':
+            check = checkDown();
+            nextX = current->x;
+            nextY = current->y + 1;
+            break;
+        case 'e':
+            check = checkRight();
+            nextX = current->x + 1;
+            nextY = current->y;
+            break;
+        case 'w':
+            check = checkLeft(); 
+            nextX = current->x - 1;
+            nextY = current->y;
+            break;
+    }
+    return check;
+}
+
+void setPath(){
 
     Element * hold;
     hold = solution->top->head;
@@ -215,6 +197,7 @@ void stackThing(){
     }
 }
 
+<<<<<<< HEAD
 void navigate(){
     
     // this is where the maze will be solved
@@ -279,18 +262,20 @@ void navigate(){
     }
 }
 
+=======
+>>>>>>> 1e7415ed004ea0766ce208c030c1bb6a1a1c9238
 int otherOptions(int nextX, int nextY){
-    //check if there are other open squares next to the current
+
     int x, y, up, down, left, right;
     x = current->x;
     y = current->y;
 
-    up = maze[x][y-1]->wasHere;
-    if (maze[x][y-1]->deadEnd == 0)
+    up = maze[x][y-1]->wasHere; // have we been there already
+    if (maze[x][y-1]->deadEnd == 0) // its not a dead end
         up = 0;
-    if (x == nextX && y-1 == nextY)
+    if (x == nextX && y-1 == nextY) // its the current next square
         up = 1;
-    if (maze[x][y-1]->wall == 1)
+    if (maze[x][y-1]->wall == 1) // its a wall
         up = 1;
     
     down = maze[x][y+1]->wasHere;
@@ -317,7 +302,7 @@ int otherOptions(int nextX, int nextY){
     if (maze[x-1][y]->wall == 1)
         left = 1;
 
-    if ((up == 0)||(down == 0)||(left == 0)||(right == 0)) // if not a wall and haven't been there
+    if ((up == 0)||(down == 0)||(left == 0)||(right == 0)) // if not a wall and haven't been there or we have been there but it wasnt a dead end
         return 1;
     else 
         return 0;
