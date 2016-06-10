@@ -21,10 +21,10 @@ int main(int argc, char * argv[]){
     fileName = argv[1];
     
     parseFile(fileName);
-    
     printMaze();
     navigate();
     setPath();
+    printf("\nSolved maze: \n");
     printMaze();
 
     return 0;

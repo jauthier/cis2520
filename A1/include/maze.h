@@ -116,4 +116,6 @@ int otherOptions(int nextX, int nextY);
 */
 void navigate();
 
+void testNavigate();
+
 #endif
