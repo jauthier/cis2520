@@ -37,19 +37,19 @@ int main(int argc, char *argv[]){
     the list has 3 element(s)
     The first element: 2
     */
-    testList = addFront(e1, testList);
+    testList = addFront(testList, e1);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
     Element * temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
     
-    testList = addFront(e2, testList);
+    testList = addFront(testList, e2);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
     printf("The first element: %d\n", *(int *)temp->elementPtr);
     
-    testList = addBack(e3, testList);
+    testList = addBack(testList, e3);
     len = getLength(testList);
     printf("the list has %d element(s)\n", len);
     temp = getFront(testList);
@@ -96,8 +96,8 @@ int main(int argc, char *argv[]){
         printf("The list is empty!\n");
     temp = removeBack(testList);
     
-    testList = addBack(e1, testList);
-    testList = addBack(e2, testList);
+    testList = addBack(testList, e1);
+    testList = addBack(testList, e2);
     
     /*  testing removeFront:
     should print out:
