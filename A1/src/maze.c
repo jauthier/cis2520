@@ -42,6 +42,7 @@ void parseFile(char * fileName){
 	temp = fgetc(fp);
         yCount++;
     }
+    fclose(fp);
     sizeX = xCount;
     sizeY = yCount;
 }
