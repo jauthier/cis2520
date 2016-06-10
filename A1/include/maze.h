@@ -94,14 +94,6 @@ int checkLeft();
 void changeDir();
 
 /*
-    Purpose: check to see if the next square is a wall or not, calls one of: checkUp, checkDown, 
-    checkRight or checkLeft, depending on the current direction
-    Preconditions: initialized maze and a current direction
-    Postconditions: none
-*/
-int checkNext();
-
-/*
     Purpose: to change the values of the squares that create the solution to the maze, so it 
     can be viewed when the maze is printed
     Preconditions: an initialized, non-empty stack 
@@ -115,5 +107,13 @@ void setPath();
     Postconditions:
 */
 int otherOptions(int nextX, int nextY);
+
+/*
+    Purpose: check to see if the next square is a wall or not, calls one of: checkUp, checkDown, 
+    checkRight or checkLeft, depending on the current direction
+    Preconditions: initialized maze and a current direction
+    Postconditions: none
+*/
+int navigate();
 
 #endif

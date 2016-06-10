@@ -85,13 +85,13 @@ void printMaze(){
 
 void initDir(){
     
-    if (start->x == 0) // start is on the left wall
+    if (current->x == 0) // start is on the left wall
         dir = 'e';
-    else if (start->x == sizeX - 1) // start is on the right wall
+    else if (current->x == sizeX - 1) // start is on the right wall
         dir = 'w';
-    else if (start->y == 0) // start is on the upper wall 
+    else if (current->y == 0) // start is on the upper wall 
         dir = 's';
-    else if (start->y == sizeY - 1) // start is on the lower wall
+    else if (current->y == sizeY - 1) // start is on the lower wall
         dir = 'n';
 }
 
@@ -157,33 +157,6 @@ void changeDir(){
     }
 }
 
-int checkNext(){
-    int check;
-    switch(dir){
-        case 'n':
-            check = checkUp();
-            nextX = current->x;
-            nextY = current->y - 1;
-            break;
-        case 's':
-            check = checkDown();
-            nextX = current->x;
-            nextY = current->y + 1;
-            break;
-        case 'e':
-            check = checkRight();
-            nextX = current->x + 1;
-            nextY = current->y;
-            break;
-        case 'w':
-            check = checkLeft(); 
-            nextX = current->x - 1;
-            nextY = current->y;
-            break;
-    }
-    return check;
-}
-
 void setPath(){
 
     Element * hold;
@@ -239,4 +212,55 @@ int otherOptions(int nextX, int nextY){
         return 1;
     else 
         return 0;
+}
+
+void navigate(){
+    
+    int check, nextX, nextY;
+    initDir(); //start by getting the initial direction
+    solution = createStack();
+    push(solution, current); // add the starting square to the stack
+    
+    while (current->val != 'F'){  // the maze sloving loop
+        switch(dir){
+        case 'n':
+            check = checkUp();
+            nextX = current->x;
+            nextY = current->y - 1;
+            break;
+        case 's':
+            check = checkDown();
+            nextX = current->x;
+            nextY = current->y + 1;
+            break;
+        case 'e':
+            check = checkRight();
+            nextX = current->x + 1;
+            nextY = current->y;
+            break;
+        case 'w':
+            check = checkLeft(); 
+            nextX = current->x - 1;
+            nextY = current->y;
+            break;
+    }
+        
+        if (check == 1){ // if you can move, the next space is not a wall
+            if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
+                if (otherOptions(nextX, nextY) == 1){ // there are other options
+                    changeDir();
+                } else { // no other options will need to go back to where we have been
+                    pop(solution); // pop from stack
+                    current->deadEnd = 1;
+                    current = maze[nextX][nextY]; // move
+                }
+            } else {
+                current = maze[nextX][nextY]; // move
+                current-> wasHere = 1;
+                push(solution, current); // add to stack
+            }
+        } else {
+            changeDir();
+        }
+    }
 }
