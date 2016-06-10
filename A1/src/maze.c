@@ -258,7 +258,7 @@ void navigate(){
             printf("wasHere: %d\n",maze[nextX][nextY]->wasHere);
             if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
                 
-                if (otherOptions() == 1){ // there are other options
+                if (otherOptions(nextX, nextY) == 1){ // there are other options
                     changeDir();
                 } else { // no other options will need to go back to where we have been
                     pop(solution); // pop from stack
