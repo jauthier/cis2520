@@ -25,7 +25,7 @@ int main(int argc, char * argv[]){
     printMaze();
     
     testNavigate();
-    stackThing();
+    setPath();
     printMaze();
 
     return 0;
