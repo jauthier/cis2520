@@ -84,6 +84,7 @@ Square * createSquare(char v, int x, int y){
     newSquare = malloc(sizeof(Square));
     
     newSquare->val = v;
+    newSquare->deadEnd = 0;
     
     if (v == '|' || v == '+' || v == '-')
         newSquare->wall = 1;
@@ -256,20 +257,16 @@ void navigate(){
         if (check == 1){ // if you can move, the next space is not a wall
             printf("wasHere: %d\n",maze[nextX][nextY]->wasHere);
             if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
-                printf("last: (%d, %d)\n",lastX,lastY);
-                if (otherOptions(lastX, lastY) == 1){ // there are other options
+                
+                if (otherOptions() == 1){ // there are other options
                     changeDir();
                 } else { // no other options will need to go back to where we have been
-                     pop(solution); // pop from stack
-        lastX = current->x;
-        lastY = current->y;
-        printf("(%d, %d)\n", lastX, lastY);
+                    pop(solution); // pop from stack
+                    current->deadEnd = 1;
                     current = maze[nextX][nextY]; // move
                 }
             } else {
-        lastX = current->x;
-        lastY = current->y;
-        printf("(%d, %d)\n", lastX, lastY);
+       
                 current = maze[nextX][nextY]; // move
                 current-> wasHere = 1;
                 push(solution, current); // add to stack
@@ -282,28 +279,37 @@ void navigate(){
     }
 }
 
-int otherOptions(int lastX, int lastY){
+int otherOptions(){
     //check if there are other open squares next to the current
     int x, y, up, down, left, right;
     x = current->x;
     y = current->y;
 
-    printf("%d, %d\n",lastX, lastY);
-
     up = maze[x][y-1]->wasHere;
-    if ((maze[x][y-1]->wall == 1)||(x == lastX && y-1 == lastY))
+    if (maze[x][y-1]->deadEnd == 0)
+        up = 0;
+    if (maze[x][y-1]->wall == 1)
         up = 1;
+    
     down = maze[x][y+1]->wasHere;
-    if ((maze[x][y+1]->wall == 1)||(x == lastX && y+1 == lastY))
+    if (maze[x][y+1]->deadEnd == 0)
+        down = 0;
+    if (maze[x][y+1]->wall == 1)
         down = 1;
+    
     right = maze[x+1][y]->wasHere;
-    if ((maze[x+1][y]->wall == 1)||(x+1 == lastX && y == lastY))
+    if (maze[x+1][y]->deadEnd == 0)
+        right = 0;
+    if (maze[x+1][y]->wall == 1)
         right = 1;
+    
     left = maze[x-1][y]->wasHere;
-    if ((maze[x-1][y]->wall == 1)||(x-1 == lastX && y == lastY))
+    if (maze[x-1][y]->deadEnd == 0)
+        left = 0;
+    if (maze[x-1][y]->wall == 1)
         left = 1;
 
-    if ((up == 0)||(down == 0)||(left == 0)||(right == 0))
+    if ((up == 0)||(down == 0)||(left == 0)||(right == 0)) // if not a wall and haven't been there
         return 1;
     else 
         return 0;

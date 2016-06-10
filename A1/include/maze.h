@@ -14,6 +14,7 @@ typedef struct Square{
     int x; // x coordinate
     int y; // y coordinate
     int wasHere; //have we been here before
+    int deadEnd; //is this square part of a deadEnd
     
 } Square;
 
