@@ -220,7 +220,7 @@ void navigate(){
         
         if (check == 1){ // if you can move, the next space is not a wall 
             if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
-                if (){ // there are other options
+                if (otherOptions(nextX, nextY) == 1){ // there are other options
                     changeDir();
                 } else { // no other options will need to go back to where we have been
                      pop(solution); // pop from stack
@@ -239,3 +239,14 @@ void navigate(){
     
 }
 
+int otherOptions(int x1, int y1){
+    //check if there are other open squares next to the current
+    int x, y; 
+    x = current->x;
+    y = current->y;
+    
+    if ((maze[x-1][y]->wasHere == 0)||(maze[x+1][y]->wasHere == 0)||(maze[x][y-1]->wasHere == 0)||(maze[x][y+1]->wasHere == 0))
+        return 1;
+    else 
+        return 0;
+}
