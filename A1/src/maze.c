@@ -34,7 +34,7 @@ void parseFile(char * fileName){
         while(temp != '\n'){ //while we are not at the end of the line
             hold = createSquare(temp, xCount, yCount);
             maze[xCount][yCount] = hold;   
-            if (temp == 'S'){
+            if (temp == 'S')
                 current = hold;
             temp = fgetc(fp);
             xCount++; // increment in the x direction
@@ -224,27 +224,27 @@ void navigate(){
     
     while (current->val != 'F'){  // the maze sloving loop
         switch(dir){
-        case 'n':
-            check = checkUp();
-            nextX = current->x;
-            nextY = current->y - 1;
-            break;
-        case 's':
-            check = checkDown();
-            nextX = current->x;
-            nextY = current->y + 1;
-            break;
-        case 'e':
-            check = checkRight();
-            nextX = current->x + 1;
-            nextY = current->y;
-            break;
-        case 'w':
-            check = checkLeft(); 
-            nextX = current->x - 1;
-            nextY = current->y;
-            break;
-    }
+            case 'n':
+                check = checkUp();
+                nextX = current->x;
+                nextY = current->y - 1;
+                break;
+            case 's':
+                check = checkDown();
+                nextX = current->x;
+                nextY = current->y + 1;
+                break;
+            case 'e':
+                check = checkRight();
+                nextX = current->x + 1;
+                nextY = current->y;
+                break;
+            case 'w':
+                check = checkLeft(); 
+                nextX = current->x - 1;
+                nextY = current->y;
+                break;
+        }
         
         if (check == 1){ // if you can move, the next space is not a wall
             if (maze[nextX][nextY]->wasHere == 1){ //we have been there already
