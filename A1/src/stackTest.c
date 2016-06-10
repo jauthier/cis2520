@@ -9,17 +9,11 @@ int main(){
     Stack * stack1;
     stack1 = createStack();
     
-    Element *e1, *e2, *e3, *e4, *e5;
-    int a, b, c, d, e;
-    
+    int a, b, c;
     
     a = 1;
     b = 2;
     c = 3;
-    
-    e1 = createElement(&a);
-    e2 = createElement(&b);
-    e3 = createElement(&c);
     
     int empty = isEmpty(stack1);
     if (empty == 1)
@@ -28,7 +22,7 @@ int main(){
         printf("Why is the stack not empty?\n");
     
     /* Add a Element to the stack and check if the stack is empty*/
-    push(stack1, e1);
+    push(stack1, &a);
     
     empty = isEmpty(stack1);
     
@@ -38,20 +32,20 @@ int main(){
         printf("The stack is not empty!\n");
     
     /* Add another Element to the stack and check it is at the top 
-    by calling peek() */
+    by calling peek() the top value should be 2*/
     
-    push(stack1, e2);
+    push(stack1, &b);
     Element * test;
     test = peek(stack1);
     printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
-    /* remove the top element and test with peek() */
+    /* remove the top element and test with peek() the top value should be 1*/
     test = pop(stack1);
     test = peek(stack1);
     printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
-    /* Add another and check with peek() */
-    push(stack1, e3);
+    /* Add another and check with peek() the top value should be 3 */
+    push(stack1, &c);
     test = peek(stack1);
     printf("The top element is: %d\n", *(int *)(test->elementPtr));
     
