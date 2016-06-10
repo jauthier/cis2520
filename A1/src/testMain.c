@@ -24,8 +24,6 @@ int main(int argc, char * argv[]){
     printf("Finished parsing\n");
     printMaze();
     
-    solution = createStack();
-    printf("Stack created\n");
     testNavigate();
     stackThing();
     printMaze();

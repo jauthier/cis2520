@@ -270,6 +270,7 @@ void testNavigate(){
     
     int check, nextX, nextY;
     initDir(); //start by getting the initial direction
+    solution = createStack();
     push(solution, current); // add the starting square to the stack
     
     while (current->val != 'F'){  // the maze sloving loop
