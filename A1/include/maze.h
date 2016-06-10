@@ -1,3 +1,7 @@
+/*
+    Author: Jessica Authier
+    2016/06/10
+*/
 
 #ifndef MAZE_H
 #define MAZE_H
@@ -42,6 +46,15 @@ Square * createSquare(char v, int x, int y);
 void printMaze();
 
 /*
+    Purpose: to get the starting direction, it will be the direction pointing away
+    from the wall (n = north, pointing up   s = south, pointing down  
+    e = east, pointing to the right   w = west, pointing to the left)
+    Preconditions: an initialized maze and starting location
+    Postconditions: the global variable dir is set to the direction char
+*/
+void initDir();
+
+/*
     Purpose: Checks if the the space above is occupied by a wall, returns 0 if it is
     and 1 if it isn't
     Preconditions: an initialized maze[][] variable
@@ -73,9 +86,34 @@ int checkRight();
 */
 int checkLeft();
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 void changeDir();
 
-void navigate();
+/*
+    Purpose: check to see if the next square is a wall or not, calls one of: checkUp, checkDown, 
+    checkRight or checkLeft, depending on the current direction
+    Preconditions: initialized maze and a current direction
+    Postconditions: none
+*/
+int checkNext();
 
+/*
+    Purpose: to change the values of the squares that create the solution to the maze, so it 
+    can be viewed when the maze is printed
+    Preconditions: an initialized, non-empty stack 
+    Postconditions: the values of the squares in the stack are changed to '.'
+*/
+void setPath();
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+int otherOptions(int nextX, int nextY);
 
 #endif

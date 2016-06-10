@@ -1,6 +1,6 @@
 /*
     Author: Jessica Authier
-    2016\06\03
+    2016/06/10
 */
 
 #ifndef STACK_H 
