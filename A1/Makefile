@@ -7,7 +7,13 @@ SOURCE = $(SRCDIR)linkedlist.c $(SRCDIR)stack.c $(SRCDIR)maze.c
 PROGNAME = $(BINDIR)runSolver
 
 all:
-	$(CC) $(CFLAG) $(SOURCE) $(SRCDIR)main.c $(INCLUDES) -o $(PROGNAME)
+	$(CC) $(CFLAG) $(SOURCE) src/main.c $(INCLUDES) -o $(PROGNAME)
 
-test:	
-	$(CC) $(CFLAG) $(SOURCE) $(SRCDIR)testMain.c $(INCLUDES) -o $(BINDIR)runTest
+mazeTest:	
+	$(CC) $(CFLAG) $(SOURCE) src/mazeTest.c $(INCLUDES) -o bin/mazeTestRun
+
+stackTest:
+	$(CC) $(CFLAG) src/linkedlist.c src/stack.c src/stackTest.c $(INCLUDES) -o bin/stackRun
+
+listTest:
+	$(CC) $(CFLAG) src/linkedlist.c src/listTest.c $(INCLUDES) -o bin/listRun
