@@ -21,17 +21,13 @@ void destroy(Entry ** hashTable){
 }
 
 void insert(Entry ** hashTable, long key, void * value){
-    printf("here!\n");
     int checkKey = exists(hashTable, key);
-    printf("here\n");
     if (checkKey == 0){ //false --> doesn't already exist
         
         Entry * newEntry = createEntry(key, value);
-        printf("here 1\n");
         if (hashTable[hash(key)] == NULL){ // no collision
             hashTable[hash(key)] = newEntry;
         } else { // collision
-            printf("here 2\n");
             //lets chain
             Entry * temp = hashTable[hash(key)];
             while (temp->next != NULL){ // find the end of the chain
@@ -159,24 +155,19 @@ int exists(Entry ** hashTable, long key){
     //find hash
     int checkEmpty = isEmpty(hashTable);
     int index = hash(key);
-printf("%d\n", index);
     Entry * hold = hashTable[index];
     if (checkEmpty == 1) // the hashTabe is empty
         return 0; // key doesn't exist
-//    printf("%ld\n",hashTable[index]->key);
 
     if (hold == NULL){ // nothing is there
-        printf("nothing here\n");
         return 0;
     }
 
     if (hold->key == key){ // the first one is a match
-        printf("already exists\n");
         return 1; // key exists
     } else {
-printf("in exists: %ld, %ld\n", key, key);
-        hold = hold->next;
-        while (hold->key != key || hold-> next != NULL){
+
+        while (hold-> next != NULL){
             hold = hold->next;
         }
         if (hold->next == NULL && hold->key != key) // chain ended without finding a match
