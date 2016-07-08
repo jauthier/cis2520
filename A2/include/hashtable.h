@@ -45,7 +45,7 @@ void insert(Entry * hashTable, int key, void * value);
     postconditions:
     
 */
-Entry * createEntry(int key, void * value)
+Entry * createEntry(int key, void * value);
 
 /*
     purpose:

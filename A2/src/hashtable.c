@@ -30,9 +30,9 @@ void insert(Entry * hashTable, int key, void * value){
         Entry * newEntry;
         newEntry = createEntry(key, value)
         //put in the array
-        if (hashTable[index] == NULL){ // no collision
+        if (hashTable[index] == NULL) // no collision
             hashTable[index] = newEntry;
-        } else { // collision
+        else { // collision
             //lets chain
             Entry * temp = hashTable[index];
             while (temp->next != NULL){ // find the end of the chain
@@ -41,9 +41,8 @@ void insert(Entry * hashTable, int key, void * value){
             temp->next = newEntry; // add it to the end
         }
         
-    } else if (checkKey == 1){
+    } else if (checkKey == 1)
         printf("The key you wish to add already exist.\n");
-    }
 }
 
 Entry * createEntry(int key, void * value){
@@ -115,9 +114,9 @@ void * lookup(Entry * hashTable, int key){
         return NULL;
     }
         
-    if (hold->key == key){ // the first one is a match
+    if (hold->key == key) // the first one is a match
         return hold->value;
-    } else {
+    else {
         hold = hold->next;
         while (hold->key != key || hold-> next != NULL){
             hold = hold->next;
@@ -125,9 +124,8 @@ void * lookup(Entry * hashTable, int key){
         if (hold->next == NULL && hold->key != key){ // chain ended without finding a match
             printf("The search was unsuccessful. The key you gave was not found.\n");
             hold = NULL;
-        } else {
+        } else
             return hold->value;
-        }
     }
 }
 
@@ -143,9 +141,9 @@ void update(Entry * hashTable, int key, void * newValue){
         return NULL;
     }
         
-    if (hold->key == key){ // the first one is a match
+    if (hold->key == key) // the first one is a match
         hold->value = newValue;
-    } else {
+    else {
         hold = hold->next;
         while (hold->key != key || hold-> next != NULL){
             hold = hold->next;
@@ -153,9 +151,8 @@ void update(Entry * hashTable, int key, void * newValue){
         if (hold->next == NULL && hold->key != key){ // chain ended without finding a match
             printf("The search was unsuccessful. The key you gave was not found.\n");
             hold = NULL;
-        } else {
+        } else
             hold->value = newValue;
-        }
     }
 }
 
@@ -168,18 +165,17 @@ int exists(Entry * hashTable, int key){
     if (checkEmpty == 1) // the hashTabe is empty
         return 0; // key doesn't exist
         
-    if (hold->key == key){ // the first one is a match
+    if (hold->key == key) // the first one is a match
         return 1; // key exists
-    } else {
+    else {
         hold = hold->next;
         while (hold->key != key || hold-> next != NULL){
             hold = hold->next;
         }
-        if (hold->next == NULL && hold->key != key){ // chain ended without finding a match
+        if (hold->next == NULL && hold->key != key) // chain ended without finding a match
             return 0; // key doesn't exist
-        } else {
+        else
             return 1; // key exists 
-        }
     }
 }
 
