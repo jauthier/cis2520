@@ -27,11 +27,11 @@ void insert(Entry ** hashTable, long key, void * value){
         
         Entry * newEntry = createEntry(key, value);
         
-        if (hashTable[hash(int key)] == NULL){ // no collision
-            hashTable[hash(int key)] = newEntry;
+        if (hashTable[hash(key)] == NULL){ // no collision
+            hashTable[hash(key)] = newEntry;
         } else { // collision
             //lets chain
-            Entry * temp = hashTable[index];
+            Entry * temp = hashTable[hash(key)];
             while (temp->next != NULL){ // find the end of the chain
                 temp = temp->next;
             }
@@ -57,12 +57,12 @@ Entry * createEntry(long key, void * value){
 void * removeEntry(Entry ** hashTable, long key){
     
     int checkEmpty = isEmpty(hashTable);
-    int index = hash(int key);
+    int index = hash(key);
     Entry * temp = hashTable[index]; // set it to the first value
     void * holdValue;
     
     if (checkEmpty == 1){ // the hashTabe is empty
-        pirntf ("There are no entries to remove.\n");
+        printf("There are no entries to remove.\n");
         return NULL;
     }
     

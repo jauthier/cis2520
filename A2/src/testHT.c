@@ -4,7 +4,7 @@
 
 int main(){
     
-    long check;
+    int check;
     int value1, value2, value3, value4;
     Entry ** ht = create();
     long key1 = 5199961212;
@@ -17,7 +17,7 @@ int main(){
     else 
         printf("the key doesn't exist\n");
     
-    (void *)&check = lookup(ht, key1);
+    (int *)&check = lookup(ht, key1);
     
     printf("the value shouldbe: %d, the value is: %d", value1, check);
     
