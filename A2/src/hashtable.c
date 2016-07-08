@@ -26,10 +26,11 @@ void insert(Entry ** hashTable, long key, void * value){
     if (checkKey == 0){ //false --> doesn't already exist
         
         Entry * newEntry = createEntry(key, value);
-        
+        printf("here 1\n");
         if (hashTable[hash(key)] == NULL){ // no collision
             hashTable[hash(key)] = newEntry;
         } else { // collision
+            printf("here 2\n");
             //lets chain
             Entry * temp = hashTable[hash(key)];
             while (temp->next != NULL){ // find the end of the chain
