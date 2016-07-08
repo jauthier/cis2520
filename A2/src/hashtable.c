@@ -63,43 +63,48 @@ void * removeEntry(Entry ** hashTable, long key){
         printf("There are no entries to remove.\n");
         return NULL;
     }
-    printf("there are entries\n");
-    if (temp == NULL){
+    if (temp == NULL){ // the index given has no entries
         printf("Could not find the entry you wish to remove.\n");
         return NULL;
     }
-    if (temp->key == key){ // if the first one is a match
+    if (temp->key == key){ // if the first entry is a match
         
         if (temp->next == NULL){ // no chaining
             hashTable[index] = NULL;
             holdValue = temp->value;
             free(temp);
             return holdValue;
-        } else { 
+        } else { // there is a chain
             hashTable[index] = temp->next;
             holdValue = temp->value;
             free(temp);
             return holdValue;
         }
-    } else {
-        
-        while (temp->next->key != key || temp->next->next != NULL){ // go throught the chain till we find it or it runs out
+    } else { // the first entry is not a match
+        if (temp->next == NULL){ // there are no more entries after the first
+            printf("Could not find the entry you wish to remove.\n");
+            return NULL;
+        }
+        // there are entries after the first
+        while (temp->next->next != NULL){ // check if the next entry is the last
+            //if its not the last
+            if (temp->next->key == key){ // check if its a match
+                // if it is we need to remove it
+                Entry * hold = temp->next->next; // hold the next entry
+                holdValue = temp->next->value; // hold the value of the entry being removed
+                free(temp->next); // free the memory
+                temp->next = hold; // link the previous and following entries of the entry that was removed
+                return holdValue;
+            }
             temp = temp->next;
         }
-        printf("here\n");
-        if (temp->next->next == NULL && temp->next->key != key){ // chain ended without finding a match
+        if (temp->next->key != key){ // chain ended without finding a match
             printf("The key you gave was not found.\n");
             return NULL;
-        } else if (temp->next->next == NULL && temp->next->key == key){ // the last one is a match 
+        } else { // the last one is a match 
             holdValue = temp->next->value;
             free(temp->next);
             temp->next = NULL;
-            return holdValue;
-        } else{
-            Entry * hold = temp->next->next; // the value after the one being removed
-            holdValue = temp->next->value;
-            free(temp->next);
-            temp->next = hold;
             return holdValue;
         }
     }
