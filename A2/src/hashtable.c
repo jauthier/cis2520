@@ -23,8 +23,9 @@ void destroy(Entry ** hashTable){
 void insert(Entry ** hashTable, long key, void * value){
     printf("here!\n");
     int checkKey = exists(hashTable, key);
+    printf("here\n");
     if (checkKey == 0){ //false --> doesn't already exist
-        printf("here\n");
+        
         Entry * newEntry = createEntry(key, value);
         printf("here 1\n");
         if (hashTable[hash(key)] == NULL){ // no collision
