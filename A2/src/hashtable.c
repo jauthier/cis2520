@@ -20,7 +20,7 @@ void destroy(Entry ** hashTable){
     free(hashTable);
 }
 
-void insert(Entry ** hashTable, int key, void * value){
+void insert(Entry ** hashTable, long key, void * value){
     
     int checkKey = exists(hashTable, key);
     if (checkKey == 0){ //false --> doesn't already exist
@@ -45,7 +45,7 @@ void insert(Entry ** hashTable, int key, void * value){
     }
 }
 
-Entry * createEntry(int key, void * value){
+Entry * createEntry(long key, void * value){
     
     Entry * newEntry
     newEntry = malloc(sizeof(Entry));
@@ -56,7 +56,7 @@ Entry * createEntry(int key, void * value){
     return newEntry;
 }
 
-void * removeEntry(Entry ** hashTable, int key){
+void * removeEntry(Entry ** hashTable, long key){
     
     int checkEmpty = isEmpty(hashTable);
     int index = hash(int key);
@@ -105,11 +105,12 @@ void * removeEntry(Entry ** hashTable, int key){
     }
 }
 
-void * lookup(Entry ** hashTable, int key){
-    int index = hash(key);
-    Entry * hold = hashTabe[index];
+void * lookup(Entry ** hashTable, long key){
     
-    if (checkEmpty == 1){ // the hashTabe is empty
+    int checkEmpty;
+    Entry * hold = hashTable[hash(key)];
+    
+    if (checkEmpty == 1){ // the hashTable is empty
         pirntf ("There are no entries to search.\n");
         return NULL;
     }
@@ -129,7 +130,7 @@ void * lookup(Entry ** hashTable, int key){
     }
 }
 
-void update(Entry ** hashTable, int key, void * newValue){
+void update(Entry ** hashTable, long key, void * newValue){
     
     int checkEmpty;
     Entry * hold = hashTable[hash(key)];
@@ -152,7 +153,7 @@ void update(Entry ** hashTable, int key, void * newValue){
     }
 }
 
-int exists(Entry ** hashTable, int key){
+int exists(Entry ** hashTable, long key){
     //return 0 false and 1 if true
     
     //find hash
@@ -197,7 +198,7 @@ int isFull(Entry ** hashTable){
     return 1; // full
 }
 
-int hash(int key){
+int hash(long key){
     
     return key%MAXSIZE;
 }

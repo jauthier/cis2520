@@ -9,7 +9,7 @@
 #define MAXSIZE 20
 
 typedef struct Entry {
-    int key;
+    long key;
     void * value;
     struct Entry * next;
     
@@ -37,7 +37,7 @@ void destroy(Entry ** hashTable);
     postconditions:
     
 */
-void insert(Entry ** hashTable, int key, void * value);
+void insert(Entry ** hashTable, long key, void * value);
 
 /*
     purpose:
@@ -45,7 +45,7 @@ void insert(Entry ** hashTable, int key, void * value);
     postconditions:
     
 */
-Entry * createEntry(int key, void * value);
+Entry * createEntry(long key, void * value);
 
 /*
     purpose:
@@ -53,7 +53,7 @@ Entry * createEntry(int key, void * value);
     postconditions:
     
 */
-void * removeEntry(Entry ** hashTable, int key);
+void * removeEntry(Entry ** hashTable, long key);
 
 /*
     purpose:
@@ -61,7 +61,7 @@ void * removeEntry(Entry ** hashTable, int key);
     postconditions:
     
 */
-void * lookup(Entry ** hashTable, int key);
+void * lookup(Entry ** hashTable, long key);
 
 /*
     purpose:
@@ -69,7 +69,7 @@ void * lookup(Entry ** hashTable, int key);
     postconditions:
     
 */
-void update(Entry ** hashTable, int key, void * newValue);
+void update(Entry ** hashTable, long key, void * newValue);
 
 /*
     purpose:
@@ -77,7 +77,7 @@ void update(Entry ** hashTable, int key, void * newValue);
     postconditions:
     
 */
-int exists(Entry ** hashTable, int key);
+int exists(Entry ** hashTable, long key);
 
 /*
     purpose:
@@ -101,6 +101,6 @@ int isFull(Entry ** hashTable);
     postconditions:
     
 */
-int hash(int key);
+int hash(long key);
 
 #endif

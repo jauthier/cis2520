@@ -7,7 +7,7 @@ int main(){
     
     int value1, value2, value3, value4, check;
     Entry ** ht = create();
-    int key1 = 5199961212;
+    long key1 = 5199961212;
     
     value1 = 11;
     insert(ht, key1, &value1);
