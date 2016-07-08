@@ -26,7 +26,11 @@ int main(){
     key2 = 5199961212; // same key to test if insert can handle it
     value2 = 12;
     insert(ht, key2, &value2);
+    //  should output: the key you wish to add already exists
     
+    update(ht, key1, &value2); //update key1
+    check = *(int *)lookup(ht, key1);
+    printf("the value should be: 12, the value is: %d\n", check);
     
     return 0;
 }
