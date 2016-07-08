@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int MAXSIZE 20;
+#define MAXSIZE 20
 
 typedef struct Entry {
     int key;
