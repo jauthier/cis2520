@@ -11,7 +11,7 @@ const int MAXSIZE 20;
 typedef struct Entry {
     int key;
     void * value;
-    stuct Entry * next;
+    struct Entry * next;
     
 } Entry;
 
