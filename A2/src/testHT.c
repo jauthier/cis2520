@@ -82,8 +82,10 @@ int main(){
     insert(ht, 5199961193, &value3);
     
     printf("\nChecking that removeEntry function removes chained entries properly:\n");
-    
-    
+    //remove from middle: use key2
+    removedVal = *(int *)removeEntry(ht, key2);
+    if (removedVal == 13)
+        printf("   good\n");
     
     return 0;
 }
