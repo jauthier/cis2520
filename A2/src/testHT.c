@@ -36,6 +36,7 @@ int main(){
     key2 = 5199961222;
     value2 = 13;
     insert(ht, key2, &value2);
+    printf("here\n");
     check = *(int *)lookup(ht, key2);
     printf("the value should be: 13, the value is: %d\n", check);
     
