@@ -17,7 +17,7 @@ int main(){
     else 
         printf("the key doesn't exist\n");
     
-    (int *)&check = lookup(ht, key1);
+    &check = lookup(ht, key1);
     
     printf("the value shouldbe: %d, the value is: %d", value1, check);
     
