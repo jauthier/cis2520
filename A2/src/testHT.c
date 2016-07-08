@@ -33,7 +33,7 @@ int main(){
     printf("the value should be: 12, the value is: %d\n", check);
     
     // add another with the same index
-    key2 = 5199961222;
+    key2 = 5199961232;
     value2 = 13;
     insert(ht, key2, &value2);
     printf("here\n");
