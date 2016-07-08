@@ -58,7 +58,7 @@ int main(){
         int * value3 = malloc(sizeof(int));
         * value3 = i+1;
         insert(ht, key3, value3);
-        printf("%d\n", hash(key));
+        printf("%d\n", hash(key3));
         value3++;
         key3++;
     }
