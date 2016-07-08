@@ -5,7 +5,7 @@
 int main(){
     
     int check;
-    int value1, value2;
+    int value1, value2, value3;
     long key1, key2;
     Entry ** ht = create();
     
@@ -27,10 +27,10 @@ int main(){
     printf("    the value should be: %d, the value is: %d\n", value1, check);
     //if exists returns 1 and lookup returns the same value as expected then we know insert worked
     
-    key2 = 5199961212; // same key to test if insert can handle it
+    // using same key to test if insert can handle it
     value2 = 12;
     printf("\nchecking how insert and exists functions handle the same key,\n should output: the key you wish to add already exists\n");
-    insert(ht, key2, &value2);
+    insert(ht, key1, &value2);
     
     printf("\nChecking update function:\n");
     update(ht, key1, &value2); //update key1
@@ -77,6 +77,12 @@ int main(){
         printf("    the key exists\n");
     else 
         printf("    the key doesn't exist\n"); 
+    
+    value3 = 22;
+    insert(ht, 5199961193, &value3);
+    
+    printf("\nChecking that removeEntry function removes chained entries properly:\n");
+    
     
     
     return 0;
