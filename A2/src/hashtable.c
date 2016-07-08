@@ -123,7 +123,7 @@ void * lookup(Entry ** hashTable, int key){
         }
         if (hold->next == NULL && hold->key != key){ // chain ended without finding a match
             printf("The search was unsuccessful. The key you gave was not found.\n");
-            hold = NULL;
+            return NULL;
         } else
             return hold->value;
     }
@@ -131,14 +131,11 @@ void * lookup(Entry ** hashTable, int key){
 
 void update(Entry ** hashTable, int key, void * newValue){
     
-    //find hash
-    int index = hash(key);
-    Entry * hold = hashTabe[index];
+    int checkEmpty;
+    Entry * hold = hashTable[hash(key)];
     
-    //check if chaining
     if (checkEmpty == 1){ // the hashTabe is empty
         pirntf ("There are no entries to update.\n");
-        return NULL;
     }
         
     if (hold->key == key) // the first one is a match
@@ -148,10 +145,9 @@ void update(Entry ** hashTable, int key, void * newValue){
         while (hold->key != key || hold-> next != NULL){
             hold = hold->next;
         }
-        if (hold->next == NULL && hold->key != key){ // chain ended without finding a match
+        if (hold->next == NULL && hold->key != key) // chain ended without finding a match
             printf("The search was unsuccessful. The key you gave was not found.\n");
-            hold = NULL;
-        } else
+        else
             hold->value = newValue;
     }
 }
@@ -160,14 +156,16 @@ int exists(Entry ** hashTable, int key){
     //return 0 false and 1 if true
     
     //find hash
+    int checkEmpty;
     int index = hash(key);
+    Entry * hold = hashTable[index];
     
     if (checkEmpty == 1) // the hashTabe is empty
         return 0; // key doesn't exist
         
-    if (hold->key == key) // the first one is a match
+    if (hold->key == key){ // the first one is a match
         return 1; // key exists
-    else {
+    } else {
         hold = hold->next;
         while (hold->key != key || hold-> next != NULL){
             hold = hold->next;
