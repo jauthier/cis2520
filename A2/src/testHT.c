@@ -13,7 +13,7 @@ int main(){
     value1 = 11;
     insert(ht, key1, &value1);
     printf("checking the hash function:\n");
-    printf("    the index should be: %d, the index is: %d\n",key1%20, hash(key1));
+    printf("    the index should be: %d, the index is: %ld\n",key1%20, hash(key1));
     printf("checking the insert, exists, and lookup functions:\n");
     printf("  if the key exists then insert and exists worked:\n");
     check = exists(ht, key1);
