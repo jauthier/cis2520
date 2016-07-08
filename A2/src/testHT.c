@@ -5,7 +5,7 @@
 int main(){
     
     int check;
-    int value1, value2, value3, value4;
+    int value1, value2;
     Entry ** ht = create();
     long key1, key2, key3, key4;
     
@@ -21,7 +21,7 @@ int main(){
     check = *(int *)lookup(ht, key1);
     
     printf("the value should be: %d, the value is: %d\n", value1, check);
-    //if exists returns 1 and lookup returns the value then we know insert worked
+    //if exists returns 1 and lookup returns the same value as expected then we know insert worked
     
     key2 = 5199961212; // same key to test if insert can handle it
     value2 = 12;
@@ -31,6 +31,14 @@ int main(){
     update(ht, key1, &value2); //update key1
     check = *(int *)lookup(ht, key1);
     printf("the value should be: 12, the value is: %d\n", check);
+    
+    // add another with the same index
+    key2 = 5199961222;
+    value2 = 13;
+    insert(ht, key2, &value2);
+    check = *(int *)lookup(ht, key2);
+    printf("the value should be: 13, the value is: %d\n", check);
+    
     
     return 0;
 }
