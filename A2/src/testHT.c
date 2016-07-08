@@ -68,8 +68,15 @@ int main(){
     else 
         printf("    true\n");
     
-    
+    printf("\nChecking the removeEntry function:\n");
     int removedVal = *(int *)removeEntry(ht, 5199961221);
+    printf("  the value removed was: %d\n",removedVal);
+    printf("\nCheching if the key was removed:\n  if the key was removed properly then it shouldn't exist:\n");
+    check = exists(ht, 5199961221);
+     if (check == 1)
+        printf("    the key exists\n");
+    else 
+        printf("    the key doesn't exist\n"); 
     
     
     return 0;
