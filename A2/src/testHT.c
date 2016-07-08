@@ -12,9 +12,9 @@ int main(){
     key1 = 5199961212;
     value1 = 11;
     insert(ht, key1, &value1);
-    printf("checking the hash function:\n");
+    printf("\nchecking the hash function:\n");
     printf("    the index should be: %ld, the index is: %d\n",key1%20, hash(key1));
-    printf("checking the insert, exists, and lookup functions:\n");
+    printf("\nchecking the insert, exists, and lookup functions:\n");
     printf("  if the key exists then insert and exists worked:\n");
     check = exists(ht, key1);
     if (check == 1)
@@ -29,23 +29,23 @@ int main(){
     
     key2 = 5199961212; // same key to test if insert can handle it
     value2 = 12;
-    printf("checking how insert and exists functions handle the same key,\n should output: the key you wish to add already exists\n");
+    printf("\nchecking how insert and exists functions handle the same key,\n should output: the key you wish to add already exists\n");
     insert(ht, key2, &value2);
     
-    printf("Checking update function:\n");
+    printf("\nChecking update function:\n");
     update(ht, key1, &value2); //update key1
     check = *(int *)lookup(ht, key1);
     printf("  the value should be: 12, the value is: %d\n", check);
     
     // add another with the same index
-    printf("Checking how insert and exist handle a different key with the same index:\n");
+    printf("\nChecking how insert and exist handle a different key with the same index:\n");
     key2 = 5199961192;
     value2 = 13;
     insert(ht, key2, &value2);
     check = *(int *)lookup(ht, key2);
     printf("  the value should be: 13, the value is: %d\n", check);
     
-    printf("Checking the isFull function: \n  right now its not full so isFull should return false:\n");
+    printf("\nChecking the isFull function: \n  right now its not full so isFull should return false:\n");
     int full = isFull(ht);
     if (full == 0)
         printf("    false\n");
@@ -58,11 +58,16 @@ int main(){
         int * value3 = malloc(sizeof(int));
         * value3 = i+1;
         insert(ht, key3, value3);
-        
+        printf("%d\n", hash(key));
         value3++;
         key3++;
     }
-    
+    printf("  now the it full, so it should return true:\n");
+    full = isFull(ht);
+    if (full == 0)
+        printf("    false\n");
+    else 
+        printf("    true\n");
     
     return 0;
 }
