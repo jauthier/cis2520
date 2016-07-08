@@ -58,7 +58,6 @@ int main(){
         int * value3 = malloc(sizeof(int));
         * value3 = i+1;
         insert(ht, key3, value3);
-        printf("%d\n", hash(key3));
         value3++;
         key3++;
     }
@@ -68,6 +67,10 @@ int main(){
         printf("    false\n");
     else 
         printf("    true\n");
+    
+    
+    int removedVal = *(int *)removeEntry(ht, 5199961221);
+    
     
     return 0;
 }
