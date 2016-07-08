@@ -8,12 +8,12 @@
 
 const int MAXSIZE 20;
 
-typedef struct Entry{
+typedef struct Entry {
     int key;
     void * value;
-    Entry * next;
+    stuct Entry * next;
     
-}Entry;
+} Entry;
 
 /*
     purpose:
