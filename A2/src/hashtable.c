@@ -63,7 +63,7 @@ void * removeEntry(Entry ** hashTable, long key){
         printf("There are no entries to remove.\n");
         return NULL;
     }
-    
+    printf("there are entries\n");
     if (temp->key == key){ // if the first one is a match
         
         if (temp->next == NULL){ // no chaining
@@ -78,7 +78,7 @@ void * removeEntry(Entry ** hashTable, long key){
             return holdValue;
         }
     } else {
-        
+        printf("here\n");
         while (temp->next->key != key || temp->next->next != NULL){ // go throught the chain till we find it or it runs out
             temp = temp->next;
         }
