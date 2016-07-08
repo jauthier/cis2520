@@ -25,7 +25,7 @@ int main(){
     
     key2 = 5199961212; // same key to test if insert can handle it
     value2 = 12;
-    insert(ht, key2, value2);
+    insert(ht, key2, &value2);
     
     
     return 0;
