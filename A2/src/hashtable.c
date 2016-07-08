@@ -105,11 +105,11 @@ void * removeEntry(Entry ** hashTable, long key){
 
 void * lookup(Entry ** hashTable, long key){
     
-    int checkEmpty;
+    int checkEmpty = isEmpty(hashTable);
     Entry * hold = hashTable[hash(key)];
     
     if (checkEmpty == 1){ // the hashTable is empty
-        pirntf ("There are no entries to search.\n");
+        printf ("There are no entries to search.\n");
         return NULL;
     }
         
@@ -130,7 +130,7 @@ void * lookup(Entry ** hashTable, long key){
 
 void update(Entry ** hashTable, long key, void * newValue){
     
-    int checkEmpty;
+    int checkEmpty = isEmpty(hashTable);
     Entry * hold = hashTable[hash(key)];
     
     if (checkEmpty == 1){ // the hashTabe is empty
@@ -155,7 +155,7 @@ int exists(Entry ** hashTable, long key){
     //return 0 false and 1 if true
     
     //find hash
-    int checkEmpty;
+    int checkEmpty = isEmpty(hashTable);
     int index = hash(key);
     Entry * hold = hashTable[index];
     
