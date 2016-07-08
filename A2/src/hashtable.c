@@ -134,7 +134,7 @@ void update(Entry ** hashTable, long key, void * newValue){
     Entry * hold = hashTable[hash(key)];
     
     if (checkEmpty == 1){ // the hashTabe is empty
-        pirntf ("There are no entries to update.\n");
+        printf ("There are no entries to update.\n");
     }
         
     if (hold->key == key) // the first one is a match
