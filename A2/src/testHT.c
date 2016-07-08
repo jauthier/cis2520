@@ -82,16 +82,21 @@ int main(){
     insert(ht, 5199961193, &value3);
     
     printf("\nChecking that removeEntry function removes chained entries properly:\n");
+    
     printf("  removing from the middle:\n");
-    //remove from middle: use key2
     removedVal = *(int *)removeEntry(ht, key2);
     printf("    the value of the removed entry should be: 13, the the value removed was: %d\n", removedVal);
+    
     printf("  removing from the back:\n");
     int correctVal = *(int *)lookup(ht, 5199961232);
     removedVal = *(int *)removeEntry(ht, 5199961232);
-        printf("    the value of the removed entry should be: %d, the the value removed was: %d\n", correctVal, removedVal);
-
+    printf("    the value of the removed entry should be: %d, the the value removed was: %d\n", correctVal, removedVal);
     
+    printf("  removing from the front:\n");
+    correctVal = *(int *)lookup(ht, 5199961233);
+    removedVal = *(int *)removeEntry(ht, 5199961233);
+    printf("    the value of the removed entry should be: %d, the the value removed was: %d\n", correctVal, removedVal);
+
     return 0;
 }
 
