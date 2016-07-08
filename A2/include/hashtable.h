@@ -102,3 +102,5 @@ int isFull(Entry * hashTable);
     
 */
 int hash(int key);
+
+#endif
