@@ -1,7 +1,7 @@
 #include "hashtable.h"
 
-Entry * create(){
-    Entry * ht;
+Entry ** create(){
+    Entry ** ht;
     ht = malloc(MAXSIZE * sizeof(Entry));
     for (int i=1; i<MAXSIZE; i++){
         ht[i] = NULL;
@@ -9,7 +9,7 @@ Entry * create(){
     return ht;
 }
 
-void destroy(Entry * hashTable){
+void destroy(Entry ** hashTable){
     //free the elements
     for (int i=0; i<MAXSIZE; i++){
         if (hashTable[i] == NULL)
@@ -20,7 +20,7 @@ void destroy(Entry * hashTable){
     free(hashTable);
 }
 
-void insert(Entry * hashTable, int key, void * value){
+void insert(Entry ** hashTable, int key, void * value){
     
     int checkKey = exists(Entry * hashTable, int key);
     if (checkKey == 0){ //false --> doesn't already exist
@@ -56,7 +56,7 @@ Entry * createEntry(int key, void * value){
     return newEntry;
 }
 
-void * remove(Entry * hashTable, int key){
+void * removeEntry(Entry ** hashTable, int key){
     
     int checkEmpty = isEmpty(hashTable);
     int index = hash(int key);
@@ -105,7 +105,7 @@ void * remove(Entry * hashTable, int key){
     }
 }
 
-void * lookup(Entry * hashTable, int key){
+void * lookup(Entry ** hashTable, int key){
     int index = hash(key);
     Entry * hold = hashTabe[index];
     
@@ -129,7 +129,7 @@ void * lookup(Entry * hashTable, int key){
     }
 }
 
-void update(Entry * hashTable, int key, void * newValue){
+void update(Entry ** hashTable, int key, void * newValue){
     
     //find hash
     int index = hash(key);
@@ -156,7 +156,7 @@ void update(Entry * hashTable, int key, void * newValue){
     }
 }
 
-int exists(Entry * hashTable, int key){
+int exists(Entry ** hashTable, int key){
     //return 0 false and 1 if true
     
     //find hash
@@ -179,7 +179,7 @@ int exists(Entry * hashTable, int key){
     }
 }
 
-int isEmpty(Entry * hashTable){
+int isEmpty(Entry ** hashTable){
     
     for (int i=0; i<MAXSIZE; i++){
         if (hashTable[i] != NULL)
@@ -189,7 +189,7 @@ int isEmpty(Entry * hashTable){
     return 1; // empty
 }
 
-int isFull(Entry * hashTable){
+int isFull(Entry ** hashTable){
     
     for (int i=0; i<MAXSIZE; i++){
         if (hashTable[i] == NULL)

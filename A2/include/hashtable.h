@@ -29,7 +29,7 @@ Entry * create();
     postconditions:
     
 */
-void destroy(Entry * hashTable);
+void destroy(Entry ** hashTable);
 
 /*
     purpose:
@@ -37,7 +37,7 @@ void destroy(Entry * hashTable);
     postconditions:
     
 */
-void insert(Entry * hashTable, int key, void * value);
+void insert(Entry ** hashTable, int key, void * value);
 
 /*
     purpose:
@@ -53,7 +53,7 @@ Entry * createEntry(int key, void * value);
     postconditions:
     
 */
-void * remove(Entry * hashTable, int key);
+void * removeEntry(Entry ** hashTable, int key);
 
 /*
     purpose:
@@ -61,7 +61,7 @@ void * remove(Entry * hashTable, int key);
     postconditions:
     
 */
-void * lookup(Entry * hashTable, int key);
+void * lookup(Entry ** hashTable, int key);
 
 /*
     purpose:
@@ -69,7 +69,7 @@ void * lookup(Entry * hashTable, int key);
     postconditions:
     
 */
-void update(Entry * hashTable, int key, void * newValue);
+void update(Entry ** hashTable, int key, void * newValue);
 
 /*
     purpose:
@@ -77,7 +77,7 @@ void update(Entry * hashTable, int key, void * newValue);
     postconditions:
     
 */
-int exists(Entry * hashTable, int key);
+int exists(Entry ** hashTable, int key);
 
 /*
     purpose:
@@ -85,7 +85,7 @@ int exists(Entry * hashTable, int key);
     postconditions:
     
 */
-int isEmpty(Entry * hashTable);
+int isEmpty(Entry ** hashTable);
 
 /*
     purpose:
@@ -93,7 +93,7 @@ int isEmpty(Entry * hashTable);
     postconditions:
     
 */
-int isFull(Entry * hashTable);
+int isFull(Entry ** hashTable);
 
 /*
     purpose:
