@@ -21,7 +21,7 @@ typedef struct Entry {
     postconditions:
     
 */
-Entry * create();
+Entry ** create();
 
 /*
     purpose:

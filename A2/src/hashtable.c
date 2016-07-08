@@ -22,17 +22,17 @@ void destroy(Entry ** hashTable){
 
 void insert(Entry ** hashTable, int key, void * value){
     
-    int checkKey = exists(Entry * hashTable, int key);
+    int checkKey = exists(hashTable, key);
     if (checkKey == 0){ //false --> doesn't already exist
         // get the index
-        int index = hash((Entry * hashTable, int key);
+        int index = hash(Entry * hashTable, int key);
         // make an Entry
         Entry * newEntry;
         newEntry = createEntry(key, value)
         //put in the array
-        if (hashTable[index] == NULL) // no collision
+        if (hashTable[index] == NULL){ // no collision
             hashTable[index] = newEntry;
-        else { // collision
+        } else { // collision
             //lets chain
             Entry * temp = hashTable[index];
             while (temp->next != NULL){ // find the end of the chain
@@ -40,14 +40,14 @@ void insert(Entry ** hashTable, int key, void * value){
             }
             temp->next = newEntry; // add it to the end
         }
-        
-    } else if (checkKey == 1)
+    } else if (checkKey == 1){
         printf("The key you wish to add already exist.\n");
+    }
 }
 
 Entry * createEntry(int key, void * value){
     
-    Entry *newEntry
+    Entry * newEntry
     newEntry = malloc(sizeof(Entry));
     newEntry->key = key;
     newEntry->value = value;
