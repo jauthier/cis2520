@@ -4,8 +4,8 @@
 
 int main(){
     
-    
-    int value1, value2, value3, value4, check;
+    long check;
+    int value1, value2, value3, value4;
     Entry ** ht = create();
     long key1 = 5199961212;
     

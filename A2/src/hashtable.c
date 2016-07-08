@@ -24,14 +24,11 @@ void insert(Entry ** hashTable, long key, void * value){
     
     int checkKey = exists(hashTable, key);
     if (checkKey == 0){ //false --> doesn't already exist
-        // get the index
-        int index = hash(Entry * hashTable, int key);
-        // make an Entry
-        Entry * newEntry;
-        newEntry = createEntry(key, value)
-        //put in the array
-        if (hashTable[index] == NULL){ // no collision
-            hashTable[index] = newEntry;
+        
+        Entry * newEntry = createEntry(key, value);
+        
+        if (hashTable[hash(int key)] == NULL){ // no collision
+            hashTable[hash(int key)] = newEntry;
         } else { // collision
             //lets chain
             Entry * temp = hashTable[index];
@@ -40,14 +37,15 @@ void insert(Entry ** hashTable, long key, void * value){
             }
             temp->next = newEntry; // add it to the end
         }
-    } else if (checkKey == 1){
+    } else {
         printf("The key you wish to add already exist.\n");
     }
 }
 
+
 Entry * createEntry(long key, void * value){
     
-    Entry * newEntry
+    Entry * newEntry;
     newEntry = malloc(sizeof(Entry));
     newEntry->key = key;
     newEntry->value = value;
