@@ -87,7 +87,7 @@ int main(){
     removedVal = *(int *)removeEntry(ht, key2);
     printf("    the value of the removed entry should be: 13, the the value removed was: %d\n", removedVal);
     printf("  removing from the back:\n");
-    int correctVal = lookup(ht, 5199961232);
+    int correctVal = *(int *)lookup(ht, 5199961232);
     removedVal = *(int *)removeEntry(ht, 5199961232);
         printf("    the value of the removed entry should be: %d, the the value removed was: %d\n", correctVal, removedVal);
 
