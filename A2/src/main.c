@@ -13,7 +13,7 @@ int main(int argc, char * argv[]){
     char *fileName;
     
     //get command line input
-    if (argc != 1){
+    if (argc != 2){
         printf("Please enter the name of the file you wish to load.\n");
         exit(0);
     }
