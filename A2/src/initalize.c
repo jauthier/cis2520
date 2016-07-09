@@ -54,8 +54,10 @@ void menuLoop(List * list, Entry ** ht){
                 }
                 break;
             case 4 : // print all entries
+                printf("\n");
                 list = mergeSort(list); // sort the list
                 printList(list);
+                printf("\n");
                 break;
             case 5 : ; // look up an entry
                 phoneNum = getInputLong("Enter the phone number of the person you wish to look up: ");
