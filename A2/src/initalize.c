@@ -23,7 +23,7 @@ List * loadFile(char * fileName, List *list){
     
     fgets(buffer, 200, fp);
     
-    printf("%s\n",buffer);
+    
     while (buffer != NULL){
         
         lastName = strtok(buffer, ",");
@@ -31,9 +31,7 @@ List * loadFile(char * fileName, List *list){
         firstName = strtok(NULL, ",");
         printf("%s\n",firstName);
         phoneNum = strtok(NULL, " ,");
-        if (phoneNum == NULL)
-        printf("problamo\n");
-        printf("cat\n");
+        
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
@@ -41,7 +39,7 @@ List * loadFile(char * fileName, List *list){
         long hold = strtol((char*)phoneNum, &temp, 10);
 
         newPerson->phoneNum = hold;
-        printf("%ld", newPerson->phoneNum);
+        printf("%ld\n", newPerson->phoneNum);
         
         Element * newElement = createElement(newPerson);
         
@@ -49,6 +47,7 @@ List * loadFile(char * fileName, List *list){
         list = addBack(list, newElement);
         fgets(buffer, 200, fp);
     }
+    printf("finished loading\n");
     fclose(fp);
     return list;
 }
