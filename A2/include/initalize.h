@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "linkedlist.h"
+#include "hashtable.h"
 
 typedef struct Person{
     
@@ -21,14 +22,21 @@ typedef struct Person{
     Preconditions:
     Postconditions:
 */
-void menu(List * list);
+void menu(List * list, Entry ** ht);
 
 /*
     Purpose:
     Preconditions:
     Postconditions:
 */
-char * getInput(char * message);
+Long getInputLong(char * message);
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+char * getInputStr(char * message);
 
 /*
     Purpose:
@@ -42,7 +50,7 @@ Person * createPerson(char * ln, char * fn, char * pn);
     Preconditions:
     Postconditions:
 */
-List * loadFile(char * fileName, List *list);
+List * loadFile(char * fileName, List *list, Entry ** ht);
 
 /*
     Purpose:

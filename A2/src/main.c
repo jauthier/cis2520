@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "linkedlist.h"
 #include "initalize.h"
+#include "hashtable.h"
 
 int main(int argc, char * argv[]){
     
