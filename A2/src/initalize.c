@@ -33,7 +33,7 @@ List * loadFile(char * fileName, List *list){
         phoneNum = strtok(NULL, " ,");
         if (phoneNum == NULL)
         printf("problamo\n");
-        
+        printf("cat\n");
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
