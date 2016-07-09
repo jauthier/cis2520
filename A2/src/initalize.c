@@ -41,6 +41,7 @@ List * loadFile(char * fileName, List *list){
         long hold = strtol((char*)phoneNum, &temp, 10);
 
         newPerson->phoneNum = hold;
+        printf("%ld", newPerson->phoneNum);
         
         Element * newElement = createElement(newPerson);
         
