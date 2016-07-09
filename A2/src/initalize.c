@@ -24,7 +24,7 @@ List * loadFile(char * fileName, List *list){
     //fgets(buffer, 200, fp);
     
     
-    while (fgets(buffer, 200, fp) != EOF){
+    while (*fgets(buffer, 200, fp) != EOF){
         printf("%s\n",buffer);
         lastName = strtok(buffer, ",");
         printf("%s\n",lastName);
