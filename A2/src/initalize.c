@@ -19,7 +19,7 @@ List * loadFile(char * fileName, List *list){
     
     fgets(buffer, 60, fp);
     
-    while (buffer != EOF){
+    while (buffer != NULL){
         
         lastName = strtok(buffer, ",");
         firstName = strtok(NULL, ",");
