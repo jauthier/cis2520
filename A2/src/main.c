@@ -17,7 +17,7 @@ int main(int argc, char * argv[]){
         printf("Please enter the name of the file you wish to load.\n");
         exit(0);
     }
-    fileName = argv[0];
+    fileName = argv[1];
     
     //create a linked list of people
     List *peopleList;

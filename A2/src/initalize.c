@@ -8,39 +8,38 @@
 List * loadFile(char * fileName, List *list){
     
     FILE *fp;
-    char *firstName, *lastName, *phoneNum, *temp;
+    char *firstName, *lastName, *phoneNum;
     char buffer[200];
-char *temp2;
-printf("%s\n",fileName);
+    
+    printf("%s\n",fileName);
+    
     fp = fopen(fileName, "r");
     if (fp == NULL){
         printf("File not found!\n");
         exit(0);
     }
 
-long hold;
-fscanf(fp,"%s",buffer);
 
-    //char test[200];
-    //fgets(temp2, 200, fp);
-    //puts(temp2);
-printf("%s\n",buffer);
+    
+    fgets(buffer, 200, fp);
+    
+    printf("%s\n",buffer);
     while (buffer != NULL){
         
         lastName = strtok(buffer, ",");
-//printf("%s\n",lastName);
+        printf("%s\n",lastName);
         firstName = strtok(NULL, ",");
-//printf("%s\n",firstName);
+        printf("%s\n",firstName);
         phoneNum = strtok(NULL, " ,");
-if (phoneNum == NULL)
-printf("problamo\n");
+        if (phoneNum == NULL)
+        printf("problamo\n");
         
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
-printf("here\n");
-        //long hold = strtol((char*)phoneNum, &temp, 10);
-printf("here\n");
+
+        long hold = strtol((char*)phoneNum, &temp, 10);
+
         newPerson->phoneNum = hold;
         
         Element * newElement = createElement(newPerson);
