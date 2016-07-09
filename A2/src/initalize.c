@@ -25,13 +25,13 @@ void menu(List * list, Entry ** ht){
         scanf("%d", &choice);
         
         switch(choice){
-            case 1 :
+            case 1 : ;
                 char * fileName;
                 fileName = getInputStr("Enter the name of the file you wish to load: ");
                 list = loadFile(fileName, list, ht);
                 list = mergeSort(list);
                 break;
-            case 2 :
+            case 2 : ;
                 char *ln, *fn, *pn;
                 ln = getInputStr("Enter the persons last name: ");
                 fn = getInputStr("Enter the persons first name: ");
