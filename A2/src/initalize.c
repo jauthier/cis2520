@@ -76,7 +76,7 @@ long getInputLong(char * message){
 char * getInputStr(char * message){
     char *buffer = malloc(sizeof(char) * 100);
     printf("%s",message);
-    scanf("%s", &buffer);
+    scanf("%s", buffer);
     return buffer;
 }
 
