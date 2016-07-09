@@ -17,7 +17,7 @@ int main(int argc, char * argv[]){
     peopleList = createList();
     Entry ** ht = create();
     
-    if (argc = 2){
+    if (argc == 2){
         fileName = argv[1];
         peopleList = loadFile(fileName, peopleList);
         peopleList = mergeSort(peopleList);

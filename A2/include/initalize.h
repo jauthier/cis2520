@@ -29,7 +29,7 @@ void menu(List * list, Entry ** ht);
     Preconditions:
     Postconditions:
 */
-Long getInputLong(char * message);
+long getInputLong(char * message);
 
 /*
     Purpose:
