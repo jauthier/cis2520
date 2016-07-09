@@ -76,12 +76,14 @@ List * mergeLists(Element * list1, Element * list2){
         
         if (compareNames(list1, list2) == 1){//then list1 has the lower value
             temp = list1;
-            temp->next = NULL;
+            
             list1 = list1->next;
+            temp->next = NULL;
         } else{ // compareNames must have returned 2, thus list2 is lower or they are the same
             temp = list2;
-            temp->next = NULL;
+            
             list2 = list2->next;
+            temp->next = NULL;
         }
 
         if (result->head == NULL){ // if there are no elements in the result yet
