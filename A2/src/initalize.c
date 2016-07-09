@@ -7,28 +7,41 @@
 
 List * loadFile(char * fileName, List *list){
     
-    FILE * fp;
+    FILE *fp;
     char *firstName, *lastName, *phoneNum, *temp;
-    char buffer[60];
-    
+    char buffer[200];
+char *temp2;
+printf("%s\n",fileName);
     fp = fopen(fileName, "r");
     if (fp == NULL){
         printf("File not found!\n");
         exit(0);
     }
-    
-    fgets(buffer, 60, fp);
-    
+
+long hold;
+fscanf(fp,"%s",buffer);
+
+    //char test[200];
+    //fgets(temp2, 200, fp);
+    //puts(temp2);
+printf("%s\n",buffer);
     while (buffer != NULL){
         
         lastName = strtok(buffer, ",");
+//printf("%s\n",lastName);
         firstName = strtok(NULL, ",");
-        phoneNum = strtok(NULL, ",");
+//printf("%s\n",firstName);
+        phoneNum = strtok(NULL, " ,");
+if (phoneNum == NULL)
+printf("problamo\n");
         
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
-        newPerson->phoneNum = strtol(phoneNum, &temp, 2);
+printf("here\n");
+        //long hold = strtol((char*)phoneNum, &temp, 10);
+printf("here\n");
+        newPerson->phoneNum = hold;
         
         Element * newElement = createElement(newPerson);
         
