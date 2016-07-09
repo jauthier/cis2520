@@ -24,7 +24,7 @@ int main(int argc, char * argv[]){
         peopleList = mergeSort(peopleList);
     }
     
-    menu (peopleList, ht);
+    menuLoop(peopleList, ht);
     
    return 0; 
 }

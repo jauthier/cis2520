@@ -42,7 +42,7 @@ void menuLoop(List * list, Entry ** ht){
                 phoneNum = getInputLong("Enter the phone number of the person you wish to update: ");
                 char * lastName = getInputStr("Enter the new last name: ");
                 char * firstName = getInputStr("Enter the new first name: ");
-                if (exists() == 1){ // want it to exist so it can be changed
+                if (exists(ht, phoneNum) == 1){ // want it to exist so it can be changed
                     Person * hold = (Person *)lookup(ht, phoneNum); // get the current info
                     Person * replace = createPerson(lastName, firstName, phoneNum); // make a person with the updated info
                     update(ht, phoneNum, replace); // update the hash table
