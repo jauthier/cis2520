@@ -8,7 +8,7 @@
 List * loadFile(char * fileName, List *list){
     
     FILE * fp;
-    char *firstName, *lastName, *phoneNum;
+    char *firstName, *lastName, *phoneNum, *temp;
     char buffer[60];
     
     fp = fopen(fileName, "r");
@@ -28,7 +28,7 @@ List * loadFile(char * fileName, List *list){
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
-        newPerson->phoneNum = strtol(phoneNum);
+        newPerson->phoneNum = strtol(phoneNum, &temp, 2);
         
         Element * newElement = createElement(newPerson);
         
