@@ -50,11 +50,6 @@ List * mergeSort(List * list){
     list2->head = bisectList(head)->next;
     bisectList(head)->next = NULL;
 
-    printf("\nlist1: ");
-    printList(list1);
-    printf("list2: ");
-    printList(list2);
-
     list1 = mergeSort(list1);
     list2 = mergeSort(list2);
 
