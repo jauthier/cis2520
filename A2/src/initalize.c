@@ -74,7 +74,7 @@ long getInputLong(char * message){
 }
 
 char * getInputStr(char * message){
-    char buffer[100];
+    char *buffer = malloc(sizeof(char) * 100);
     printf("%s",message);
     fgets(buffer, 100, stdin);
     return buffer;
@@ -86,13 +86,13 @@ Person * createPerson(char * ln, char * fn, char * pn){
     long hold;
     Person * newPerson = malloc(sizeof(Person));
     
-    newPerson->lastName = malloc(sizeof(char)*strlen(lastName));
+    newPerson->lastName = malloc(sizeof(char)*strlen(ln));
     strcpy(newPerson->lastName, lastName);
     
-    newPerson->firstName = malloc(sizeof(char)*strlen(firstName));;
+    newPerson->firstName = malloc(sizeof(char)*strlen(fn));;
     strcpy(newPerson->firstName, firstName);
     
-    hold = strtol((char*)phoneNum, &temp, 10);
+    hold = strtol((char*)pn, &temp, 10);
     newPerson->phoneNum = hold;
     
     return newPerson;
