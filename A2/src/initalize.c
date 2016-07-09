@@ -28,7 +28,7 @@ List * loadFile(char * fileName, List *list){
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
         newPerson->firstName = firstName;
-        newPerson->phoneNum = phoneNum;
+        newPerson->phoneNum = strtol(phoneNum);
         
         Element * newElement = createElement(newPerson);
         
@@ -143,4 +143,15 @@ int compareNames(Element * first, Element * second){
         return 1;
     else
         return 2;
+}
+
+void printList(List * list){
+    
+    Element * temp = list->head;
+    
+    while (temp != NULL){
+        printf("%s, %s, %ld\n", ((Person*)temp->elementPtr)->lastName,
+        ((Person*)temp->elementPtr)->firstName, ((Person*)temp->elementPtr)->phoneNum);
+        temp = temp->next;
+    }
 }

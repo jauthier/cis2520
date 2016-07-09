@@ -12,7 +12,7 @@ typedef struct Person{
     
     char *firstName;
     char *lastName;
-    char *phoneNum;
+    long phoneNum;
     
 }Person;
 
@@ -52,6 +52,12 @@ Element * bisectList(Element * head);
 */
 int compareNames(Element * first, Element * second);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+void printList(List * list);
 
 
 #endif

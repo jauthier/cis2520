@@ -25,12 +25,12 @@ int main(int argc, char * argv[]){
     
     //load in the people from the file
     peopleList = loadFile(fileName, peopleList);
-    
+    printList(peopleList);
     //sortList
     List * sortedList = createList();
     sortedList = mergeSort(peopleList);
     // use the list to make the hash table
-    
+    printList(sortedList);
     
     
    return 0; 
