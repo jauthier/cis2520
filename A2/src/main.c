@@ -31,6 +31,7 @@ int main(int argc, char * argv[]){
     List * sortedList = createList();
     sortedList = mergeSort(peopleList);
     // use the list to make the hash table
+    printf("\n");
     printList(sortedList);
     
     
