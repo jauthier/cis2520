@@ -51,7 +51,7 @@ void menu(List * list, Entry ** ht){
                 
                 break;
             case 5 :
-                
+                printList(list);
                 break;
             case 6 :
                 break;
@@ -76,7 +76,7 @@ long getInputLong(char * message){
 char * getInputStr(char * message){
     char *buffer = malloc(sizeof(char) * 100);
     printf("%s",message);
-    fgets(buffer, 100, stdin);
+    scanf("%s", &buffer);
     return buffer;
 }
 
