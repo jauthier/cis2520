@@ -40,12 +40,12 @@ void menu(List * list, Entry ** ht){
                 Element * newElement = createElement(newPerson);
                 insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
                 list = addBack(list, newElement);
-                list = mergeSort(list)
+                list = mergeSort(list);
                 break;
-            case 3 :
+            case 3 : ;
                 long phoneNum = getInputLong("Enter the phone number of the person you wish to remove: ");
                 Person * toRm = (Person *)removeEntry(ht, phoneNum);
-                printf("%s, %s, %ld was removed.\n", toRm(->lastName, toRm->firstName, toRm->phoneNum);
+                printf("%s, %s, %ld was removed.\n", toRm->lastName, toRm->firstName, toRm->phoneNum);
                 break;
             case 4 :
                 
@@ -58,6 +58,8 @@ void menu(List * list, Entry ** ht){
             case 7 :
                 break;
             default :
+                printf(" ");
+                break;
             
         }
         
