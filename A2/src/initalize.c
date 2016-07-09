@@ -25,7 +25,7 @@ List * loadFile(char * fileName, List *list){
     
     
     while (buffer != NULL){
-        
+        printf("%s\n",buffer);
         lastName = strtok(buffer, ",");
         printf("%s\n",lastName);
         firstName = strtok(NULL, ",");
@@ -45,6 +45,7 @@ List * loadFile(char * fileName, List *list){
         
         //add to a list of people
         list = addBack(list, newElement);
+        
         fgets(buffer, 200, fp);
     }
     printf("finished loading\n");
