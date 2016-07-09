@@ -42,23 +42,23 @@ List * loadFile(char * fileName, List *list){
 List * mergeSort(List * list){
     
     Element * head = list->head;
-    Element * list1 = NULL;
-    Element * list2 = NULL;
+    List * list1 = createList();
+    List * list2 = createList();
     
     if (getLength(list)<2)
         return list;
     
-    list1 = head;
-    list2 = bisectList(head)->next;
+    list1->head = head;
+    list2->head = bisectList(head)->next;
     bisectList(head)->next = NULL;
     
-    list1 = mergeSort(list1)->head;
-    list2 = mergeSort(list2)->head;
+    list1 = mergeSort(list1);
+    list2 = mergeSort(list2);
     
-    return mergeLists(list1, list2);
+    return mergeLists(list1->head, list2->head);
 }
 
-Element * mergeLists(Element * list1, Element * list2){
+List * mergeLists(Element * list1, Element * list2){
     List * result  = createList();
     Element * current = NULL;
     
