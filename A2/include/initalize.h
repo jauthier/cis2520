@@ -36,7 +36,7 @@ List * mergeSort(List * list);
     Preconditions:
     Postconditions:
 */
-Element * mergeLists(Element * list1, Element * list2);
+List * mergeLists(Element * list1, Element * list2);
 
 /*
     Purpose:
