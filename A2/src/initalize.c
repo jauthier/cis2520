@@ -54,8 +54,11 @@ void menu(List * list, Entry ** ht){
                 phoneNum = getInputLong("Enter the phone number of the person you wish to update: ");
                 char * lastName = getInputStr("Enter the new last name: ");
                 char * firstName = getInputStr("Enter the new first name: ");
+                person * hold = (Person *)lookup(ht, phoneNum);
                 Person * replace = createPerson(lastName, firstName, phoneNum);
                 update(ht, phoneNum, replace);
+                Element * toUpdate = searchByValue(list, hold);
+                toUpdate->elementPtr = update;
                 break;
             case 5 :
                 printList(list);
@@ -76,6 +79,21 @@ void menu(List * list, Entry ** ht){
         }
         
     }
+}
+
+Element * searchByValue(List *list, void * value){
+    
+    Element *temp = list->head;
+    if (temp == NULL)
+        printf("There are no entries to update.\n");
+    
+    while (temp != NULL){
+        if (temp->elementPtr == value)
+            return temp;
+        temp = temp->next;
+    }
+    
+    return temp;
 }
 
 long getInputLong(char * message){
