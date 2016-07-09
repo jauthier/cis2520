@@ -24,6 +24,8 @@ void menu(List * list, Entry ** ht){
         printf("Enter the number of the action you want to complete: ");
         scanf("%d", &choice);
         
+        long phoneNum;
+        
         switch(choice){
             case 1 : ;
                 char * fileName;
@@ -43,13 +45,13 @@ void menu(List * list, Entry ** ht){
                 list = mergeSort(list);
                 break;
             case 3 : ;
-                long phoneNum = getInputLong("Enter the phone number of the person you wish to remove: ");
+                phoneNum = getInputLong("Enter the phone number of the person you wish to remove: ");
                 Person * toRm = (Person *)removeEntry(ht, phoneNum);
                 
                 printf("%s, %s, %ld was removed.\n", toRm->lastName, toRm->firstName, toRm->phoneNum);
                 break;
-            case 4 :
-                long phoneNum = getInputLong("Enter the phone number of the person you wish to update: ");
+            case 4 : ;
+                phoneNum = getInputLong("Enter the phone number of the person you wish to update: ");
                 char * lastName = getInputStr("Enter the new last name: ");
                 char * firstName = getInputStr("Enter the new first name: ");
                 Person * replace = createPerson(lastName, firstName, phoneNum);
@@ -58,8 +60,8 @@ void menu(List * list, Entry ** ht){
             case 5 :
                 printList(list);
                 break;
-            case 6 :
-                long phoneNum = getInputLong("Enter the phone number of the person you wish to look up: ");
+            case 6 : ;
+                phoneNum = getInputLong("Enter the phone number of the person you wish to look up: ");
                 Person * found = (Person *)lookup(ht, phoneNum);
                 printf("%s, %s, %ld was found.\n", found->lastName, found->firstName, found->phoneNum);
                 
