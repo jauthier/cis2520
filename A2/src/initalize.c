@@ -108,7 +108,6 @@ List * loadFile(char * fileName, List *list, Entry ** ht){
     fp = fopen(fileName, "r");
     if (fp == NULL){
         printf("File not found!\n");
-        exit(0);
     }
     
     while (fgets(buffer, 200, fp) != NULL){
