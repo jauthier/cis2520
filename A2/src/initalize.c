@@ -30,7 +30,7 @@ List * loadFile(char * fileName, List *list){
         newPerson->firstName = firstName;
         newPerson->phoneNum = phoneNum;
         
-        Element newElement = createElement(newPerson);
+        Element * newElement = createElement(newPerson);
         
         //add to a list of people
         list = addBack(list, newElement);
@@ -41,8 +41,9 @@ List * loadFile(char * fileName, List *list){
 
 List * mergeSort(List * list){
     
-    Element * head = list->head
-    Element * list1, * list2;
+    Element * head = list->head;
+    Element * list1 = NULL;
+    Element * list2 = NULL;
     
     if (getLength(list)<2)
         return list;
