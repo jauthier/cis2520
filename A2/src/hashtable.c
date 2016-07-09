@@ -1,3 +1,8 @@
+/*
+    Author: Jessica Authier
+    2016/07/08
+*/
+
 #include "hashtable.h"
 
 Entry ** create(){
