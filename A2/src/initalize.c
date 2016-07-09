@@ -47,9 +47,10 @@ List * loadFile(char * fileName, List *list){
         
         //add to a list of people
         list = addBack(list, newElement);
-        return list;
+        fgets(buffer, 200, fp);
     }
     fclose(fp);
+    return list;
 }
 
 List * mergeSort(List * list){
@@ -161,10 +162,11 @@ int compareNames(Element * first, Element * second){
 void printList(List * list){
     
     Element * temp = list->head;
-    
+    char *ln = (Person*)temp->elementPtr)->lastName;
+    char *fn = ((Person*)temp->elementPtr)->firstName;
+    long num = ((Person*)temp->elementPtr)->phoneNum);
     while (temp != NULL){
-        printf("%s, %s, %ld\n", ((Person*)temp->elementPtr)->lastName,
-        ((Person*)temp->elementPtr)->firstName, ((Person*)temp->elementPtr)->phoneNum);
+        printf("%s, %s, %ld\n", (ln, fn, num);
         temp = temp->next;
     }
 }
