@@ -16,6 +16,26 @@ typedef struct Person{
     
 }Person;
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+void menu(List * list);
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+char * getInput(char * message);
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+Person * createPerson(char * ln, char * fn, char * pn);
 
 /*
     Purpose:

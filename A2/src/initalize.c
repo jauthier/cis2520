@@ -5,12 +5,101 @@
 
 #include "initalize.h"
 
-List * loadFile(char * fileName, List *list){
+void menu(List * list, Entry ** ht){
+    
+    int choice;
+    
+    printf("Welcome to the phonebook!\n");
+    
+    while(choice != 7){
+        
+        printf("What would you like to do?\n");
+        printf("1. Load a file.\n");
+        printf("2. Add an enrty.\n");
+        printf("3. Remove an entry.\n");
+        printf("4. Update an entry.\n");
+        printf("5. Print all entries.\n");
+        printf("6. Look up by phone number.\n");
+        printf("7. Exit.\n");
+        printf("Enter the number of the action you want to complete: ");
+        scanf("%d", &choice);
+        
+        switch(choice){
+            case 1 :
+                char * fileName = getInputStr("Enter the name of the file you wish to load: ");
+                list = loadFile(fileName, list, ht);
+                list = mergeSort(list);
+                break;
+            case 2 :
+                char * ln = getInputStr("Enter the persons last name: ");
+                char * fn = getInputStr("Enter the persons first name: ");
+                char * pn = getInputStr("Enter the persons phone number: ");
+                Person * newPerson = createPerson(ln, fn, pn);
+                Element * newElement = createElement(newPerson);
+                insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
+                list = addBack(list, newElement);
+                list = mergeSort(list)
+                break;
+            case 3 :
+                long phoneNum = getInputLong("Enter the phone number of the person you wish to remove: ");
+                Person * toRm = (Person *)removeEntry(ht, phoneNum);
+                printf("%s, %s, %ld was removed.\n", toRm(->lastName, toRm->firstName, toRm->phoneNum);
+                break;
+            case 4 :
+                
+                break;
+            case 5 :
+                
+                break;
+            case 6 :
+                break;
+            case 7 :
+                break;
+            default :
+            
+        }
+        
+    }
+}
+
+long getInputLong(char * message){
+    long num;
+    printf("%s",message);
+    scanf("%ld", &num);
+    return num;
+}
+
+char * getInputStr(char * message){
+    char buffer[100];
+    printf("%s",message);
+    fgets(buffer, 100, stdin);
+    return buffer;
+}
+
+Person * createPerson(char * ln, char * fn, char * pn){
+    
+    char *temp;
+    long hold;
+    Person * newPerson = malloc(sizeof(Person));
+    
+    newPerson->lastName = malloc(sizeof(char)*strlen(lastName));
+    strcpy(newPerson->lastName, lastName);
+    
+    newPerson->firstName = malloc(sizeof(char)*strlen(firstName));;
+    strcpy(newPerson->firstName, firstName);
+    
+    hold = strtol((char*)phoneNum, &temp, 10);
+    newPerson->phoneNum = hold;
+    
+    return newPerson;
+}
+
+List * loadFile(char * fileName, List *list, Entry ** ht){
     
     FILE *fp;
-    char *firstName, *lastName, *phoneNum, *temp;
+    char *firstName, *lastName, *phoneNum;
     char buffer[200];
-    long hold;
+    
     
     fp = fopen(fileName, "r");
     if (fp == NULL){
@@ -23,14 +112,9 @@ List * loadFile(char * fileName, List *list){
         firstName = strtok(NULL, ",");
         phoneNum = strtok(NULL, ", \n");
         
-        Person * newPerson = malloc(sizeof(Person));
-        newPerson->lastName = malloc(sizeof(char)*strlen(lastName));
-        strcpy(newPerson->lastName, lastName);
-        newPerson->firstName = malloc(sizeof(char)*strlen(firstName));;
-        strcpy(newPerson->firstName, firstName);hold = strtol((char*)phoneNum, &temp, 10);
-        newPerson->phoneNum = hold;
-        
+        Person * newPerson = createPerson(lastName, firstName, phoneNum);
         Element * newElement = createElement(newPerson);
+        insert(ht, ((Person*)hold->elementPtr)->phoneNum, (Person*)hold->elementPtr);
         list = addBack(list, newElement);
     }
     fclose(fp);
