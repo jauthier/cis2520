@@ -8,7 +8,7 @@
 List * loadFile(char * fileName, List *list){
     
     FILE *fp;
-    char *firstName, *lastName, *phoneNum;
+    char *firstName, *lastName, *phoneNum, *temp;
     char buffer[200];
     
     printf("%s\n",fileName);
