@@ -166,7 +166,7 @@ void printList(List * list){
     char *fn = ((Person*)(temp->elementPtr))->firstName;
     long num = ((Person*)(temp->elementPtr))->phoneNum;
     while (temp != NULL){
-        printf("%s, %s, %ld\n", (ln, fn, num);
+        printf("%s, %s, %ld\n", ln, fn, num);
         temp = temp->next;
     }
 }
