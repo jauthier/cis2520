@@ -19,7 +19,7 @@ int main(int argc, char * argv[]){
     
     if (argc == 2){
         fileName = argv[1];
-        peopleList = loadFile(fileName, peopleList);
+        peopleList = loadFile(fileName, peopleList, ht);
         peopleList = mergeSort(peopleList);
     }
     

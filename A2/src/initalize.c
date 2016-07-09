@@ -26,14 +26,16 @@ void menu(List * list, Entry ** ht){
         
         switch(choice){
             case 1 :
-                char * fileName = getInputStr("Enter the name of the file you wish to load: ");
+                char * fileName;
+                fileName = getInputStr("Enter the name of the file you wish to load: ");
                 list = loadFile(fileName, list, ht);
                 list = mergeSort(list);
                 break;
             case 2 :
-                char * ln = getInputStr("Enter the persons last name: ");
-                char * fn = getInputStr("Enter the persons first name: ");
-                char * pn = getInputStr("Enter the persons phone number: ");
+                char *ln, *fn, *pn;
+                ln = getInputStr("Enter the persons last name: ");
+                fn = getInputStr("Enter the persons first name: ");
+                pn = getInputStr("Enter the persons phone number: ");
                 Person * newPerson = createPerson(ln, fn, pn);
                 Element * newElement = createElement(newPerson);
                 insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
