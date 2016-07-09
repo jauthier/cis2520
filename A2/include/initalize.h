@@ -43,7 +43,7 @@ char * getInputStr(char * message);
     Preconditions:
     Postconditions:
 */
-Person * createPerson(char * ln, char * fn, char * pn);
+Person * createPerson(char * ln, char * fn, long pn);
 
 /*
     Purpose:

@@ -32,10 +32,10 @@ void menu(List * list, Entry ** ht){
                 list = mergeSort(list);
                 break;
             case 2 : ;
-                char *ln, *fn, *pn;
+                char *ln, *fn;
                 ln = getInputStr("Enter the persons last name: ");
                 fn = getInputStr("Enter the persons first name: ");
-                pn = getInputStr("Enter the persons phone number: ");
+                long pn = getInputLong("Enter the persons phone number: ");
                 Person * newPerson = createPerson(ln, fn, pn);
                 Element * newElement = createElement(newPerson);
                 insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
@@ -45,20 +45,30 @@ void menu(List * list, Entry ** ht){
             case 3 : ;
                 long phoneNum = getInputLong("Enter the phone number of the person you wish to remove: ");
                 Person * toRm = (Person *)removeEntry(ht, phoneNum);
+                
                 printf("%s, %s, %ld was removed.\n", toRm->lastName, toRm->firstName, toRm->phoneNum);
                 break;
             case 4 :
-                
+                long phoneNum = getInputLong("Enter the phone number of the person you wish to update: ");
+                char * lastName = getInputStr("Enter the new last name: ");
+                char * firstName = getInputStr("Enter the new first name: ");
+                Person * replace = createPerson(lastName, firstName, phoneNum);
+                update(ht, phoneNum, replace);
                 break;
             case 5 :
                 printList(list);
                 break;
             case 6 :
+                long phoneNum = getInputLong("Enter the phone number of the person you wish to look up: ");
+                Person * found = (Person *)lookup(ht, phoneNum);
+                printf("%s, %s, %ld was found.\n", found->lastName, found->firstName, found->phoneNum);
+                
                 break;
             case 7 :
+                printf("Goodbye\n");
                 break;
             default :
-                printf(" ");
+                printf("Please enter a number from 1 to 7.\n");
                 break;
             
         }
@@ -80,10 +90,8 @@ char * getInputStr(char * message){
     return buffer;
 }
 
-Person * createPerson(char * ln, char * fn, char * pn){
-    
-    char *temp;
-    long hold;
+Person * createPerson(char * ln, char * fn, long pn){
+        
     Person * newPerson = malloc(sizeof(Person));
     
     newPerson->lastName = malloc(sizeof(char)*strlen(ln));
@@ -92,8 +100,7 @@ Person * createPerson(char * ln, char * fn, char * pn){
     newPerson->firstName = malloc(sizeof(char)*strlen(fn));;
     strcpy(newPerson->firstName, fn);
     
-    hold = strtol((char*)pn, &temp, 10);
-    newPerson->phoneNum = hold;
+    newPerson->phoneNum = pn;
     
     return newPerson;
 }
@@ -101,7 +108,7 @@ Person * createPerson(char * ln, char * fn, char * pn){
 List * loadFile(char * fileName, List *list, Entry ** ht){
     
     FILE *fp;
-    char *firstName, *lastName, *phoneNum;
+    char *firstName, *lastName, *phoneNum, *temp;
     char buffer[200];
     
     
@@ -114,8 +121,9 @@ List * loadFile(char * fileName, List *list, Entry ** ht){
         lastName = strtok(buffer, ",");
         firstName = strtok(NULL, ",");
         phoneNum = strtok(NULL, ", \n");
+        long hold = strtol((char*)phoneNum, &temp, 10);
         
-        Person * newPerson = createPerson(lastName, firstName, phoneNum);
+        Person * newPerson = createPerson(lastName, firstName, hold);
         Element * newElement = createElement(newPerson);
         insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
         list = addBack(list, newElement);
