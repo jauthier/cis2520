@@ -87,10 +87,10 @@ Person * createPerson(char * ln, char * fn, char * pn){
     Person * newPerson = malloc(sizeof(Person));
     
     newPerson->lastName = malloc(sizeof(char)*strlen(ln));
-    strcpy(newPerson->lastName, lastName);
+    strcpy(newPerson->lastName, ln);
     
     newPerson->firstName = malloc(sizeof(char)*strlen(fn));;
-    strcpy(newPerson->firstName, firstName);
+    strcpy(newPerson->firstName, fn);
     
     hold = strtol((char*)pn, &temp, 10);
     newPerson->phoneNum = hold;
@@ -118,7 +118,7 @@ List * loadFile(char * fileName, List *list, Entry ** ht){
         
         Person * newPerson = createPerson(lastName, firstName, phoneNum);
         Element * newElement = createElement(newPerson);
-        insert(ht, ((Person*)hold->elementPtr)->phoneNum, (Person*)hold->elementPtr);
+        insert(ht, ((Person*)newElement->elementPtr)->phoneNum, (Person*)newElement->elementPtr);
         list = addBack(list, newElement);
     }
     fclose(fp);
