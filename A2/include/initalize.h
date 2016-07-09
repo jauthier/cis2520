@@ -8,6 +8,7 @@
 #include <string.h>
 #include "linkedlist.h"
 #include "hashtable.h"
+#include "mergeSort.h"
 
 typedef struct Person{
     
@@ -22,7 +23,9 @@ typedef struct Person{
     Preconditions:
     Postconditions:
 */
-void menu(List * list, Entry ** ht);
+void menuLoop(List * list, Entry ** ht);
+
+void printMenu();
 
 Element * searchByValue(List * list, void * value);
 
@@ -53,34 +56,6 @@ Person * createPerson(char * ln, char * fn, long pn);
     Postconditions:
 */
 List * loadFile(char * fileName, List *list, Entry ** ht);
-
-/*
-    Purpose:
-    Preconditions:
-    Postconditions:
-*/
-List * mergeSort(List * list);
-
-/*
-    Purpose:
-    Preconditions:
-    Postconditions:
-*/
-List * mergeLists(Element * list1, Element * list2);
-
-/*
-    Purpose:
-    Preconditions:
-    Postconditions:
-*/
-Element * bisectList(Element * head);
-
-/*
-    Purpose:
-    Preconditions:
-    Postconditions:
-*/
-int compareNames(Element * first, Element * second);
 
 /*
     Purpose:

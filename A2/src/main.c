@@ -8,6 +8,7 @@
 #include "linkedlist.h"
 #include "initalize.h"
 #include "hashtable.h"
+#include "mergeSort.h"
 
 int main(int argc, char * argv[]){
     
