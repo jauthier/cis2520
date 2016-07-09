@@ -24,6 +24,8 @@ typedef struct Person{
 */
 void menu(List * list, Entry ** ht);
 
+Element * searchByValue(List * list, void * value);
+
 /*
     Purpose:
     Preconditions:
