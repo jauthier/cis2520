@@ -19,7 +19,7 @@ List * loadFile(char * fileName, List *list){
         exit(0);
     }
     
-    buffer = fgets(fp);
+    fgets(buffer, 60, fp);
     
     while (buffer != EOF){
         

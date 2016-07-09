@@ -10,10 +10,10 @@
 
 int main(int argc, char * argv[]){
     
-    char fileName[20];
+    char *fileName;
     
     //get command line input
-    if (arg != 1){
+    if (argc != 1){
         printf("Please enter the name of the file you wish to load.\n");
         exit(0);
     }
