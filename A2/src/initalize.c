@@ -30,7 +30,7 @@ List * loadFile(char * fileName, List *list){
         printf("%s\n",lastName);
         firstName = strtok(NULL, ",");
         printf("%s\n",firstName);
-        phoneNum = strtok(NULL, " ,");
+        phoneNum = strtok(NULL, ", \n");
         
         Person * newPerson = malloc(sizeof(Person));
         newPerson->lastName = lastName;
