@@ -8,9 +8,7 @@
 List * loadFile(char * fileName, List *list){
     
     FILE * fp;
-    char firstName[20];
-    char lastName[20];
-    char phoneNum[10];
+    char *firstName, *lastName, *phoneNum;
     char buffer[60];
     
     fp = fopen(fileName, "r");
