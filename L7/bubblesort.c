@@ -11,7 +11,7 @@ int main(){
     int array[50];
     
     for (int i=0;i<50;i++){
-        array = rand() % 1000;
+        array[i] = rand() % 1000;
     }
     
     printArray(array, 50);
