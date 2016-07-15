@@ -9,8 +9,9 @@ void bubblesort(int a[], int n);
 
 int main(){
     
-    int array[50];
     time_t = start, end;
+    int array[50];
+    
     for (int i=0;i<50;i++){
         array[i] = rand() % 1000;
     }
