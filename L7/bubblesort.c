@@ -12,15 +12,15 @@ int main(){
     clock_t start, end;
     int array[50];
     
-    for (int i=0;i<50;i++){
+    for (int i=0;i<1000;i++){
         array[i] = rand() % 1000;
     }
     
-    printArray(array, 50);
+    printArray(array,1000);
     start = clock();
-    bubblesort(array, 50);
+    bubblesort(array, 1000);
     end = clock();
-    printArray(array, 50);
+    printArray(array, 1000);
     
     printf("time it took: %f", (double)(end - start) / CLOCKS_PER_SEC );    
     
