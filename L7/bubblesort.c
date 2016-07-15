@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <type.h>
 
 void printArray(int a[], int n);
 void swap(int * x, int * y);
@@ -11,7 +10,7 @@ void bubblesort(int a[], int n);
 int main(){
     
     int array[50];
-    clock_t = start, end;
+    time_t = start, end;
     for (int i=0;i<50;i++){
         array[i] = rand() % 1000;
     }
