@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <type.h>
 
 void printArray(int a[], int n);
 void swap(int * x, int * y);
