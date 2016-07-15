@@ -16,11 +16,11 @@ int main(){
         array[i] = rand() % 1000;
     }
     
-    printArray(array,1000);
+    //printArray(array,1000);
     start = clock();
     bubblesort(array, 1000);
     end = clock();
-    printArray(array, 1000);
+    //printArray(array, 1000);
     
     printf("time it took: %f", (double)(end - start) / CLOCKS_PER_SEC );    
     
