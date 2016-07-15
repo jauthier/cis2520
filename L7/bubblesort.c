@@ -10,7 +10,7 @@ void bubblesort(int a[], int n);
 int main(){
     
     clock_t start, end;
-    int array[50];
+    int array[1000];
     
     for (int i=0;i<1000;i++){
         array[i] = rand() % 1000;
