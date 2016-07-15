@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void printArray(int a[], int n);
 void swap(int * x, int * y);
@@ -9,16 +10,18 @@ void bubblesort(int a[], int n);
 int main(){
     
     int array[50];
-    
+    clock_t = start, end;
     for (int i=0;i<50;i++){
         array[i] = rand() % 1000;
     }
     
     printArray(array, 50);
-    
+    start = clock();
     bubblesort(array, 50);
-    
+    end = clock();
     printArray(array, 50);
+    
+    printf("time it took: %f", (double)(end - start) / CLOCKS_PER_SEC );    
     
     return 0;
 }
