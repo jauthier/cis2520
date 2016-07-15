@@ -1,10 +1,9 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
 void printArray(int a[], int n);
 void swap(int * x, int * y);
-void bubblesort(int a[], int n);
+void rbubblesort(int a[], int n);
 
 int main(){
     
@@ -16,7 +15,7 @@ int main(){
     
     printArray(array, 50);
     
-    bubblesort(array, 50);
+    rbubblesort(array, 50);
     
     printArray(array, 50);
     
@@ -31,13 +30,21 @@ void printArray(int a[], int n){
     printf("\n");
 }
 
-void bubblesort(int a[], int n){
-    int i, j;
+void swap(int * x, int * y){
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+void rbubblesort (int a[], int n){
+    int i;
     
-    for (i=0;i<n;i++){
-        for (j=0;j<n-i-1;j++){
-            if (a[j]>a[j+1])
-                swap(&a[j], &a[j+1]);
-        }
+    for (i=0;i<n-1;i++){
+        if (a[i] >  a[i+1])
+            swap(&a[i],&a[i+1]);
     }
+    
+    if (n > 2)
+        rbubblesort(a, n-1);
 }
