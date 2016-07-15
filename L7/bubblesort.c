@@ -9,7 +9,7 @@ void bubblesort(int a[], int n);
 
 int main(){
     
-    time_t = start, end;
+    clock_t start, end;
     int array[50];
     
     for (int i=0;i<50;i++){
