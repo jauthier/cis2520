@@ -35,6 +35,13 @@ void printArray(int a[], int n){
     printf("\n");
 }
 
+void swap(int * x, int * y){
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void bubblesort(int a[], int n){
     int i, j;
     
