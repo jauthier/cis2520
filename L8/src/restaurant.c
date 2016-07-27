@@ -12,10 +12,10 @@ Restaurant * createRestaurant(char * name, char * type, int rating) {
     Restaurant * newR;
     newR = malloc(sizeof (Restaurant));
     newR->name = malloc(sizeof(char)*strlen(name));
-    stpcpy(newR->name, name);
+    strcpy(newR->name, name);
     
     newR->type = malloc(sizeof(char)*strlen(type));
-    stpcpy(newR->type, type);
+    strcpy(newR->type, type);
     
     newR->rating = rating;
     
@@ -33,8 +33,8 @@ int compareName(void * data1,void * data2){
     
     char *name1, *name2;
     
-    name1 = (restaurant *)data1->name;
-    name2 = (restaurant *)data2->name;
+    name1 = (Restaurant *)data1->name;
+    name2 = (Restaurant *)data2->name;
     
     if (strcmp(name1, name2) < 0) //name1 goes before name2
         return 1;

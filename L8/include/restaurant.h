@@ -25,7 +25,7 @@ typedef struct Restaurant {
 Restaurant * createRestaurant(char * name, char * type, int rating);
 
 
-void destory(Restaurant * toDestory);
+void destroy(Restaurant * toDestory);
 
 
 int compareName(void * data1, void * data2);
