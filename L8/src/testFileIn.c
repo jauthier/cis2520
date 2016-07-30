@@ -9,8 +9,7 @@ void printList(List * list);
 int main(int argc, char *argv[]) {
     
     char * fileName;
-    
-    if (argc < 1){
+    if (argc > 1){
         fileName = argv[1];
     } else {
         printf("Please enter the name of a file.\n");
