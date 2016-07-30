@@ -54,7 +54,7 @@ void printList(List * list) {
     Element * hold = list->head;
     
     while (hold != NULL){
-        Rsetaurant * temp = (Restaurant *)hold->elementPtr;
+        Restaurant * temp = (Restaurant *)hold->elementPtr;
         printf("%s, %s, %d\n", temp->name, temp->type, temp->rating);
         
     }
