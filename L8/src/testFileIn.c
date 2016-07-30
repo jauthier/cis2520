@@ -3,18 +3,21 @@
 #include "restaurant.h"
 #include "linkedlist.h"
 
+List * parseFile(char * fileName, List * list);
+void printList(List * list);
+
 int main(int argc, char *argv[]) {
     
     char * fileName;
     
-    if (argc < 1)
+    if (argc < 1){
         fileName = argv[1];
-    else {
-        printf("Please enter the name of a file.\n")
+    } else {
+        printf("Please enter the name of a file.\n");
         exit(0);
     }
     
-    List * list createList();
+    List * list = createList();
     list = parseFile(fileName, list);
     printList(list);
     
