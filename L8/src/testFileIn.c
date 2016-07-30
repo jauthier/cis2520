@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     
     List * list = createList();
     list = parseFile(fileName, list);
+    
     printList(list);
     
     return 0;
@@ -55,6 +56,6 @@ void printList(List * list) {
     while (hold != NULL){
         Restaurant * temp = (Restaurant *)hold->elementPtr;
         printf("%s, %s, %d\n", temp->name, temp->type, temp->rating);
-        
+        hold = hold->next;
     }
 }
