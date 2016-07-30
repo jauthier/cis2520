@@ -12,11 +12,11 @@ int main(){
     int compRating = compareRating(r1,r2);
     
     if (compRating < 0)
-        printf("%s is rated higher than %s\n.", r2->name, r1->name);
+        printf("%s is rated higher than %s.\n", r2->name, r1->name);
     else if (compRating == 0)
         printf("They have the same rating.\n");
     else
-        printf("%s is rated higher than %s\n.", r1->name, r2->name);
+        printf("%s is rated higher than %s.\n", r1->name, r2->name);
     
     
     // testing the compare name function
