@@ -6,7 +6,7 @@
 */
 
 #include "restaurantFunctions.h"
-#include "treeInterface"
+#include "treeInterface.h"
 
 int main(){
     
