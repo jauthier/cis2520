@@ -5,7 +5,6 @@
     2016/08/01    
 */
 
-#include "restaurantFunctions.c"
 
 void printRestaurant(void * toPrint) {
     Restaurant * temp = (Restaurant*) toPrint;
