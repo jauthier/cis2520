@@ -2,12 +2,19 @@
 #include "restaurant.h"
 #include "treeInterface.h"
 
+int count;
+
+
 
 void printRestaurant(void * toPrint) {
-    printf("Name: %s\n",(Restaurant *)toPrint->name);
-    printf("Type: %s\n", (Restaurant *)toPrint->type);
-    printf("Rating: %d/5\n", (Restaurant *)toPrint->rating);
+    Restaurant * temp = (Restaurant*) toPrint;
+    printf("Name: %s\n",temp->name);
+    printf("Type: %s\n", temp->type);
+    printf("Rating: %d/5\n", temp->rating);
 }
+
+int maxHeight(Tree * tree);
+
 
 int main(){
     
@@ -19,6 +26,9 @@ int main(){
     Restaurant * r5 = createRestaurant("Burrito Boys", "mexican", 5);
     Restaurant * r6 = createRestaurant("The Keg", "steak house", 5);
     Restaurant * r7 = createRestaurant("McDonalds", "fast", 2);
+    Restaurant * r8 = createRestaurant("Dairy Queen", "ice cream", 4);
+    Restaurant * r9 = createRestaurant("Wendy's", "fast", 2);
+    Restaurant * r10 = createRestaurant("Wok Wagon", "fast", 3);
     
     // create trees
     Tree * nameTree, * ratingTree;
@@ -34,108 +44,43 @@ int main(){
     addToTree(nameTree, r5);
     addToTree(nameTree, r6);
     addToTree(nameTree, r7);
+    addToTree(nameTree, r8);
+    addToTree(nameTree, r9);
+    addToTree(nameTree, r10);
+
+
     
     printInOrder(nameTree, &printRestaurant);
+    printf("\n");
+    //printPreOrder(nameTree, &printRestaurant);
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
-    Restaurant * holdR = (Restaurant *)getRootData(ratingTree);
-    printf("%s, %d\n", holdR->name, holdR->rating);
-
     addToTree(ratingTree, r2);
-    holdR = (Restaurant *)getRootData(ratingTree);
-    printf("%s, %d\n", holdR->name, holdR->rating);
-
-
-
-
     addToTree(ratingTree, r7);
     addToTree(ratingTree, r3);
-/*    addToTree(ratingTree, r4);
+    addToTree(ratingTree, r4);
     addToTree(ratingTree, r5);
-    addToTree(ratingTree, r6);*/
-    // first row
-    Restaurant * test = (Restaurant *)getRootData(ratingTree);
-    printf("%s\n",test->name);
-    
-    // second row
-    Tree * right1 = getRightSubtree(ratingTree);
-    if (right1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(right1);
-        printf("%s\n",test->name);
-    }
+    addToTree(ratingTree, r6);
 
-    Tree * left1 = getLeftSubtree(ratingTree);
-    if (left1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(left1);
-        printf("%s\n",test->name);
-    }
+    //printInOrder(ratingTree, &printRestaurant);
+    //printPreOrder(ratingTree, &printRestaurant);
 
-    // third row
-
-    //
-    Tree * hold = right1;
-    right1 = getRightSubtree(hold);
-    if (right1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(right1);
-        printf("%s\n",test->name);
-    }
-    left1 = getLeftSubtree(hold);
-    if (left1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(left1);
-        printf("%s\n",test->name);
-    }
-
-    // forth row
-    hold = left1;
-    right1 = getRightSubtree(hold);
-    if (right1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(right1);
-        printf("%s\n",test->name);
-    }
-    left1 = getLeftSubtree(hold);
-    if (left1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(left1);
-        printf("%s\n",test->name);
-    }
-    
-    
-    hold = left1;
-    right1 = getRightSubtree(hold);
-    if (right1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(right1);
-        printf("%s\n",test->name);
-    }
-    left1 = getLeftSubtree(hold);
-    if (left1 == NULL ){
-        printf("Here\n");
-    } else {
-        test = (Restaurant *)getRootData(left1);
-        printf("%s\n",test->name);
-    }
+    printf("maxLen: %d\n",maxHeight(nameTree));
 
     return 0;
 }
 
 
 
-void printTree(Tree * tree){
-
+int maxHeight(Tree * tree){
     
-    
-    
+    if (tree == NULL)
+        return 0;
+    int left = maxHeight(getLeftSubtree(tree));
+    int right = maxHeight(getRightSubtree(tree));
+    if (left < right)
+        return right + 1;
+    else
+        return left + 1;
 }
