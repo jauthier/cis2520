@@ -14,6 +14,7 @@ void printRestaurant(void * toPrint) {
 }
 
 int maxHeight(Tree * tree);
+int printTree(Tree * tree, int level);
 
 
 int main(){
@@ -67,6 +68,7 @@ int main(){
     //printPreOrder(ratingTree, &printRestaurant);
 
     printf("maxLen: %d\n",maxHeight(nameTree));
+    printTree(nameTree);
 
     return 0;
 }
@@ -84,3 +86,28 @@ int maxHeight(Tree * tree){
     else
         return left + 1;
 }
+
+int printTree(Tree * tree, int level){
+    
+    Restaurant * root = getRootData(tree);
+    if (root == NULL) //this branch is done
+        return 0;
+    
+    Tree * right = getRightSubtree(tree);
+    Tree * left = getLeftSubtree(tree);
+    
+    printTree(right, level+1);
+    
+    
+    for (int i=0; i<(level*12); i++){
+        printf(" ");
+    }
+    printf("%s(%d)\n", root->head, root->rating);
+    
+    printTree(left, level+1);
+    
+    return 0;
+}
+
+
+
