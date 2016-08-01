@@ -22,11 +22,12 @@ Restaurant * createRestaurant(char * name, char * type, int rating) {
     return newR;
 }
 
-void destroy(Restaurant * toDestroy) {
+void destroyRestaurant(void * toDestroy) {
     
-    free(toDestroy->name);
-    free(toDestroy->type);
-    free(toDestroy);
+    Restaurant * temp = (Restaurant *)toDestroy;
+    free(temp->name);
+    free(temp->type);
+    free(temp);
 }
 
 int compareName(void * data1,void * data2){

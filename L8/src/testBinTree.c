@@ -1,6 +1,6 @@
-
+#include <stdio.h>
 #include "restaurant.h"
-
+#include "treeInterface.h"
 
 int main(){
     
@@ -14,9 +14,11 @@ int main(){
     Restaurant * r7 = createRestaurant("McDonalds", "fast", 2);
     
     // create trees
-    Tree * nameTree = createBinTree(compareName(void * data1, void * data2), destroy(Restaurant * toDestroy));
-    Tree * ratingTree = createBinTree(compareRating(void * data1, void * data2), destroy(Restaurant * toDestroy));
+    Tree * nameTree, * ratingTree;
     
+    nameTree = createBinTree(compareName, destroyRestaurant);
+    ratingTree = createBinTree(compareRating, destroyRestaurant);
+
     // add the restaurants to the tree sorted by name
     addToTree(nameTree, r1);
     addToTree(nameTree, r2);
@@ -34,8 +36,78 @@ int main(){
     addToTree(ratingTree, r5);
     addToTree(ratingTree, r6);
     addToTree(ratingTree, r7);
+    // first row
+    Restaurant * test = (Restaurant *)getRootData(ratingTree);
+    printf("%s\n",test->name);
+    
+    // second row
+    Tree * right1 = getRightSubtree(ratingTree);
+    if (right1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(right1);
+        printf("%s\n",test->name);
+    }
+
+    Tree * left1 = getLeftSubtree(ratingTree);
+    if (left1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(left1);
+        printf("%s\n",test->name);
+    }
+
+    // third row
+
+    Tree * hold = right1;
+    right1 = getRightSubtree(hold);
+    if (right1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(right1);
+        printf("%s\n",test->name);
+    }
+    left1 = getLeftSubtree(hold);
+    if (left1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(left1);
+        printf("%s\n",test->name);
+    }
+
+    // forth row
+    hold = left1;
+    right1 = getRightSubtree(hold);
+    if (right1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(right1);
+        printf("%s\n",test->name);
+    }
+    left1 = getLeftSubtree(hold);
+    if (left1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(left1);
+        printf("%s\n",test->name);
+    }
     
     
+    hold = left1;
+    right1 = getRightSubtree(hold);
+    if (right1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(right1);
+        printf("%s\n",test->name);
+    }
+    left1 = getLeftSubtree(hold);
+    if (left1 == NULL ){
+        printf("Here\n");
+    } else {
+        test = (Restaurant *)getRootData(left1);
+        printf("%s\n",test->name);
+    }
 
     return 0;
 }
