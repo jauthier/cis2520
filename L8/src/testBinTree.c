@@ -98,7 +98,7 @@ int printTree(Tree * tree, int level){
     
     if (right != NULL)
         printTree(right, level+1);
-    printf("%d\n",count);
+    //printf("%d\n",count);
     for (int i=0; i<(level*15); i++){
         printf(" ");
     }
