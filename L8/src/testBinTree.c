@@ -90,21 +90,22 @@ int maxHeight(Tree * tree){
 int printTree(Tree * tree, int level){
     
     Restaurant * root = getRootData(tree);
-    if (root == NULL) //this branch is done
-        return 0;
+    //if (root == NULL) //this branch is done
+      //  return 0;
     
     Tree * right = getRightSubtree(tree);
     Tree * left = getLeftSubtree(tree);
-    
-    printTree(right, level+1);
-    
+//printf("here\n");
+    if (right != NULL)
+        printTree(right, level+1);
     
     for (int i=0; i<(level*12); i++){
         printf(" ");
     }
     printf("%s(%d)\n", root->name, root->rating);
     
-    printTree(left, level+1);
+    if (left != NULL)
+        printTree(left, level+1);
     
     return 0;
 }
