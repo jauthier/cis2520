@@ -17,8 +17,8 @@ Restaurant * createRestaurant(char * name, char * type, int rating) {
     newR->type = malloc(sizeof(char)*strlen(type));
     strcpy(newR->type, type);
     
-    newR->rating = malloc(sizeof(int));
-    *newR->rating = rating;
+    &newR->rating = malloc(sizeof(int));
+    newR->rating = rating;
     
     return newR;
 }
