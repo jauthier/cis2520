@@ -95,14 +95,14 @@ int printTree(Tree * tree, int level){
     
     Tree * right = getRightSubtree(tree);
     Tree * left = getLeftSubtree(tree);
-    printf("%d\n",count);
+    
     if (right != NULL)
         printTree(right, level+1);
-    
+    printf("%d\n",count);
     for (int i=0; i<(level*15); i++){
         printf(" ");
     }
-    printf("%s(%d)\n", root->name, root->rating);
+    printf("%d: %s(%d)\n", count, root->name, root->rating);
     
     if (left != NULL)
         printTree(left, level+1);
