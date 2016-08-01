@@ -37,7 +37,7 @@ int compareName(void * data1,void * data2){
     name1 = ((Restaurant *)data1)->name;
     name2 = ((Restaurant *)data2)->name;
     
-    if (strcmp(name1, name2) < 0) //name1 goes before name2
+    if (strcmp(name1, name2) > 0) //name1 goes before name2
         return 1;
     else if (strcmp(name1, name2) == 0)//same name
         return 0;

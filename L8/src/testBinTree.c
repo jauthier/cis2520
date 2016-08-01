@@ -1,21 +1,11 @@
-#include <stdio.h>
-#include "restaurant.h"
-#include "treeInterface.h"
+/*
+    Program for testing some binTree functions.
+    
+    Author: Jessica Authier
+    2016/08/01    
+*/
 
-int count;
-
-
-
-void printRestaurant(void * toPrint) {
-    Restaurant * temp = (Restaurant*) toPrint;
-    printf("Name: %s\n",temp->name);
-    printf("Type: %s\n", temp->type);
-    printf("Rating: %d/5\n", temp->rating);
-}
-
-int maxHeight(Tree * tree);
-int printTree(Tree * tree, int level);
-
+#include "restaurantFunctions.h"
 
 int main(){
     
@@ -51,9 +41,10 @@ int main(){
 
 
     
-    printInOrder(nameTree, &printRestaurant);
+    printInOrder(nameTree, &printRestaurant); // print in order
     printf("\n");
-    //printPreOrder(nameTree, &printRestaurant);
+    printTree(nameTree, 0); // print as a tree
+    printf("\n");
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
@@ -64,55 +55,15 @@ int main(){
     addToTree(ratingTree, r5);
     addToTree(ratingTree, r6);
 
-    //printInOrder(ratingTree, &printRestaurant);
-    //printPreOrder(ratingTree, &printRestaurant);
-    count = 0;
-    printf("maxLen: %d\n",maxHeight(nameTree));
-    printTree(nameTree, 0);
-
+    printInOrder(ratingTree, &printRestaurant); //print in order
+    printf("\n");
+    printTree(ratingTree); // print as a tree
+    printf("\n");
+    
+    //destroy the trees
+    destory(nameTree);
+    destroy(ratingTree);
+    
     return 0;
 }
-
-
-
-int maxHeight(Tree * tree){
-    
-    if (tree == NULL)
-        return 0;
-    int left = maxHeight(getLeftSubtree(tree));
-    int right = maxHeight(getRightSubtree(tree));
-    if (left < right)
-        return right + 1;
-    else
-        return left + 1;
-}
-
-int printTree(Tree * tree, int level){
-    
-    Restaurant * root = getRootData(tree);
-    
-    Tree * right = getRightSubtree(tree); // set set the right side as a subtree
-    Tree * left = getLeftSubtree(tree); // set set the left side as a subtree
-    
-    if (right != NULL) // if there is a node on the right
-        printTree(right, level+1); // evaluate that node
-    
-    for (int i=0; i<(level*5); i++){
-        printf(" ");
-    }
-    /* if (level != 0){
-        for (int i=0; i<7; i++){
-            printf("-");
-        }
-    } */
-    
-    printf(" %s(%d)\n", root->name, root->rating);
-    
-    if (left != NULL)
-        printTree(left, level+1);
-    count = count + 1;
-    return 0;
-}
-
-
 

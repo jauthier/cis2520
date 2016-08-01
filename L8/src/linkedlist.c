@@ -1,4 +1,6 @@
 /*
+    Linked List Data Type 
+    
     Author: Jessica Authier
     2016\05\27
 */
