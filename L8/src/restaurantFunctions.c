@@ -44,6 +44,4 @@ void printTree(Tree * tree, int level){
     
     if (left != NULL) // if there is a node on the right
         printTree(left, level+1);
-    count = count + 1;
-    return 0;
 }
