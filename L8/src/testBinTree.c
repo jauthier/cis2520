@@ -6,6 +6,7 @@
 */
 
 #include "restaurantFunctions.h"
+#include "treeInterface"
 
 int main(){
     
@@ -57,7 +58,7 @@ int main(){
 
     printInOrder(ratingTree, &printRestaurant); //print in order
     printf("\n");
-    printTree(ratingTree); // print as a tree
+    printTree(ratingTree, 0); // print as a tree
     printf("\n");
     
     //destroy the trees
