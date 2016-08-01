@@ -2,6 +2,13 @@
 #include "restaurant.h"
 #include "treeInterface.h"
 
+
+void printRestaurant(void * toPrint) {
+    printf("Name: %s\n",(Restaurant *)toPrint->name);
+    printf("Type: %s\n", (Restaurant *)toPrint->type);
+    printf("Rating: %d/5\n", (Restaurant *)toPrint->rating);
+}
+
 int main(){
     
     //make test restaurants
@@ -27,6 +34,8 @@ int main(){
     addToTree(nameTree, r5);
     addToTree(nameTree, r6);
     addToTree(nameTree, r7);
+    
+    printInOrder(nameTree, &printRestaurant);
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
