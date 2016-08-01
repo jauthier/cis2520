@@ -5,8 +5,8 @@
 int main(){
     
     //make test restaurants
-    Restaurant * r1 = createRestaurant("Subway", "sandwich", 1);
-    Restaurant * r2 = createRestaurant("Mr Sub", "sandwich", 5);
+    Restaurant * r1 = createRestaurant("Subway", "sandwich", 4);
+    Restaurant * r2 = createRestaurant("Mr Sub", "sandwich", 3);
     Restaurant * r3 = createRestaurant("Pizza Pizza", "pizza", 4);
     Restaurant * r4 = createRestaurant("Swiss Chalet", "eat in", 3);
     Restaurant * r5 = createRestaurant("Burrito Boys", "mexican", 5);
@@ -16,8 +16,8 @@ int main(){
     // create trees
     Tree * nameTree, * ratingTree;
     
-    nameTree = createBinTree(compareName, destroyRestaurant);
-    ratingTree = createBinTree(compareRating, destroyRestaurant);
+    nameTree = createBinTree(&compareName, &destroyRestaurant);
+    ratingTree = createBinTree(&compareRating, &destroyRestaurant);
 
     // add the restaurants to the tree sorted by name
     addToTree(nameTree, r1);
@@ -30,12 +30,21 @@ int main(){
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
+    Restaurant * holdR = (Restaurant *)getRootData(ratingTree);
+    printf("%s, %d\n", holdR->name, holdR->rating);
+
     addToTree(ratingTree, r2);
-    addToTree(ratingTree, r3);
-    addToTree(ratingTree, r4);
-    addToTree(ratingTree, r5);
-    addToTree(ratingTree, r6);
+    holdR = (Restaurant *)getRootData(ratingTree);
+    printf("%s, %d\n", holdR->name, holdR->rating);
+
+
+
+
     addToTree(ratingTree, r7);
+    addToTree(ratingTree, r3);
+/*    addToTree(ratingTree, r4);
+    addToTree(ratingTree, r5);
+    addToTree(ratingTree, r6);*/
     // first row
     Restaurant * test = (Restaurant *)getRootData(ratingTree);
     printf("%s\n",test->name);
@@ -59,6 +68,7 @@ int main(){
 
     // third row
 
+    //
     Tree * hold = right1;
     right1 = getRightSubtree(hold);
     if (right1 == NULL ){
@@ -110,4 +120,13 @@ int main(){
     }
 
     return 0;
+}
+
+
+
+void printTree(Tree * tree){
+
+    
+    
+    
 }

@@ -2,7 +2,7 @@
     Restaurant Data Type
     
     Author: Jesica Authier
-    07/26/2016
+    08/01/2016
 */
 
 #include "restaurant.h"
@@ -52,10 +52,5 @@ int compareRating(void * data1, void * data2){
     rating1 = ((Restaurant *)data1)->rating;
     rating2 = ((Restaurant *)data2)->rating;
     
-    if (rating1 > rating2)
-        return 1;
-    else if (rating1 == rating2)
-        return 0;
-    else 
-        return -1;
+    return rating1 - rating2;
 }
