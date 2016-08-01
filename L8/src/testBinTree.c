@@ -19,7 +19,7 @@ int main(){
     Restaurant * r6 = createRestaurant("The Keg", "steak house", 5);
     Restaurant * r7 = createRestaurant("McDonalds", "fast", 2);
     Restaurant * r8 = createRestaurant("Dairy Queen", "ice cream", 4);
-    Restaurant * r9 = createRestaurant("Wendy's", "fast", 2);
+    Restaurant * r9 = createRestaurant("Wendy's", "fast", 1);
     Restaurant * r10 = createRestaurant("Wok Wagon", "fast", 3);
     
     // create trees
@@ -50,11 +50,9 @@ int main(){
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
     addToTree(ratingTree, r2);
-    addToTree(ratingTree, r7);
-    addToTree(ratingTree, r3);
-    addToTree(ratingTree, r4);
-    addToTree(ratingTree, r5);
     addToTree(ratingTree, r6);
+    addToTree(ratingTree, r7);
+    addToTree(ratingTree, r9);
 
     printInOrder(ratingTree, &printRestaurant); //print in order
     printf("\n");
