@@ -66,7 +66,7 @@ int main(){
 
     //printInOrder(ratingTree, &printRestaurant);
     //printPreOrder(ratingTree, &printRestaurant);
-
+    count = 0;
     printf("maxLen: %d\n",maxHeight(nameTree));
     printTree(nameTree, 0);
 
@@ -95,18 +95,18 @@ int printTree(Tree * tree, int level){
     
     Tree * right = getRightSubtree(tree);
     Tree * left = getLeftSubtree(tree);
-//printf("here\n");
+    printf("%d\n",count);
     if (right != NULL)
         printTree(right, level+1);
     
-    for (int i=0; i<(level*12); i++){
+    for (int i=0; i<(level*15); i++){
         printf(" ");
     }
     printf("%s(%d)\n", root->name, root->rating);
     
     if (left != NULL)
         printTree(left, level+1);
-    
+    count = count + 1;
     return 0;
 }
 
