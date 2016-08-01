@@ -40,8 +40,11 @@ int main(){
     addToTree(nameTree, r9);
     addToTree(nameTree, r10);
 
-
-    
+    printInOrder(nameTree, &printRestaurant); // print in order
+    printf("\n");
+    printTree(nameTree, 0); // print as a tree
+    printf("\n");
+    destroyBinTree(nameTree);
     
     
     // add the restaurants to the tree sorted by rating
