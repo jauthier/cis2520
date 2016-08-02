@@ -5,7 +5,8 @@ all:
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/main.o src/main.c
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
-	$(CC) -Llib bin/main.o bin/restaurant.o bin/restaurantFunctions. -lbintree -o bin/runTest
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/linkedlist.o src/linkedlist.c
+	$(CC) -Llib bin/main.o bin/restaurant.o bin/restaurantFunctions.o bin/linkedlist.o -lbintree -o bin/runTest
 
 restaurantTest:
 	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude -o bin/runTestRest	
