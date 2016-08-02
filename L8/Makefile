@@ -17,5 +17,6 @@ binTreeTest:
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/testBinTree.o src/testBinTree.c
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
-	$(CC) -Llib bin/testBinTree.o bin/restaurant.o -lbintree -o bin/runTestTree
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/linkedlist.o src/linkedlist.c
+	$(CC) -Llib bin/testBinTree.o bin/restaurant.o bin/restaurantFunctions.o bin/linkedlist.o -lbintree -o bin/runTestTree
 	
