@@ -79,7 +79,7 @@ int main(){
         The program should print to consol "Subway is rated higher than Swiss Chalet."
         if the compareRating function work correctly
     */
-    int compName = compareName(r1,r6);
+    compName = compareName(r1,r6);
     
     if (compName < 0)
         printf("%s, %s\n.", r6->name, r1->name);
