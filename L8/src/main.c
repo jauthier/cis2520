@@ -43,14 +43,14 @@ int main(int argc, char *argv[]){
     printTree(ratingTree, 0); // print as a tree
     printf("\n");
     
-    hold = list->head;
-    while (hold != NULL){
+    //hold = list->head;
+    /* while (hold != NULL){
         
         removeFromTree(nameTree, hold->elementPtr);
         removeFromTree(ratingTree, hold->elementPtr);
         
         hold = hold->next;
-    }
+    } */
     
     //destroyList(list);
     //destroyBinTree(nameTree);
