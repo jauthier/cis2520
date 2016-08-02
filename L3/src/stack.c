@@ -20,9 +20,9 @@ int isEmpty(Stack * stack){
     int len = getLength(stack->top);
     printf("%d\n",len);
     if (len == 0)
-        return 0;
-    else 
         return 1;
+    else 
+        return 0;
 }
 
 void push(Stack * stack, Element * element){
