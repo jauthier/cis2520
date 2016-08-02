@@ -53,8 +53,8 @@ int main(int argc, char *argv[]){
     }
     
     destroyList(list);
-    destroyBinTree(nameTree);
-    destroyBinTree(ratingTree);
+    //destroyBinTree(nameTree);
+    //destroyBinTree(ratingTree);
     
     return 0;
 }
