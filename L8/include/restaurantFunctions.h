@@ -11,7 +11,11 @@
 #include <stdio.h>
 #include "restaurant.h"
 #include "treeInterface.h"
+#include "linkedlist.h"
 
+
+
+List * parseFile(char * fileName, List * list);
 
 /*
     Purpose: to print the contents of the restaurant data type

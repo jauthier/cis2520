@@ -6,7 +6,6 @@
 */
 
 #include "restaurantFunctions.h"
-#include "linkedlist.h"
 
 List * parseFile(char * fileName, List * list){
     
