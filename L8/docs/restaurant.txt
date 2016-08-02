@@ -1,0 +1,8 @@
+Subway,sandwiches,4
+McDonalds,fast food,3
+Swiss Chalet,dine in,4
+Taco Bell,mexican,2
+A&W,fast food,3
+Pizza Pizza,pizza,4
+Burrito Boyz,mexican,5
+The Keg,steakhouse,5
