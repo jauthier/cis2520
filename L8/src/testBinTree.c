@@ -43,10 +43,10 @@ int main(){
     printInOrder(nameTree, &printRestaurant); // print in order
     printf("\n");
     printTree(nameTree, 0); // print as a tree
-    printf("\nhere\n");
+    printf("\n");
     
     destroyBinTree(nameTree);
-    printf("\nhere\n");
+    
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
@@ -55,7 +55,8 @@ int main(){
     addToTree(ratingTree, r7);
     addToTree(ratingTree, r9);
     addToTree(ratingTree, r10);
-
+    
+    printf("\nhere\n");
     
     printInOrder(nameTree, &printRestaurant); // print in order
     printf("\n");
