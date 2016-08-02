@@ -13,8 +13,11 @@
 #include "treeInterface.h"
 #include "linkedlist.h"
 
-
-
+/*
+    Purpose: to read the contents of a text file and put the contents into a List of type Restaurant*
+    Preconditions: a text file of the appropriate format is passed as a parameter
+    Postconditions: the contents is put into an initalized List and returned to the calling function
+*/
 List * parseFile(char * fileName, List * list);
 
 /*

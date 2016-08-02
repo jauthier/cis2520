@@ -6,7 +6,6 @@
 */
 
 #include "restaurantFunctions.h"
-//#include "treeInterface.h"
 
 int main(){
     
@@ -40,13 +39,11 @@ int main(){
     addToTree(nameTree, r9);
     addToTree(nameTree, r10);
 
+    printf("Sort By Name\n------------\n");
     printInOrder(nameTree, &printRestaurant); // print in order
     printf("\n");
     printTree(nameTree, 0); // print as a tree
     printf("\n");
-    
-    
-    
     
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
@@ -60,13 +57,7 @@ int main(){
     addToTree(ratingTree, r9);
     addToTree(ratingTree, r10);
     
-    printf("\nhere\n");
-    
-    printInOrder(ratingTree, &printRestaurant); // print in order
-    printf("\n");
-    printTree(nameTree, 0); // print as a tree
-    printf("\n");
-    
+    printf("Sort By Rating\n---------------\n");
     printInOrder(ratingTree, &printRestaurant); //print in order
     printf("\n");
     printTree(ratingTree, 0); // print as a tree
@@ -78,4 +69,3 @@ int main(){
     
     return 0;
 }
-
