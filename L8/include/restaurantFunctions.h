@@ -9,6 +9,7 @@
 #define RESTAURANTFUNCTIONS_H
 
 #include <stdio.h>
+#include <string.h>
 #include "restaurant.h"
 #include "treeInterface.h"
 #include "linkedlist.h"

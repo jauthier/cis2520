@@ -1,5 +1,9 @@
 
-
+#include <stdio.h>
+#include "restaurant.h"
+#include "restaurantFunctions.h"
+#include "treeInterface.h"
+#include "linkedlist.h"
 
 int main(int argc, char *argv[]){
     
