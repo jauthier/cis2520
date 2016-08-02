@@ -68,11 +68,11 @@ int main(){
     int compName = compareName(r1,r2);
     
     if (compName < 0)
-        printf("%s, %s\n.", r2->name, r1->name);
+        printf("%s, %s.\n", r2->name, r1->name);
     else if (compName == 0)
         printf("They have the same name.\n");
     else
-        printf("%s, %s\n.", r1->name, r2->name);
+        printf("%s, %s.\n", r1->name, r2->name);
     
     /*
         testing when the first parameter is rated more than the second
@@ -82,11 +82,11 @@ int main(){
     compName = compareName(r1,r6);
     
     if (compName < 0)
-        printf("%s, %s\n.", r6->name, r1->name);
+        printf("%s, %s.\n", r6->name, r1->name);
     else if (compName == 0)
         printf("They have the same name.\n");
     else
-        printf("%s, %s\n.", r1->name, r6->name);
+        printf("%s, %s.\n", r1->name, r6->name);
     
     /*
         testing when the first and second parameters have the same name.
@@ -96,11 +96,11 @@ int main(){
     compName = compareName(r1,r4);
     
     if (compName < 0)
-        printf("%s, %s\n.", r4->name, r1->name);
+        printf("%s, %s.\n", r4->name, r1->name);
     else if (compName == 0)
         printf("They have the same name.\n");
     else
-        printf("%s, %s\n.", r1->name, r4->name);
+        printf("%s, %s.\n.", r1->name, r4->name);
     
     // testing destroy function
     destroyRestaurant(r1);
