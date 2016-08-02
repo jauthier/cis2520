@@ -43,8 +43,9 @@ int main(){
     
     /*
         testing when the first and second parameters are rated the same
-        The program should print to consol "They have the same rating."
-        if the compareRating function work correctly
+        The program should print to consol "Burrito Boys is rated higher than Mr Sub."
+        if the compareRating function work correctly, this is because in my 
+        compare function if the ratings are the same then the data is sorted by rating.
     */
     compRating = compareRating(r5,r2);
     if (compRating < 0)
@@ -61,9 +62,9 @@ int main(){
     // testing the compare name function
     
     /*
-        testing when the first parameter is rated more than the second
-        The program should print to consol "Subway is rated higher than Swiss Chalet."
-        if the compareRating function work correctly
+        Testing when the first parameter is before the second in alphabetical
+        order. The program should print to consol "Subway is rated higher than 
+        Swiss Chalet." if the compareRating function work correctly
     */
     int compName = compareName(r1,r2);
     
@@ -75,8 +76,8 @@ int main(){
         printf("%s, %s.\n", r1->name, r2->name);
     
     /*
-        testing when the first parameter is rated more than the second
-        The program should print to consol "Subway is rated higher than Swiss Chalet."
+        Testing when the first parameter is before the second in alphabetical
+        order. The program should print to consol "Mr Sub, Subway."
         if the compareRating function work correctly
     */
     compName = compareName(r1,r6);
@@ -89,7 +90,7 @@ int main(){
         printf("%s, %s.\n", r1->name, r6->name);
     
     /*
-        testing when the first and second parameters have the same name.
+        Testing when the first and second parameters have the same name.
         The program should print to consol "They have the same name."
         if the compareRating function work correctly
     */
@@ -105,6 +106,10 @@ int main(){
     // testing destroy function
     destroyRestaurant(r1);
     destroyRestaurant(r2);
+    destroyRestaurant(r3);
+    destroyRestaurant(r4);
+    destroyRestaurant(r5);
+    destroyRestaurant(r6);
     
     return 0;
 }
