@@ -7,6 +7,31 @@
 
 #include "restaurantFunctions.h"
 
+List * parseFile(char * fileName, List * list){
+    
+    FILE * fp;
+    char *name, *type, *temp;
+    int rating;
+    char buffer[200];
+    
+    fp = fopen(fileName, "r");
+    if (fp == NULL)
+        printf("The file was not loaded.\n");
+    
+    while (fgets(buffer, 200, fp) != NULL){
+        name = strtok(buffer, ",");
+        type = strtok(NULL, ",");
+        rating = strtol(strtok(NULL, ",\n"), &temp, 10);
+        
+        Restaurant * newRest = createRestaurant(name, type, rating);
+        Element * newElement = createElement(newRest);
+        list = addBack(list, newElement);
+        
+    }
+    fclose(fp);
+    return list;
+}
+
 void printRestaurant(void * toPrint) {
     Restaurant * temp = (Restaurant*) toPrint;
     printf("Name: %s\n",temp->name);
