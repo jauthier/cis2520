@@ -11,7 +11,7 @@ restaurantTest:
 	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude -o bin/runTestRest	
 
 fileTest:
-	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c -Iinclude -o bin/runFileTest
+	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c src/restaurantFunctions.c -Iinclude -o bin/runFileTest
 	
 binTreeTest:
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/testBinTree.o src/testBinTree.c
