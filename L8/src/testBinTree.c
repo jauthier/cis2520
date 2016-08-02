@@ -74,7 +74,7 @@ int main(){
     
     //destroy the trees
     destroyBinTree(nameTree);
-    //destroyBinTree(ratingTree);
+    //destroyBinTree(ratingTree); --> can't destroy this one becaue the pointers no longer exist
     
     return 0;
 }
