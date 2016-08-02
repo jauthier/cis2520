@@ -14,7 +14,13 @@ int main(int argc, char *argv[]){
     List * list = createList();
     list = parseFile(fileName, list);
     
-    
+    Element * hold = list->head;
+    while (hold != NULL){
+        
+        
+        
+        hold = hold->next;
+    }
     
     
     return 0;

@@ -4,6 +4,11 @@
 #include "linkedlist.h"
 #include "restaurantFunctions.h"
 
+/*
+    Purpose: to print a Restaurant variable to the consol
+    Preconditions: an initialized List
+    Postconditions: none
+*/
 void printList(List * list);
 
 int main(int argc, char *argv[]) {
