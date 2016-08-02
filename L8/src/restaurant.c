@@ -54,7 +54,7 @@ int compareRating(void * data1, void * data2){
     rating2 = ((Restaurant *)data2)->rating;
     
     if (rating1 == rating2){
-        char *name1, *name2;
+        /* char *name1, *name2;
     
         name1 = ((Restaurant *)data1)->name;
         name2 = ((Restaurant *)data2)->name;
@@ -64,7 +64,8 @@ int compareRating(void * data1, void * data2){
         else if (strcmp(name1, name2) == 0)//same name
             return 0;
         else 
-            return -1;
+            return -1; */
+        return compareName(data1, data2);
     } else {
         return rating1 - rating2;
     }

@@ -58,7 +58,7 @@ int main(){
     
     printf("\nhere\n");
     
-    printInOrder(nameTree, &printRestaurant); // print in order
+    printInOrder(ratingTree, &printRestaurant); // print in order
     printf("\n");
     printTree(nameTree, 0); // print as a tree
     printf("\n");
