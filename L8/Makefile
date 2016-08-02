@@ -1,21 +1,21 @@
 CC = gcc
 CFLAGS = -Wall -pedantic -std=c99
 
-
-
 all:
-	$(CC) $(CFLAGS) -Iinclude -c -o testRestADT.o src/testRestADT.c
-	$(CC) $(CFLAGS) -Iinclude -c -o restaurant.o src/restaurant.c
-	$(CC) -Llib testRestADT.o restaurant.o -lbintree -o runTest
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/main.o src/main.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
+	$(CC) -Llib bin/main.o bin/restaurant.o bin/restaurantFunctions. -lbintree -o bin/runTest
 
 restaurantTest:
-	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude -o runTestRest	
+	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude -o bin/runTestRest	
 
 fileTest:
-	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c -Iinclude -o runFileTest
+	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c -Iinclude -o bin/runFileTest
 	
 binTreeTest:
-	$(CC) $(CFLAGS) -Iinclude -c -o testBinTree.o src/testBinTree.c
-	$(CC) $(CFLAGS) -Iinclude -c -o restaurant.o src/restaurant.c
-	$(CC) -Llib testBinTree.o restaurant.o -lbintree -o runTestTree
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/testBinTree.o src/testBinTree.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
+	$(CC) -Llib bin/testBinTree.o bin/restaurant.o -lbintree -o bin/runTestTree
 	
