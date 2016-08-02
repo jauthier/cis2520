@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
         hold = hold->next;
     }
     
-    destroyList(list);
+    //destroyList(list);
     //destroyBinTree(nameTree);
     //destroyBinTree(ratingTree);
     
