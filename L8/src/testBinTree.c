@@ -69,8 +69,8 @@ int main(){
     printf("\n");
     
     //destroy the trees
-    destroyBinTree(nameTree);
-    destroyBinTree(ratingTree);
+    //destroyBinTree(nameTree);
+    //destroyBinTree(ratingTree);
     
     return 0;
 }
