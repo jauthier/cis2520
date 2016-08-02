@@ -51,8 +51,12 @@ int main(){
     // add the restaurants to the tree sorted by rating
     addToTree(ratingTree, r1);
     addToTree(ratingTree, r2);
+    addToTree(ratingTree, r3);
+    addToTree(ratingTree, r4);
+    addToTree(ratingTree, r5);
     addToTree(ratingTree, r6);
     addToTree(ratingTree, r7);
+    addToTree(ratingTree, r8);
     addToTree(ratingTree, r9);
     addToTree(ratingTree, r10);
     
@@ -69,7 +73,7 @@ int main(){
     printf("\n");
     
     //destroy the trees
-    //destroyBinTree(nameTree);
+    destroyBinTree(nameTree);
     //destroyBinTree(ratingTree);
     
     return 0;
