@@ -53,5 +53,8 @@ int compareRating(void * data1, void * data2){
     rating1 = ((Restaurant *)data1)->rating;
     rating2 = ((Restaurant *)data2)->rating;
     
-    return rating1 - rating2;
+    if (rating1 == rating2)
+        return compareName(data1, data2);
+    else
+        return rating1 - rating2;
 }
