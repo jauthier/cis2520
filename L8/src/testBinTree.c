@@ -45,7 +45,7 @@ int main(){
     printTree(nameTree, 0); // print as a tree
     printf("\n");
     
-    destroyBinTree(nameTree);
+    
     
     
     // add the restaurants to the tree sorted by rating
