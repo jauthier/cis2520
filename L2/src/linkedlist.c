@@ -1,3 +1,8 @@
+/*
+    Author: Jessica Authier
+    2016\05\27
+*/
+
 #include "linkedlist.h"
 
 List * createList(){

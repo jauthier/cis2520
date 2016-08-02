@@ -22,7 +22,7 @@ int main(){
     e3 = createElement(&c);
     
     int empty = isEmpty(stack1);
-    if (empty == 0)
+    if (empty == 1)
         printf("The stack is empty!\n");
     else 
         printf("Why is the stack not empty?\n");
@@ -32,7 +32,7 @@ int main(){
     
     empty = isEmpty(stack1);
     
-    if (empty == 0)
+    if (empty == 1)
         printf("Why is the stack empty?\n");
     else 
         printf("The stack is not empty!\n");

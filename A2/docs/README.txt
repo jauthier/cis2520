@@ -47,9 +47,9 @@ should be if the function works properly and what the actual outcome is.
 I tested the reading and interpretation of the input file next. I did this by writing a test input file (called file.txt in the docs folder), and 
 running it through the function that reads the file and puts it into the linked list. I made sure the function was working properly by printing the 
 outputted list and comparing it to the input file. Once the file interpretation was working properly I tested the mergeSort.c file. I tested this by 
-printing out the contents of the two lists each time the function mergeSort() was called, and kept trake of what it should be using pieces of paper
-.
-
+printing out the contents of the two lists each time the function mergeSort() was called, and kept track of what it should be using pieces of paper
+with the values of the Elements written on them. After the sorting functions were functioning properly I wrote the menu and tested all the functions 
+available. I tested then by giving them different inputs and took note whether their outputs were correct, usually by printing the newly changed list. 
 
 ~~~~~~~~~~~~~~~
 
