@@ -9,10 +9,18 @@ all:
 	$(CC) -Llib bin/main.o bin/restaurant.o bin/restaurantFunctions.o bin/linkedlist.o -lbintree -o bin/run
 
 restaurantTest:
-	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude src/restaurantFunctions.c -o bin/runTestRest	
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/testRestADT.o src/testRestADT.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/linkedlist.o src/linkedlist.c
+	$(CC) -Llib bin/testRestADT.o bin/restaurant.o bin/restaurantFunctions.o bin/linkedlist.o -lbintree -o bin/runTestRest	
 
 fileTest:
-	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c src/restaurantFunctions.c -Iinclude -o bin/runFileTest
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/testFileIn.o src/testFileIn.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurant.o src/restaurant.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/restaurantFunctions.o src/restaurantFunctions.c
+	$(CC) $(CFLAGS) -Iinclude -c -o bin/linkedlist.o src/linkedlist.c
+	$(CC) -Llib bin/testFileIn.o bin/restaurant.o bin/linkedlist.o bin/restaurantFunctions.o -lbintree -o bin/runFileTest
 	
 binTreeTest:
 	$(CC) $(CFLAGS) -Iinclude -c -o bin/testBinTree.o src/testBinTree.c
