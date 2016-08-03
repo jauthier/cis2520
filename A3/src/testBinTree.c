@@ -35,7 +35,7 @@ int main(){
     BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
     
     
-    
+    destroyBinTree(newTree);
     return 0;
 }
 
