@@ -15,6 +15,9 @@ NOTE: destroyBinTree only freed the tree, not the nodes at this point
 
 */
 
+#include <stdio.h>
+#include "bintree.h"
+
 int testCompare(void * data1, void * data2){
     return 1;
 }
