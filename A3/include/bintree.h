@@ -17,14 +17,14 @@ typedef struct BinTreeNode {
 } BinTreeNode;
 
 typedef struct BinTree {
-    int (*compare)(void *, void *)
-    void (*destroy)(void *)
+    int (*compare)(void *, void *);
+    void (*destroy)(void *);
     BinTreeNode * root;
 } BinTree;
 
 
 
-BinTree * createBinTree();
+BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *));
 
 void destroyBinTree(BinTree * tree);
 
