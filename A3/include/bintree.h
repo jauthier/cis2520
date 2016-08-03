@@ -9,6 +9,7 @@
 #define BINTREE_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct BinTreeNode {
     void * data;
