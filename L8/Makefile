@@ -9,7 +9,7 @@ all:
 	$(CC) -Llib bin/main.o bin/restaurant.o bin/restaurantFunctions.o bin/linkedlist.o -lbintree -o bin/run
 
 restaurantTest:
-	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude -o bin/runTestRest	
+	$(CC) $(CFLAGS) src/testRestADT.c src/restaurant.c -Iinclude src/restaurantFunctions.c -o bin/runTestRest	
 
 fileTest:
 	$(CC) $(CFLAGS) src/testFileIn.c src/restaurant.c src/linkedlist.c src/restaurantFunctions.c -Iinclude -o bin/runFileTest
