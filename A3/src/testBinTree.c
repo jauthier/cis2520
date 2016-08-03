@@ -32,7 +32,7 @@ void testDestroyNode(void * toDestroy){
 int main(){
     
     //create
-    BinTree * newTree = createBinTree();
+    BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
     
     
     

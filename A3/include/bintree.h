@@ -13,8 +13,8 @@
 
 typedef struct BinTreeNode {
     void * data;
-    BinTreeNode * left;
-    BinTreeNode * right;
+    struct BinTreeNode * left;
+    struct BinTreeNode * right;
 } BinTreeNode;
 
 typedef struct BinTree {
