@@ -14,7 +14,7 @@ static int checkBalance(BinTree * tree){
     
     // get the heigth of the right subtree
     right = getRightSubtree(tree);
-    rightHeight = getMax(right);
+    rightHeight = maxHeight(right);
     
     // get the height of the
     left = getLeftSubtree(tree);
@@ -128,7 +128,7 @@ BinTree * getLeftSubtree(BinTree * tree){
         return NULL;
     
     BinTree * temp = createBinTree(tree->compare ,tree->destroy);
-    temp->root = tree->left;
+    temp->root = tree->root->left;
     
     return temp;
 }
@@ -139,7 +139,7 @@ BinTree * getRightSubtree(BinTree * tree){
         return NULL;
     
     BinTree * temp = createBinTree(tree->compare ,tree->destroy);
-    temp->root = tree->right;
+    temp->root = tree->root->right;
     
     return temp;
 }
