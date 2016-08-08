@@ -21,8 +21,12 @@ Then wrote insert, which is the static function that addToTree calls
    -- to check if it worked I called getRootData(getRightSubTree(newTree))
     which gets the data of the root of the right subtree\
       -- the output shoud be "10"
-      --
- 
+      -- the output was "10"
+ -- I then added another node with the value of 13
+   -- to check if it worked I called getRootData(getRightSubTree(getRightSubTree(newTree)))
+    which gets the data of the root of the right subtree of the right subtree
+      -- the output shoud be "13"
+      -- the output was "13"
 
 
 
@@ -56,16 +60,18 @@ int main(){
     BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
     
     // add to the tree
-    int num1, num2;
+    int num1, num2, num3;
     num1 = 6;
     num2 = 10;
+    num3 = 13;
     
     newTree = addToTree(newTree, &num1);
     newTree = addToTree(newTree, &num2);
+    newTree = addToTree(newTree, &num3);
     
     printf("%d\n", *(int *)(getRootData(newTree)));
     printf("%d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    
+    printf("%d.\n", *(int *)(getRootData(getRightSubtree(getRightSubtree(newTree)))))
     
     destroyBinTree(newTree);
     return 0;
