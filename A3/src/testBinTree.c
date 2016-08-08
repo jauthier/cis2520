@@ -59,9 +59,9 @@ void testDestroyNode(void * toDestroy){
 void printTreeLevelRec(BinTreeNode * node, int desired){
     
     void * holdData = node->data;
-    printf("here\n");
+    printf("here");
     
-    printf("des: %d, ",desired);    
+    printf("des: %d, \n",desired);    
     if (desired == 1){
         if (holdData == NULL){
         printf("null");
