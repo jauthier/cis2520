@@ -8,6 +8,9 @@ NOTE: destroyBinTree only freed the tree, not the nodes at this point
 - compiles and runs
 ----------------
 
+Wrote isTreeEmpty, getRootNode, getLeftSubtree and getLeftSubtree
+
+
 Started addToTree
 
 

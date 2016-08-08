@@ -34,7 +34,7 @@ BinTree * insert(BinTree * tree, BinTreeNode * toAdd);
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd);
 
-static BinTreeNode * createNode(void * data);
+//static BinTreeNode * createNode(void * data);
 
 int isTreeEmpty(BinTree * tree);
 
@@ -46,10 +46,10 @@ BinTree * getRightSubtree(BinTree * tree);
 
 int maxHeight(BinTree * tree);
 
-static int checkBalance(BinTree * tree);
+//static int checkBalance(BinTree * tree);
 
-static BinTreeNode * rotateRight(BinTree * tree);
+//static BinTreeNode * rotateRight(BinTree * tree);
 
-static BinTreeNode * rotateLeft(BinTree * tree);
+//static BinTreeNode * rotateLeft(BinTree * tree);
 
 #endif
