@@ -77,7 +77,7 @@ void printTreeLevel(BinTree * tree){
     printf("height: %d\n", h);
  
     for(i=1; i<=h; i++){
-        printf("Level %d :", i);
+        printf("Level %d :\n", i);
         printTreeLevelRec(tree->root, i);
         printf("\n");
     }
