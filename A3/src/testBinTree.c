@@ -15,18 +15,19 @@ Then wrote insert, which is the static function that addToTree calls
   value 6
    -- to check if it worked I called getRootData, because it should be the 
     only node in the tree
-      -- the output should be "6" 
-      -- the output was "6"
+      -- the output should be "root: 6" 
+      -- the output was "root: 6"
  -- I then added another node with the value of 10
    -- to check if it worked I called getRootData(getRightSubTree(newTree))
     which gets the data of the root of the right subtree\
-      -- the output shoud be "10"
-      -- the output was "10"
+      -- the output shoud be "root: 6, right: 10"
+      -- the output was "root: 6, right: 10"
  -- I then added another node with the value of 13
-   -- to check if it worked I called getRootData(getRightSubTree(getRightSubTree(newTree)))
-    which gets the data of the root of the right subtree of the right subtree
-      -- the output shoud be "13"
-      -- the output was "13"
+   -- to check if it worked I called, getRootData(newTree) to check the new root, because it 
+    should have changed from balancing, getRootData(getLeftSubtree(newTree)) to check the left
+    node, and getRootData(getRightSubTree(newTree)) to check the right node
+      -- the output shoud be "root: 10, right: 13, left: 6"
+      -- the output was "root: 10, right: 13, left: 6"
 
 
 
@@ -69,9 +70,9 @@ int main(){
     newTree = addToTree(newTree, &num2);
     newTree = addToTree(newTree, &num3);
     
-    printf("%d\n", *(int *)(getRootData(newTree)));
-    printf("%d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    printf("%d.\n", *(int *)(getRootData(getRightSubtree(getRightSubtree(newTree)))));
+    printf(" root: %d\n", *(int *)(getRootData(newTree)));
+    printf("right: %d\n", *(int *)(getRootData(getRightSubtree(newTree))));
+    printf("left: %d.\n", *(int *)(getRootData(getLeftSubtree(newTree))));
     
     destroyBinTree(newTree);
     return 0;
