@@ -109,7 +109,7 @@ void destroyBinTree(BinTree * tree){
 
 BinTree * addToTree(BinTree * tree, void * data){
     
-    return insert(BinTree * tree, void * data);
+    return insert(tree, data);
 }
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd){
