@@ -127,6 +127,10 @@ BinTreeNode * getRootNode(BinTree * tree){
     return tree->root;
 }
 
+void * getRootData(BinTree * tree){
+    return tree->root->data;
+}
+
 BinTree * getLeftSubtree(BinTree * tree){
     
     if (isTreeEmpty(tree) == 1)

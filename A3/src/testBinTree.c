@@ -10,8 +10,15 @@ NOTE: destroyBinTree only freed the tree, not the nodes at this point
 
 Wrote isTreeEmpty, getRootNode, getLeftSubtree, getLeftSubtree, maxHeight
 
+Then wrote insert, which is the static function that addToTree calls
+ -- after writing insert I tested it by calling it and passing it the 
+  value 6
+   -- to check if it worked i called getRootData, because it should be the 
+    only node in the tree
+      -- the output was ""
+ 
 
-Started addToTree
+
 
 
 
@@ -44,7 +51,12 @@ int main(){
     
     // add to the tree
     int num1, num2;
+    num1 = 6;
+    
     newTree = addToTree(newTree, &num1);
+    
+    printf("%d\n", *(int *)(getRootData(newTree)));
+    
     
     
     destroyBinTree(newTree);

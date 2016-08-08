@@ -38,6 +38,8 @@ int isTreeEmpty(BinTree * tree);
 
 BinTreeNode * getRootNode(BinTree * tree);
 
+void * getRootData(BinTree * tree);
+
 BinTree * getLeftSubtree(BinTree * tree);
 
 BinTree * getRightSubtree(BinTree * tree);
