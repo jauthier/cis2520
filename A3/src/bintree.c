@@ -7,6 +7,51 @@
 
 #include "bintree.h"
 
+static int checkBalance(BinTree * tree){
+    
+    BinTree * right * left;
+    int rightHeight, leftHeight;
+    
+    // get the heigth of the right subtree
+    right = getRightSubtree(tree);
+    rightHeight = getMax(right);
+    
+    // get the height of the
+    left = getLeftSubtree(tree);
+    leftHeight = getMax(left);
+    
+    return rightHeight - leftHeight;
+}
+
+static BinTreeNode * rotateRight(BinTreeNode * hold){
+    
+    BinTreeNode * temp = hold->right;
+    hold->right = temp->left;
+    temp->left = hold;
+    
+    return temp;
+}
+
+static BinTreeNode * rotateLeft(BinTreeNode * hold){
+    
+    BinTreeNode * temp = hold->left;
+    hold->left = temp->right;
+    temp->right = hold;
+    
+    return temp;
+}
+
+static BinTreeNode * createNode(void * data){
+    
+    BinTreeNode * newNode = malloc(sizeof(BinTreeNode));
+    newNode->data = data;
+    newNode->nodeBalance = 0;
+    newNode->left = NULL;
+    newNode->right = NULL
+    
+    return newNode;
+}
+
 BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *)){
     
     BinTree * tree = malloc(sizeof(BinTree)); // make space
@@ -63,18 +108,7 @@ BinTree * insert(BinTree * tree, void * data){
 }
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd){
-    
-}
-
-static BinTreeNode * createNode(void * data){
-    
-    BinTreeNode * newNode = malloc(sizeof(BinTreeNode));
-    newNode->data = data;
-    newNode->nodeBalance = 0;
-    newNode->left = NULL;
-    newNode->right = NULL
-    
-    return newNode;
+    return tree->root;
 }
 
 int isTreeEmpty(BinTree * tree){
@@ -122,36 +156,4 @@ int maxHeight(BinTree * tree){
         return left + 1;
 }
 
-static int checkBalance(BinTree * tree){
-    
-    BinTree * right * left;
-    int rightHeight, leftHeight;
-    
-    // get the heigth of the right subtree
-    right = getRightSubtree(tree);
-    rightHeight = getMax(right);
-    
-    // get the height of the
-    left = getLeftSubtree(tree);
-    leftHeight = getMax(left);
-    
-    return rightHeight - leftHeight;
-}
 
-static BinTreeNode * rotateRight(BinTreeNode * hold){
-    
-    BinTreeNode * temp = hold->right;
-    hold->right = temp->left;
-    temp->left = hold;
-    
-    return temp;
-}
-
-static BinTreeNode * rotateLeft(BinTreeNode * hold){
-    
-    BinTreeNode * temp = hold->left;
-    hold->left = temp->right;
-    temp->right = hold;
-    
-    return temp;
-}

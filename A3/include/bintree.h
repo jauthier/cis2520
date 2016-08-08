@@ -30,7 +30,7 @@ BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *))
 
 void destroyBinTree(BinTree * tree);
 
-BinTree * insert(BinTree * tree, BinTreeNode * toAdd);
+BinTree * insert(BinTree * tree, void * data);
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd);
 
