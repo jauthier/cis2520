@@ -71,7 +71,7 @@ int main(){
     
     printf("%d\n", *(int *)(getRootData(newTree)));
     printf("%d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    printf("%d.\n", *(int *)(getRootData(getRightSubtree(getRightSubtree(newTree)))))
+    printf("%d.\n", *(int *)(getRootData(getRightSubtree(getRightSubtree(newTree)))));
     
     destroyBinTree(newTree);
     return 0;
