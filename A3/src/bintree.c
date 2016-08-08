@@ -9,7 +9,7 @@
 
 static int checkBalance(BinTree * tree){
     
-    BinTree * right * left;
+    BinTree = * right * left;
     int rightHeight, leftHeight;
     
     // get the heigth of the right subtree
@@ -47,7 +47,7 @@ static BinTreeNode * createNode(void * data){
     newNode->data = data;
     newNode->nodeBalance = 0;
     newNode->left = NULL;
-    newNode->right = NULL
+    newNode->right = NULL;
     
     return newNode;
 }
@@ -138,7 +138,7 @@ BinTree * getRightSubtree(BinTree * tree){
     if (isTreeEmpty(tree) == 1)
         return NULL;
     
-    BinTree * temp = createBinTree(&tree->compare ,&tree->destroy);
+    BinTree * temp = createBinTree(tree->compare ,tree->destroy);
     temp->root = tree->right;
     
     return temp;
