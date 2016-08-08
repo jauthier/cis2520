@@ -44,7 +44,7 @@ int main(){
     
     // add to the tree
     int num1, num2;
-    newTree = addToTree(&num1);
+    newTree = addToTree(newTree, &num1);
     
     
     destroyBinTree(newTree);
