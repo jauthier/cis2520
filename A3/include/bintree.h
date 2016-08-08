@@ -13,6 +13,7 @@
 
 typedef struct BinTreeNode {
     void * data;
+    int nodeBalance;
     struct BinTreeNode * left;
     struct BinTreeNode * right;
 } BinTreeNode;
@@ -29,9 +30,11 @@ BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *))
 
 void destroyBinTree(BinTree * tree);
 
-BinTree * addToTree(BinTree * tree, BinTreeNode * toAdd);
+BinTree * insert(BinTree * tree, BinTreeNode * toAdd);
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd);
+
+static BinTreeNode * createNode(void * data);
 
 int isTreeEmpty(BinTree * tree);
 
@@ -41,6 +44,12 @@ BinTree * getLeftSubtree(BinTree * tree);
 
 BinTree * getRightSubtree(BinTree * tree);
 
+int maxHeight(BinTree * tree);
 
+static int checkBalance(BinTree * tree);
+
+static BinTreeNode * rotateRight(BinTree * tree);
+
+static BinTreeNode * rotateLeft(BinTree * tree);
 
 #endif

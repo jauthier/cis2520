@@ -4,11 +4,11 @@
 wrote createBinTree and destroyBinTree functions first and tested them:
 NOTE: destroyBinTree only freed the tree, not the nodes at this point
 - forgot a library
-
-
+- fixed BinTreeNode struct 
+- compiles and runs
 ----------------
 
-
+Started addToTree
 
 
 
