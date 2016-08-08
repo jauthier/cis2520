@@ -56,6 +56,16 @@ void testDestroyNode(void * toDestroy){
     printf("\n");
 }
 
+void printTreeLevelRec(BinTreeNode * node, int desired){
+    if(!node)
+        return;
+    if (desired == 1)
+        printf("%d ", *(int *)(node->data));
+ 
+    printTreeLevelRec(node->left, desired-1);
+    printTreeLevelRec(node->right, desired-1);
+}
+
 void printTreeLevel(BinTree * tree){
     int i = 0;
     int h = maxHeight(tree);
@@ -66,15 +76,6 @@ void printTreeLevel(BinTree * tree){
         printf("\n");
     }
 }
- 
-void printTreeLevelRec(BinTreeNode * node, int desired){
-    if(!node)
-        return;
-    if (desired == 1)
-        printf("%d ", node->value);
- 
-    printTreeLevelRec(node->left, desired-1);
-    printTreeLevelRec(node->right, desired-1);
 
 int main(){
     
@@ -101,12 +102,3 @@ int main(){
     destroyBinTree(newTree);
     return 0;
 }
-
-
-
-}
-
-
-
-
-
