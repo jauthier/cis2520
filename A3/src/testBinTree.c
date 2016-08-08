@@ -57,7 +57,9 @@ void testDestroyNode(void * toDestroy){
 }
 
 void printTreeLevelRec(BinTreeNode * node, int desired){
-    if (node == NULL){
+    BinTree * temp = createBinTree(&testCompare, &testDestroyNode);
+    temp = addToTree(temp, node->data);
+    if (getRootData(temp) == NULL){
         //printf("null");
         return;
     }
