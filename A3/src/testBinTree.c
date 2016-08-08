@@ -10,7 +10,8 @@ NOTE: destroyBinTree only freed the tree, not the nodes at this point
 
 Wrote isTreeEmpty, getRootNode, getLeftSubtree, getLeftSubtree, maxHeight
 
-Then wrote insert, which is the static function that addToTree calls
+----------------
+wrote insert, which is the static function that addToTree calls
  -- after writing insert I tested it by calling it and passing it the 
   value 6
    -- to check if it worked I called getRootData, because it should be the 
@@ -28,7 +29,7 @@ Then wrote insert, which is the static function that addToTree calls
     node, and getRootData(getRightSubTree(newTree)) to check the right node
       -- the output shoud be "root: 10, right: 13, left: 6"
       -- the output was "root: 10, right: 13, left: 6"
-
+----------------
 
 
 
@@ -55,6 +56,26 @@ void testDestroyNode(void * toDestroy){
     printf("\n");
 }
 
+void printTreeLevel(BinTree * tree){
+    int i = 0;
+    int h = maxHeight(tree);
+ 
+    for(i=1; i<=h; i++){
+        printf("Level %d :", i);
+        printTreeLevelRec(tree->root, i);
+        printf("\n");
+    }
+}
+ 
+void printTreeLevelRec(BinTreeNode * node, int desired){
+    if(!node)
+        return;
+    if (desired == 1)
+        printf("%d ", node->value);
+ 
+    printTreeLevelRec(node->left, desired-1);
+    printTreeLevelRec(node->right, desired-1);
+
 int main(){
     
     //create
@@ -70,11 +91,22 @@ int main(){
     newTree = addToTree(newTree, &num2);
     newTree = addToTree(newTree, &num3);
     
-    printf(" root: %d\n", *(int *)(getRootData(newTree)));
+    printf("root: %d\n", *(int *)(getRootData(newTree)));
     printf("right: %d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    printf("left: %d.\n", *(int *)(getRootData(getLeftSubtree(newTree))));
+    printf("left: %d\n", *(int *)(getRootData(getLeftSubtree(newTree))));
+    
+    printTreeLevel(newTree);
+    
     
     destroyBinTree(newTree);
     return 0;
 }
+
+
+
+}
+
+
+
+
 
