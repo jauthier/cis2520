@@ -9,7 +9,7 @@
 
 static int checkBalance(BinTree * tree){
     
-    BinTree = * right * left;
+    BinTree * right, * left;
     int rightHeight, leftHeight;
     
     // get the heigth of the right subtree
@@ -127,7 +127,7 @@ BinTree * getLeftSubtree(BinTree * tree){
     if (isTreeEmpty(tree) == 1)
         return NULL;
     
-    BinTree * temp = createBinTree(&tree->compare ,&tree->destroy);
+    BinTree * temp = createBinTree(tree->compare ,tree->destroy);
     temp->root = tree->left;
     
     return temp;
