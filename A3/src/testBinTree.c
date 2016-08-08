@@ -64,7 +64,7 @@ int main(){
     newTree = addToTree(newTree, &num2);
     
     printf("%d\n", *(int *)(getRootData(newTree)));
-    printf("%d\n", *(int *)(getRootData(getRightSubTree(newTree))));
+    printf("%d\n", *(int *)(getRootData(getRightSubtree(newTree))));
     
     
     destroyBinTree(newTree);
