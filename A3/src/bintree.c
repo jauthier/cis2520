@@ -18,7 +18,7 @@ static int checkBalance(BinTree * tree){
     
     // get the height of the
     left = getLeftSubtree(tree);
-    leftHeight = getMax(left);
+    leftHeight = maxHeight(left);
     
     return rightHeight - leftHeight;
 }
