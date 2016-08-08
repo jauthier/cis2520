@@ -155,7 +155,7 @@ BinTree * getRightSubtree(BinTree * tree){
 
 int maxHeight(BinTree * tree){
     
-    if (tree == NULL)
+    if (tree->root == NULL)
         return 0;
     int left = maxHeight(getLeftSubtree(tree));
     int right = maxHeight(getRightSubtree(tree));
