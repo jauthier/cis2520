@@ -13,9 +13,15 @@ Wrote isTreeEmpty, getRootNode, getLeftSubtree, getLeftSubtree, maxHeight
 Then wrote insert, which is the static function that addToTree calls
  -- after writing insert I tested it by calling it and passing it the 
   value 6
-   -- to check if it worked i called getRootData, because it should be the 
+   -- to check if it worked I called getRootData, because it should be the 
     only node in the tree
-      -- the output was ""
+      -- the output should be "6" 
+      -- the output was "6"
+ -- I then added another node with the value of 10
+   -- to check if it worked I called getRootData(getRightSubTree(newTree))
+    which gets the data of the root of the right subtree\
+      -- the output shoud be "10"
+      --
  
 
 
@@ -52,11 +58,13 @@ int main(){
     // add to the tree
     int num1, num2;
     num1 = 6;
+    num2 = 10;
     
     newTree = addToTree(newTree, &num1);
+    newTree = addToTree(newTree, &num2);
     
     printf("%d\n", *(int *)(getRootData(newTree)));
-    
+    printf("%d\n", *(int *)(getRootData(getRightSubTree(newTree))));
     
     
     destroyBinTree(newTree);
