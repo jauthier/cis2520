@@ -63,11 +63,11 @@ void printTreeLevelRec(BinTreeNode * node, int desired){
     
     printf("des: %d, \n",desired);    
     if (desired == 1){
-        if (holdData == NULL){
-        printf("null");
-        return;
-    }
-        printf("%d ", *(int *)(holdData));
+        if (holdData != NULL){
+            printf("null");
+            return;
+        }
+        //printf("%d ", *(int *)(holdData));
         
     }
         
