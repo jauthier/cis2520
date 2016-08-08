@@ -8,7 +8,7 @@ NOTE: destroyBinTree only freed the tree, not the nodes at this point
 - compiles and runs
 ----------------
 
-Wrote isTreeEmpty, getRootNode, getLeftSubtree and getLeftSubtree
+Wrote isTreeEmpty, getRootNode, getLeftSubtree, getLeftSubtree, maxHeight
 
 
 Started addToTree
@@ -25,7 +25,12 @@ Started addToTree
 #include "bintree.h"
 
 int testCompare(void * data1, void * data2){
-    return 1;
+    int num1, num2;
+    
+    num1 = *(int *)data1;
+    num2 = *(int *)data2;
+    
+    return num1 - num2;
 }
 
 void testDestroyNode(void * toDestroy){
@@ -36,6 +41,10 @@ int main(){
     
     //create
     BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
+    
+    // add to the tree
+    int num1, num2;
+    newTree = addToTree(&num1);
     
     
     destroyBinTree(newTree);

@@ -52,23 +52,7 @@ static BinTreeNode * createNode(void * data){
     return newNode;
 }
 
-BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *)){
-    
-    BinTree * tree = malloc(sizeof(BinTree)); // make space
-    tree->compare = compare; // compare function ptr
-    tree->destroy = destroy; // destroy node function ptr
-    tree->root = NULL; // set root to NULL
-    
-    return tree;
-}
-
-void destroyBinTree(BinTree * tree){
-    
-    
-    free(tree); // free the tree
-}
-
-BinTree * insert(BinTree * tree, void * data){
+static BinTree * insert(BinTree * tree, void * data){
     
     /*  if the data from toAdd is 'less than' the data from the root(tree->root) then it goes to the left
         the compare function will return a number greater than 0 if this is the case
@@ -105,6 +89,27 @@ BinTree * insert(BinTree * tree, void * data){
         }
     }
     return tree;
+}
+
+BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *)){
+    
+    BinTree * tree = malloc(sizeof(BinTree)); // make space
+    tree->compare = compare; // compare function ptr
+    tree->destroy = destroy; // destroy node function ptr
+    tree->root = NULL; // set root to NULL
+    
+    return tree;
+}
+
+void destroyBinTree(BinTree * tree){
+    
+    
+    free(tree); // free the tree
+}
+
+BinTree * addToTree(BinTree * tree, void * data){
+    
+    return insert(BinTree * tree, void * data);
 }
 
 BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd){
@@ -155,5 +160,3 @@ int maxHeight(BinTree * tree){
     else
         return left + 1;
 }
-
-
