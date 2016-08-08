@@ -61,7 +61,7 @@ void printTreeLevelRec(BinTreeNode * node, int desired){
         //printf("null");
         return;
     }
-    printf("des: %d",desired);    
+    printf("des: %d, ",desired);    
     if (desired == 1)
         printf("%d ", *(int *)(node->data));
     else 
@@ -96,11 +96,11 @@ int main(){
     
     newTree = addToTree(newTree, &num1);
     newTree = addToTree(newTree, &num2);
-    //newTree = addToTree(newTree, &num3);
+    newTree = addToTree(newTree, &num3);
     
     printf("root: %d\n", *(int *)(getRootData(newTree)));
     printf("right: %d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    //printf("left: %d\n", *(int *)(getRootData(getLeftSubtree(newTree))));
+    printf("left: %d\n", *(int *)(getRootData(getLeftSubtree(newTree))));
     
     printTreeLevel(newTree);
     
