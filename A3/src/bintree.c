@@ -91,6 +91,43 @@ static BinTree * insert(BinTree * tree, void * data){
     return tree;
 }
 
+static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void *, void *), void (*destroy)(void *)){
+    
+    BinTreeNode * temp;
+    void * removedData;
+    //make sure tree isn't empty
+    if (root == NULL){
+        return NULL;
+    }
+    
+    //finding the node
+    if (compare(root->data, data) > 1){ // root->data > data
+        root->left = delete(root->left, data, compare, destroy);
+    } else if (compare(root->data, data) < 1){ // root->data < data
+        root->right = delete(root->right, data, compare, destroy);
+    } else { //root->data == data
+        if ((root->left != NULL) && (root->right != NULL)){ // if node has two children
+            
+            temp = findMin(root->right);
+            removedData = root->data;
+            destroy(removedData);
+            root->data = temp->data;
+            root->right = delete(root->right, temp->data, compare, destroy);
+            
+        } else {
+            temp = root;
+            if (root->left == NULL)
+                root = root->right;
+            else if (root->right == NULL)
+                root = root->left;
+            
+            destroy(temp->data);
+            free(temp);
+        }
+    }
+    return root;
+}
+
 BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *)){
     
     BinTree * tree = malloc(sizeof(BinTree)); // make space
@@ -103,6 +140,11 @@ BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *))
 
 void destroyBinTree(BinTree * tree){
     
+    BinTreeNode * root = tree->root;
+    
+    while (root != NULL){
+        root = delete(root, root->data, tree->compare, tree->destroy);
+    }
     
     free(tree); // free the tree
 }
@@ -112,8 +154,33 @@ BinTree * addToTree(BinTree * tree, void * data){
     return insert(tree, data);
 }
 
-BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd){
-    return tree->root;
+BinTreeNode * removeFromTree(BinTree * tree, void * data){
+    
+    tree->root = delete(tree->root, data, tree->compare, tree->delete);
+    return tree;
+}
+
+
+BinTreeNode * getMin(BinTreeNode * root){
+    
+    if (root == NULL)
+        return NULL;
+    
+    while (root->left != NULL){
+        root = root->left;
+    }
+    return root;
+}
+
+BinTreeNode * getMax(BinTreeNode * root){
+    
+    if (root == NULL)
+        return NULL;
+    
+    while (root->right != NULL){
+        root = root->right;
+    }
+    return root;
 }
 
 int isTreeEmpty(BinTree * tree){

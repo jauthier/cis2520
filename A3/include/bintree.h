@@ -24,26 +24,88 @@ typedef struct BinTree {
     BinTreeNode * root;
 } BinTree;
 
-
-
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *));
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 void destroyBinTree(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 BinTree * addToTree(BinTree * tree, void * data);
 
-BinTreeNode * removeFromTree(BinTree * tree, BinTreeNode * toAdd);
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+BinTreeNode * removeFromTree(BinTree * tree, void * data);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+BinTreeNode * getMin(BinTree * tree);
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
+BinTreeNode * getMax(BinTree * tree);
+
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 int isTreeEmpty(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 BinTreeNode * getRootNode(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 void * getRootData(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 BinTree * getLeftSubtree(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 BinTree * getRightSubtree(BinTree * tree);
 
+/*
+    Purpose:
+    Preconditions:
+    Postconditions:
+*/
 int maxHeight(BinTree * tree);
 
 #endif
