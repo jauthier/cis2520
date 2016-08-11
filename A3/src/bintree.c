@@ -58,7 +58,7 @@ static void destroyNode(BinTreeNode * toDestroy, void (*destroy)(void *)){
     free(toDestroy);
 }
 
-static void destroylRec(BinTreeNode * node, int level, void (*destroy)(void *)){
+static void destroyRec(BinTreeNode * node, int level, void (*destroy)(void *)){
     
     if (level == 1){
         if (node == NULL){
