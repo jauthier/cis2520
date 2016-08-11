@@ -57,14 +57,14 @@ BinTreeNode * removeFromTree(BinTree * tree, void * data);
     Preconditions:
     Postconditions:
 */
-BinTreeNode * getMin(BinTree * tree);
+BinTreeNode * getMin(BinTreeNode * root);
 
 /*
     Purpose:
     Preconditions:
     Postconditions:
 */
-BinTreeNode * getMax(BinTree * tree);
+BinTreeNode * getMax(BinTreeNode * root);
 
 /*
     Purpose:

@@ -108,7 +108,7 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
     } else { //root->data == data
         if ((root->left != NULL) && (root->right != NULL)){ // if node has two children
             
-            temp = findMin(root->right);
+            temp = getMin(root->right);
             removedData = root->data;
             destroy(removedData);
             root->data = temp->data;
@@ -156,7 +156,7 @@ BinTree * addToTree(BinTree * tree, void * data){
 
 BinTreeNode * removeFromTree(BinTree * tree, void * data){
     
-    tree->root = delete(tree->root, data, tree->compare, tree->delete);
+    tree->root = delete(tree->root, data, tree->compare, tree->destroy);
     return tree;
 }
 
