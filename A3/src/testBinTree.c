@@ -118,7 +118,7 @@ int main(){
     printTreeLevel(newTree);
     
     printf("\nAdding node: 10\n--------------\n");
-    newTree = addToTree(newTree, &num3);
+    newTree = addToTree(newTree, &num2);
     printTreeLevel(newTree);
     
     //test what happens when we add a multiple
