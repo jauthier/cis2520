@@ -32,6 +32,7 @@ wrote insert, which is the static function that addToTree calls
 ----------------
 
 remove from tree wasn't removing the root node
+deleting the left node didn't work either
 
 
 
