@@ -50,7 +50,7 @@ BinTree * addToTree(BinTree * tree, void * data);
     Preconditions:
     Postconditions:
 */
-BinTreeNode * removeFromTree(BinTree * tree, void * data);
+BinTree * removeFromTree(BinTree * tree, void * data);
 
 /*
     Purpose:
