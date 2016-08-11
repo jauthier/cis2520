@@ -97,7 +97,7 @@ int main(){
     num2 = 10;
     num3 = 13;
     
-    priintf("Adding nodes\n--------------\n");
+    printf("Adding nodes\n--------------\n");
     newTree = addToTree(newTree, &num1);
     newTree = addToTree(newTree, &num2);
     newTree = addToTree(newTree, &num3);
