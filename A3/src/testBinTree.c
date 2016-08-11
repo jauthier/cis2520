@@ -56,7 +56,7 @@ int testCompare(void * data1, void * data2){
 }
 
 void testDestroyNode(void * toDestroy){
-    printf("");
+    printf(" ");
     //free(toDestroy);
 }
 
