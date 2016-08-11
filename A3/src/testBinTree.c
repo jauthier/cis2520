@@ -147,7 +147,7 @@ int main(){
     
     destroyBinTree(newTree);
     
-    if (newTree == NULL)
+    if (newTree->root == NULL)
         printf("the tree is gone\n");
     
     return 0;
