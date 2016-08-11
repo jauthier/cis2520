@@ -154,7 +154,7 @@ BinTree * addToTree(BinTree * tree, void * data){
     return insert(tree, data);
 }
 
-BinTreeNode * removeFromTree(BinTree * tree, void * data){
+BinTree * removeFromTree(BinTree * tree, void * data){
     
     tree->root = delete(tree->root, data, tree->compare, tree->destroy);
     return tree;
