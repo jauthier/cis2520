@@ -56,7 +56,8 @@ int testCompare(void * data1, void * data2){
 }
 
 void testDestroyNode(void * toDestroy){
-    free(toDestroy);
+    printf("");
+    //free(toDestroy);
 }
 
 void printTreeLevelRec(BinTreeNode * node, int level){
