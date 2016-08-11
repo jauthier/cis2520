@@ -58,6 +58,22 @@ static void destroyNode(BinTreeNode * toDestroy, void (*destroy)(void *)){
     free(toDestroy);
 }
 
+static void destroylRec(BinTreeNode * node, int level, void (*destroy)(void *)){
+    
+    if (level == 1){
+        if (node == NULL){
+            return;
+        } else {
+            destroyNode(node, destroy);
+        }
+    } else {
+        if (node == NULL)
+            return;
+        destroyRec(node->left, level-1);
+        destroyRec(node->right, level-1);
+    }    
+}
+
 static BinTree * insert(BinTree * tree, void * data){
     
     /*  if the data from toAdd is 'less than' the data from the root(tree->root) then it goes to the left
@@ -145,7 +161,6 @@ BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *))
 
 void destroyBinTree(BinTree * tree){
     
-    BinTreeNode * root = tree->root;
     int i = 0;
     int h = maxHeight(tree);
  
@@ -153,23 +168,6 @@ void destroyBinTree(BinTree * tree){
         destroyRec(tree->root, i, tree->destroy);
     }
     free(tree); // free the tree
-}
-
-
-void destroylRec(BinTreeNode * node, int level, void (*destroy)(void *)){
-    
-    if (level == 1){
-        if (node == NULL){
-            return;
-        } else {
-            destroyNode(node, destroy);
-        }
-    } else {
-        if (node == NULL)
-            return;
-        printTreeLevelRec(node->left, level-1);
-        printTreeLevelRec(node->right, level-1);
-    }    
 }
 
 BinTree * addToTree(BinTree * tree, void * data){
