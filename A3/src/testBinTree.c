@@ -94,10 +94,13 @@ int main(){
     BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
     
     // add to the tree
-    int num1, num2, num3;
+    int num1, num2, num3, num4, num5, num6;
     num1 = 6;
     num2 = 10;
     num3 = 13;
+    num4 = 2;
+    num5 = 11;
+    num6 = 7;
     
     printf("\nAdding node: 6\n--------------\n");
     newTree = addToTree(newTree, &num1);
@@ -123,9 +126,21 @@ int main(){
     
     //test what happens when we add a multiple
     printf("\nAdding node: 10\n--------------\n");
-    newTree = addToTree(newTree, &num3);
+    newTree = addToTree(newTree, &num2);
     printTreeLevel(newTree);
     
+    printf("\nAdding node: 2\n--------------\n");
+    newTree = addToTree(newTree, &num4);
+    printTreeLevel(newTree);
+
+    printf("\nAdding node: 11\n--------------\n");
+    newTree = addToTree(newTree, &num5);
+    printTreeLevel(newTree);
+    
+    printf("\nAdding node: 7\n--------------\n");
+    newTree = addToTree(newTree, &num6);
+    printTreeLevel(newTree);
+
     
     //destroyBinTree(newTree);
     return 0;
