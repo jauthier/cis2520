@@ -113,10 +113,19 @@ int main(){
     
     
     
-    printf("\nDeleteing the left node\n----------------------\n");
+    printf("\nDeleteing the root node\n----------------------\n");
     newTree = removeFromTree(newTree, &num2);
-    
     printTreeLevel(newTree);
+    
+    printf("\nAdding node: 10\n--------------\n");
+    newTree = addToTree(newTree, &num3);
+    printTreeLevel(newTree);
+    
+    //test what happens when we add a multiple
+    printf("\nAdding node: 10\n--------------\n");
+    newTree = addToTree(newTree, &num3);
+    printTreeLevel(newTree);
+    
     
     //destroyBinTree(newTree);
     return 0;

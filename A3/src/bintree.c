@@ -106,11 +106,10 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
     } else if (compare(root->data, data) < 0){ // root->data < data
        root->right = delete(root->right, data, compare, destroy);
     } else { //root->data == data
-       printf("second\n");
        if ((root->left != NULL) && (root->right != NULL)){ // if node has two children
             
             temp = getMin(root->right);
-            printf("min: %d\n",*(int*)temp->data);
+            //printf("min: %d\n",*(int*)temp->data);
             removedData = root->data;
             destroy(removedData);
             root->data = temp->data;
