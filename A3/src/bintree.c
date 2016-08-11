@@ -226,7 +226,7 @@ int maxHeight(BinTree * tree){
         return 0;
     int left = maxHeight(getLeftSubtree(tree));
     int right = maxHeight(getRightSubtree(tree));
-    printf("rightH: %d, leftH: %d\n",right, left);
+    //printf("rightH: %d, leftH: %d\n",right, left);
     if (left < right)
         return right + 1;
     else
