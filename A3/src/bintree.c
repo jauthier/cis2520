@@ -107,7 +107,8 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
     printf("first\n");
         root->left = delete(root->left, data, compare, destroy);
     } else if (compare(root->data, data) < 1){ // root->data < data
-        root->right = delete(root->right, data, compare, destroy);
+        printf("second?\n");
+       root->right = delete(root->right, data, compare, destroy);
     } else { //root->data == data
        printf("second\n");
        if ((root->left != NULL) && (root->right != NULL)){ // if node has two children
