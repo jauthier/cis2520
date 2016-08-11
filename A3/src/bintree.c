@@ -100,7 +100,7 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
         return NULL;
     }
     
-    printf("here, data = %d\n", *(int*)data);
+    printf("here, data = %d, root data: %d\n", *(int*)data, *(int*)root->data);
     
     //finding the node
     if (compare(root->data, data) > 1){ // root->data > data
