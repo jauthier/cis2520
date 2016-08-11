@@ -56,7 +56,7 @@ int testCompare(void * data1, void * data2){
 }
 
 void testDestroyNode(void * toDestroy){
-    printf("\n");
+    free(BinTreeNode);
 }
 
 void printTreeLevelRec(BinTreeNode * node, int level){
@@ -93,7 +93,7 @@ int main(){
     //create
     BinTree * newTree = createBinTree(&testCompare, &testDestroyNode);
     
-    // add to the tree
+    
     int num1, num2, num3, num4, num5, num6;
     num1 = 6;
     num2 = 10;
@@ -102,6 +102,7 @@ int main(){
     num5 = 9;
     num6 = 7;
     
+    // add to the tree
     printf("\nAdding node: 6\n--------------\n");
     newTree = addToTree(newTree, &num1);
     printTreeLevel(newTree);
@@ -114,12 +115,12 @@ int main(){
     newTree = addToTree(newTree, &num3);
     printTreeLevel(newTree);
     
-    
-    
+    // testing removeFromTree
     printf("\nDeleteing the root node\n----------------------\n");
     newTree = removeFromTree(newTree, &num2);
     printTreeLevel(newTree);
     
+    // add node 10 back
     printf("\nAdding node: 10\n--------------\n");
     newTree = addToTree(newTree, &num2);
     printTreeLevel(newTree);
@@ -129,6 +130,7 @@ int main(){
     newTree = addToTree(newTree, &num2);
     printTreeLevel(newTree);
     
+    // testing more addToTree
     printf("\nAdding node: 2\n--------------\n");
     newTree = addToTree(newTree, &num4);
     printTreeLevel(newTree);
@@ -142,6 +144,6 @@ int main(){
     printTreeLevel(newTree);
 
     
-    //destroyBinTree(newTree);
+    destroyBinTree(newTree);
     return 0;
 }

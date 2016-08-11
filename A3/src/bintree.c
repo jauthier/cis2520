@@ -52,6 +52,12 @@ static BinTreeNode * createNode(void * data){
     return newNode;
 }
 
+static void destroyNode(BinTreeNode * toDestroy, void (*destroy)(void *)){
+    
+    destroy(toDestroy->data);
+    free(toDestroy);
+}
+
 static BinTree * insert(BinTree * tree, void * data){
     
     /*  if the data from toAdd is 'less than' the data from the root(tree->root) then it goes to the left
@@ -109,7 +115,6 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
        if ((root->left != NULL) && (root->right != NULL)){ // if node has two children
             
             temp = getMin(root->right);
-            //printf("min: %d\n",*(int*)temp->data);
             removedData = root->data;
             destroy(removedData);
             root->data = temp->data;
@@ -122,8 +127,7 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
             else if (root->right == NULL)
                 root = root->left;
             
-            destroy(temp->data);
-            free(temp);
+            destroyNode(temp, destroy);
         }
     }
     return root;
@@ -142,12 +146,30 @@ BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *))
 void destroyBinTree(BinTree * tree){
     
     BinTreeNode * root = tree->root;
-    
-    while (root != NULL){
-        root = delete(root, root->data, tree->compare, tree->destroy);
+    int i = 0;
+    int h = maxHeight(tree);
+ 
+    for(i=1; i<=h; i++){
+        destroyRec(tree->root, i, tree->destroy);
     }
-    
     free(tree); // free the tree
+}
+
+
+void destroylRec(BinTreeNode * node, int level, void (*destroy)(void *)){
+    
+    if (level == 1){
+        if (node == NULL){
+            return;
+        } else {
+            destroyNode(node, destroy);
+        }
+    } else {
+        if (node == NULL)
+            return;
+        printTreeLevelRec(node->left, level-1);
+        printTreeLevelRec(node->right, level-1);
+    }    
 }
 
 BinTree * addToTree(BinTree * tree, void * data){
