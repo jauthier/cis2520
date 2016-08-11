@@ -99,7 +99,7 @@ int main(){
     num2 = 10;
     num3 = 13;
     num4 = 2;
-    num5 = 11;
+    num5 = 9;
     num6 = 7;
     
     printf("\nAdding node: 6\n--------------\n");
@@ -133,12 +133,12 @@ int main(){
     newTree = addToTree(newTree, &num4);
     printTreeLevel(newTree);
 
-    printf("\nAdding node: 11\n--------------\n");
-    newTree = addToTree(newTree, &num5);
-    printTreeLevel(newTree);
-    
     printf("\nAdding node: 7\n--------------\n");
     newTree = addToTree(newTree, &num6);
+    printTreeLevel(newTree);
+    
+    printf("\nAdding node: 9\n--------------\n");
+    newTree = addToTree(newTree, &num5);
     printTreeLevel(newTree);
 
     
