@@ -69,8 +69,8 @@ static void destroylRec(BinTreeNode * node, int level, void (*destroy)(void *)){
     } else {
         if (node == NULL)
             return;
-        destroyRec(node->left, level-1);
-        destroyRec(node->right, level-1);
+        destroyRec(node->left, level-1, destroy);
+        destroyRec(node->right, level-1, destroy);
     }    
 }
 
