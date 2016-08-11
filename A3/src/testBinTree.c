@@ -33,6 +33,8 @@ wrote insert, which is the static function that addToTree calls
 
 remove from tree wasn't removing the root node
 deleting the left node didn't work either
+ -- was comparing the outcome of the compare pointer function to the wwrong number
+ 
 
 
 
@@ -112,7 +114,7 @@ int main(){
     
     
     printf("\nDeleteing the left node\n----------------------\n");
-    newTree = removeFromTree(newTree, &num1);
+    newTree = removeFromTree(newTree, &num2);
     
     printTreeLevel(newTree);
     

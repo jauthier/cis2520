@@ -99,15 +99,11 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
     if (root == NULL){
         return NULL;
     }
-    
-    printf("here, data = %d, root data: %d\n", *(int*)data, *(int*)root->data);
-    
+        
     //finding the node
     if (compare(root->data, data) > 0){ // root->data > data
-    printf("first\n");
         root->left = delete(root->left, data, compare, destroy);
     } else if (compare(root->data, data) < 0){ // root->data < data
-        printf("second?\n");
        root->right = delete(root->right, data, compare, destroy);
     } else { //root->data == data
        printf("second\n");
