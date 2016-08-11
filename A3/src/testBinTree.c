@@ -149,6 +149,8 @@ int main(){
     
     if (newTree->root == NULL)
         printf("the tree is gone\n");
+    else 
+        printf("%p\n",newTree)
     
     return 0;
 }
