@@ -97,22 +97,25 @@ int main(){
     num2 = 10;
     num3 = 13;
     
-    printf("Adding nodes\n--------------\n");
+    printf("\nAdding node: 6\n--------------\n");
     newTree = addToTree(newTree, &num1);
-    newTree = addToTree(newTree, &num2);
-    newTree = addToTree(newTree, &num3);
-    
-    //printf("root: %d\n", *(int *)(getRootData(newTree)));
-    //printf("right: %d\n", *(int *)(getRootData(getRightSubtree(newTree))));
-    //printf("left: %d\n", *(int *)(getRootData(getLeftSubtree(newTree))));
-    
     printTreeLevel(newTree);
     
-    printf("deleteing the root node\n----------------------\n");
+    printf("\nAdding node: 6\n--------------\n");
+    newTree = addToTree(newTree, &num2);
+    printTreeLevel(newTree);
+    
+    printf("\nAdding node: 6\n--------------\n");
+    newTree = addToTree(newTree, &num3);
+    printTreeLevel(newTree);
+    
+    
+    
+    printf("\nDeleteing the root node\n----------------------\n");
     newTree = removeFromTree(newTree, &num2);
     
     printTreeLevel(newTree);
     
-    destroyBinTree(newTree);
+    //destroyBinTree(newTree);
     return 0;
 }
