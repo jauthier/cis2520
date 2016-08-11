@@ -31,7 +31,7 @@ wrote insert, which is the static function that addToTree calls
       -- the output was "root: 10, right: 13, left: 6"
 ----------------
 
-
+remove from tree wasn't removing the root node
 
 
 
@@ -110,8 +110,8 @@ int main(){
     
     
     
-    printf("\nDeleteing the root node\n----------------------\n");
-    newTree = removeFromTree(newTree, &num2);
+    printf("\nDeleteing the left node\n----------------------\n");
+    newTree = removeFromTree(newTree, &num1);
     
     printTreeLevel(newTree);
     
