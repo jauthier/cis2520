@@ -1,12 +1,22 @@
 /*
     Binary Tree ADT
     
-   Author: Jessica Authier 
-    
+    Author: Jessica Authier 
+    2016/08/12
 */
 
 #include "bintree.h"
 
+/*
+    This function take a binary tree as a parameter, checks the height of it's left and right branches
+    
+    then returns the difference in height of the two branches.  
+    The function returns 0 if the right and left branches have the same height (the tree is balanced).
+                         -1 if the left branch has a height one greater than the right branch (the tree is balanced)
+                         1 if the  right branch has a height one greater than the left branch (the tree is balanced)
+                         < -1 if the left branch has a height two or more greater than the right branch (the tree is not balanced)
+                         > 1 if the right branch has a height two or more greater than the left branch (the tree is not balanced)
+*/
 static int checkBalance(BinTree * tree){
     
     BinTree * right, * left;
@@ -23,41 +33,89 @@ static int checkBalance(BinTree * tree){
     return rightHeight - leftHeight;
 }
 
+/*
+    This funtion is used in the balancing step.
+    
+    If the imbalance looks like this:
+    
+    1 
+     \
+      2
+       \
+        3
+    
+    Then, this function is called and it rearranges the tree to look like:
+    
+      2
+     / \
+    1   3
+    
+*/
 static BinTreeNode * rotateRight(BinTreeNode * hold){
     
-    BinTreeNode * temp = hold->right;
-    hold->right = temp->left;
-    temp->left = hold;
+    BinTreeNode * temp = hold->right; // store the right node of hold as temp
+    hold->right = temp->left; // replace the right node of hold with the left node of temp
+    temp->left = hold; // set hold as the left node of temp
     
-    return temp;
+    return temp; // returns temp which was the right node of the given root, but will now be the new root
 }
 
+/*
+    This funtion is used in the balancing step.
+    
+    If the imbalance looks like this:
+    
+        3
+       /
+      2
+     /
+    1
+    
+    Then, this function is called and it rearranges the tree to look like:
+    
+      2
+     / \
+    1   3
+    
+*/
 static BinTreeNode * rotateLeft(BinTreeNode * hold){
     
-    BinTreeNode * temp = hold->left;
-    hold->left = temp->right;
-    temp->right = hold;
+    BinTreeNode * temp = hold->left; // store the left node of hold as temp
+    hold->left = temp->right; // replace the left node of hold with the right node of temp
+    temp->right = hold; // set the right node of temp to be hold
     
-    return temp;
+    return temp; // returns temp, which was the left node of the given root, but will now be the new root
 }
 
+/*
+    This function creates, initializes and allocates memory for a new tree node.
+    It takes in a void pointer as a parameter, which points to the data the node will contain.
+    It returns the newly created node.
+*/
 static BinTreeNode * createNode(void * data){
     
     BinTreeNode * newNode = malloc(sizeof(BinTreeNode));
     newNode->data = data;
-    newNode->nodeBalance = 0;
     newNode->left = NULL;
     newNode->right = NULL;
     
     return newNode;
 }
 
+/*
+    This function is for destroying nodes.
+    It calls the destroy function given by the user to destroy the data contained in the node.
+    Then it frees the memory allocated for the node.
+*/
 static void destroyNode(BinTreeNode * toDestroy, void (*destroy)(void *)){
     
     destroy(toDestroy->data);
     free(toDestroy);
 }
 
+/*
+    This function is a recursive function used to cycle through the nodes and destroy them.
+*/
 static void destroyRec(BinTreeNode * node, int level, void (*destroy)(void *)){
     
     if (level == 1){
@@ -74,6 +132,9 @@ static void destroyRec(BinTreeNode * node, int level, void (*destroy)(void *)){
     }    
 }
 
+/*
+    This function is the recursive function used to insert new nodes to the tree.
+*/
 static BinTree * insert(BinTree * tree, void * data){
     
     /*  if the data from toAdd is 'less than' the data from the root(tree->root) then it goes to the left
@@ -89,7 +150,8 @@ static BinTree * insert(BinTree * tree, void * data){
         
     } else if (tree->compare(tree->root->data, data) > 0){ // if (tree->root->data > data)
         
-        tree->root->left = (insert(getLeftSubtree(tree), data))->root; // set the left node --> data less than the root data goes to the left
+        // set the left node --> data less than the root data goes to the left
+        tree->root->left = (insert(getLeftSubtree(tree), data))->root; 
         if (checkBalance(tree) == -2){ // there is an imbalance -- left is longer
             if (tree->compare(tree->root->left->data, data) > 0) {
                 tree->root = rotateLeft(tree->root);
@@ -113,6 +175,9 @@ static BinTree * insert(BinTree * tree, void * data){
     return tree;
 }
 
+/*
+    This function is a recursive function used to remove nodes from a tree.
+*/
 static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void *, void *), void (*destroy)(void *)){
     
     BinTreeNode * temp;
@@ -148,6 +213,9 @@ static BinTreeNode * delete(BinTreeNode * root, void * data, int (*compare)(void
     }
     return root;
 }
+
+
+
 
 BinTree * createBinTree(int (*compare)(void *, void *), void (*destroy)(void *)){
     

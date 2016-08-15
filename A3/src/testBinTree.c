@@ -56,8 +56,7 @@ int testCompare(void * data1, void * data2){
 }
 
 void testDestroyNode(void * toDestroy){
-    printf("\n");
-    //free(toDestroy);
+    return;
 }
 
 void printTreeLevelRec(BinTreeNode * node, int level){
@@ -145,12 +144,8 @@ int main(){
     printTreeLevel(newTree);
 
     
+    
+    
     destroyBinTree(newTree);
-    
-    if (newTree->root == NULL)
-        printf("the tree is gone\n");
-    else 
-        printf("%p\n",(void *)newTree);
-    
     return 0;
 }
